@@ -39,6 +39,14 @@ public class AppHeader {
     @FindBy(linkText = "Campaigns")
     @CacheLookup
     private WebElement campaignsOptionBar;
+	
+	@FindBy(linkText = "Opportunities")
+    @CacheLookup
+    private WebElement opporttunitiesOptionBar;
+
+    @FindBy(linkText = "Products")
+    @CacheLookup
+    private WebElement productsOptionBar;
 
     public AppHeader(WebDriver driver) {
         this.driver = driver;
@@ -106,4 +114,14 @@ public class AppHeader {
         campaignsOptionBar.click();
         return new AppBody(driver);
     }
-}
+
+    public AppBody clickOpportunities() {
+        opportunitiesOptionBar.click();
+        return new AppBody(driver);
+    }
+	
+	 public AppBody clickProducts() {
+        prosductsOptionBar.click();
+        return new AppBody(driver);
+    }
+}	
