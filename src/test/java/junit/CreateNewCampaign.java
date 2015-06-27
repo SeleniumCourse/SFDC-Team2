@@ -1,5 +1,7 @@
-package test.junit;
+package test.java.junit;
 
+import framework.DriverManager;
+import framework.Environment;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -19,9 +21,9 @@ public class CreateNewCampaign {
     @Before
     public void setUp() {
         loginPage = new LoginPage();
-        String email = "mario.cbba@salesforce.com";
-        String password = "mario123";
-        String userName = "Mario Perez";
+        String email = Environment.getInstance().getPrimaryUser();
+        String password = Environment.getInstance().getPrimaryPassword();
+        String userName = Environment.getInstance().getDisplayName();
 
         mainApp = loginPage.loginAs(email,password,userName);
     }
