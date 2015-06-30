@@ -1,4 +1,4 @@
-package test.java.junit;
+package junit;
 
 import framework.DriverManager;
 import framework.Environment;
@@ -21,9 +21,9 @@ public class CreatePostChatter {
     @Before
     public void setUp() {
         loginPage = new LoginPage();
-        String email = "f_nak@hotmail.com";
-        String password = "abc123456";
-        String userName = "Fernando Nakamura";
+        String email = Environment.getInstance().getPrimaryUser();
+        String password = Environment.getInstance().getPrimaryPassword();
+        String userName = Environment.getInstance().getDisplayName();
 
         mainApp = loginPage.loginAs(email,password,userName);
     }

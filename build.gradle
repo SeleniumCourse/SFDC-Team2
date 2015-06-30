@@ -7,17 +7,17 @@
  * user guide available at http://gradle.org/docs/2.2.1/userguide/tutorial_java_projects.html
  */
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'de.undercouch:gradle-download-task:1.2'
-    }
-}
+//buildscript {
+//    repositories {
+//        jcenter()
+//    }
+//    dependencies {
+//        classpath 'de.undercouch:gradle-download-task:1.2'
+//    }
+//}
 
 // Apply download driver plugin
-apply plugin: 'de.undercouch.download'
+//apply plugin: 'de.undercouch.download'
 
 
 // Apply the java plugin to add support for Java
@@ -43,45 +43,46 @@ dependencies {
     // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
     // 'test.useTestNG()' to your build script.
     testCompile group: 'junit', name: 'junit', version: '4.11'
-    compile 'junit:junit:4.12'
+//    compile 'junit:junit:4.12'
     compile 'org.seleniumhq.selenium:selenium-java:2.46.0'
-    compile 'org.testng:testng:6.9.4'
+//    compile 'org.testng:testng:6.9.4'
 
-    testCompile 'org.testng:testng:6.8.1'
+//    testCompile 'org.testng:testng:6.8.1'
+
 }
 
-    task downloadDrivers(type: Copy) {
-        File drivers = new File('./drivers')
-        drivers.mkdirs()
+task downloadDrivers(type: Copy) {
+    File drivers = new File('./drivers')
+    drivers.mkdirs()
 
-        if(browser == "Chrome") {
-            download {
-                src 'http://chromedriver.storage.googleapis.com/2.15/chromedriver_win32.zip'
-                dest drivers
-                onlyIfNewer true
-            }
+    if(browser == "Chrome") {
+        download {
+            src 'http://chromedriver.storage.googleapis.com/2.15/chromedriver_win32.zip'
+            dest drivers
+            onlyIfNewer true
         }
-        else if(browser == "IE") {
+    }
+    else if(browser == "IE") {
 
-            download {
-                src 'http://selenium.googlecode.com/files/IEDriverServer_x64_2.28.0.zip'
-                dest drivers
-                onlyIfNewer true
-            }
-        }
-
-        file(drivers).listFiles().each {
-            artifact ->
-                if (artifact.name.endsWith('.zip')) {
-                    from zipTree(artifact)
-                    into drivers
-                }
+        download {
+            src 'http://selenium.googlecode.com/files/IEDriverServer_x64_2.28.0.zip'
+            dest drivers
+            onlyIfNewer true
         }
     }
 
-    if(browser!="Firefox"){
-        downloadDrivers.execute()
+    file(drivers).listFiles().each {
+        artifact ->
+            if (artifact.name.endsWith('.zip')) {
+                from zipTree(artifact)
+                into drivers
+            }
     }
+}
+
+if(browser!="Firefox"){
+    downloadDrivers.execute()
+}
 
 task runJUnitTestCases(type: Test) {
     testLogging {

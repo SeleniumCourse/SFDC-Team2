@@ -34,27 +34,35 @@ public class AppHeader {
 
     @FindBy(linkText = "Leads")
     @CacheLookup
-    private WebElement leadsOptionBar;
+    WebElement leadsOptionBar;
 
     @FindBy(linkText = "Campaigns")
     @CacheLookup
-    private WebElement campaignsOptionBar;
-	
-	@FindBy(linkText = "Opportunities")
+    WebElement campaignsOptionBar;
+
+    @FindBy(linkText = "Opportunities")
     @CacheLookup
-    private WebElement opportunitiesOptionBar;
+    WebElement opportunitiesOptionBar;
 
     @FindBy(linkText = "Products")
     @CacheLookup
-    private WebElement productsOptionBar;
+    WebElement productsOptionBar;
 
     @FindBy(linkText = "Home")
     @CacheLookup
-    private WebElement homeOptionBar;
+    WebElement homeOptionBar;
 
     @FindBy(linkText = "Chatter")
     @CacheLookup
-    private WebElement chatterOptionBar;
+    WebElement chatterOptionBar;
+
+    @FindBy(linkText = "Accounts")
+    @CacheLookup
+    WebElement accountsOptionBar;
+
+    @FindBy(linkText = "Contacts")
+    @CacheLookup
+    WebElement contactsOptionBar;
 
     public AppHeader(WebDriver driver) {
         this.driver = driver;
@@ -83,13 +91,13 @@ public class AppHeader {
         }
     }
 
-    public boolean isLoggedAsUserName(String userName){
+    public boolean isLoggedAsUserName(String userName) {
 
         boolean isLoggerUser = false;
 
         String userNameLogged = getUserName();
 
-        if (userNameLogged.equals(userName)){
+        if (userNameLogged.equals(userName)) {
             isLoggerUser = true;
         }
         return isLoggerUser;
@@ -108,7 +116,7 @@ public class AppHeader {
         return userName;
     }
 
-    public void logoutUser(){
+    public void logoutUser() {
         userNameLabel.click();
         logOutOption.click();
     }
@@ -127,8 +135,8 @@ public class AppHeader {
         opportunitiesOptionBar.click();
         return new AppBody(driver);
     }
-	
-	 public AppBody clickProducts() {
+
+    public AppBody clickProducts() {
         productsOptionBar.click();
         return new AppBody(driver);
     }
@@ -142,4 +150,14 @@ public class AppHeader {
         chatterOptionBar.click();
         return new ChatterPage(driver);
     }
-}	
+
+    public AppBody clickAccounts() {
+        accountsOptionBar.click();
+        return new AppBody(driver);
+    }
+
+    public AppBody clickContacts() {
+        contactsOptionBar.click();
+        return new AppBody(driver);
+    }
+}

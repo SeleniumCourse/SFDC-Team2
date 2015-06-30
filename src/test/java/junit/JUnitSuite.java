@@ -1,4 +1,4 @@
-package test.java.junit;
+package junit;
 
 import framework.DriverManager;
 import framework.Environment;
@@ -11,17 +11,21 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
+
         CreateNewLead.class,
         EditLead.class,
         CreateNewCampaign.class,
-        EditCampaign.class
+        EditCampaign.class,
 		CreateNewOpportunities.class,
-        EditOpporttunities.class,
+        EditOpportunities.class,
 		CreateNewProducts.class,
         EditProducts.class,
         CreatePostChatter.class,
+        CreateNewAccount.class,
+        EditAccount.class,
+        CreateNewContact.class,
+        EditContact.class
 })
-
 
 public class JUnitSuite {
     @AfterClass
