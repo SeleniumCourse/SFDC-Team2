@@ -1,10 +1,13 @@
-package test.junit;
+package test.java.junit;
 
+import framework.DriverManager;
+import framework.Environment;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import pages.*;
+
 
 /**
  * Created by Fernando Nakamura on 6/26/2015..
@@ -66,4 +69,5 @@ public class EditOpportunities {
         appOpportunities.clickDelete();
 
     }
+
 }

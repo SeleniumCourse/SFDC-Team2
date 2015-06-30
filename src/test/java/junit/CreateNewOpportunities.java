@@ -1,5 +1,7 @@
-package test.junit;
+package test.java.junit;
 
+import framework.DriverManager;
+import framework.Environment;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -33,7 +35,7 @@ public class CreateNewOpportunities {
         String [][] filterAdditionalFields = {{"Opportunity Name","equals","Test"},{"Account Name","equals","Test"}};
 
         AppHeader appHeader = mainApp.goToAppHeader();
-        appOportunities = appHeader.clickOportunities();
+        appOpportunities = appHeader.clickOpportunities();
 
         appOpportunities.clickNewView();
         ViewPage viewPage = new ViewPageBuilder("NewViewFNC","NewViewFNCUnique")
@@ -51,7 +53,7 @@ public class CreateNewOpportunities {
 
     @After
     public void tearDown() {
-        appOpportinities.clickDelete();
+        appOpportunities.clickDelete();
 
     }
 }

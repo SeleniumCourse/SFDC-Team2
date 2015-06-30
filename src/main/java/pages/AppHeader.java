@@ -42,11 +42,19 @@ public class AppHeader {
 	
 	@FindBy(linkText = "Opportunities")
     @CacheLookup
-    private WebElement opporttunitiesOptionBar;
+    private WebElement opportunitiesOptionBar;
 
     @FindBy(linkText = "Products")
     @CacheLookup
     private WebElement productsOptionBar;
+
+    @FindBy(linkText = "Home")
+    @CacheLookup
+    private WebElement homeOptionBar;
+
+    @FindBy(linkText = "Chatter")
+    @CacheLookup
+    private WebElement chatterOptionBar;
 
     public AppHeader(WebDriver driver) {
         this.driver = driver;
@@ -121,7 +129,17 @@ public class AppHeader {
     }
 	
 	 public AppBody clickProducts() {
-        prosductsOptionBar.click();
+        productsOptionBar.click();
         return new AppBody(driver);
+    }
+
+    public AppBody clickHome() {
+        homeOptionBar.click();
+        return new AppBody(driver);
+    }
+
+    public ChatterPage clickChatter() {
+        chatterOptionBar.click();
+        return new ChatterPage(driver);
     }
 }	
