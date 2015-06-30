@@ -11,12 +11,12 @@ import pages.*;
 /**
  * Created by Fernando Nakamura on 6/26/2015.
  */
-public class CreateNewProducts {
+public class CreatePostChatter {
 
     private LoginPage loginPage;
     private MainApp mainApp;
 
-    private AppBody appProducts;
+    private ChatterPage appChatter;
 
     @Before
     public void setUp() {
@@ -31,26 +31,18 @@ public class CreateNewProducts {
     @Test
     public void testUntitled() {
 
-        String [] availableFields = {"Created Date","Last Modified Date"};
-        String [][] filterAdditionalFields = {{"Product Name","equals","Test"},{"Product Code","equals","Test"}};
-
         AppHeader appHeader = mainApp.goToAppHeader();
-        appProducts = appHeader.clickProducts();
+        appChatter = appHeader.clickChatter();
 
-        appProducts.clickNewProductView();
-        ViewPage viewPage = new ViewPageBuilder("NewViewFNC","NewViewFNCUnique")
-                .setfilterByAdditionalField(filterAdditionalFields)
-                .setAvailableFields(availableFields)
-                .build();
-        viewPage.createView();
-
-        Assert.assertTrue("Test Passed", appProducts.getSelectedValue("NewViewFNC"));
+        appChatter.shareComment("POST1");
+        appChatter.replyComment("POST1.1");
+        Assert.assertTrue("Test Passed", true);
 
     }
 
     @After
     public void tearDown() {
-        appProducts.clickDelete();
+        appChatter.clickDeletePost();
 
     }
 }

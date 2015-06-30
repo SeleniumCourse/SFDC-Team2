@@ -4,6 +4,7 @@ import framework.DriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -35,8 +36,7 @@ public class AppBody {
     @FindBy(name = "fcf")
     @CacheLookup
     WebElement viewList;
-
-
+	
     public AppBody(WebDriver driver) {
 
         this.driver = driver;
@@ -65,6 +65,12 @@ public class AppBody {
         return new ViewPage(driver);
     }
 
+    public ViewPage clickNewProductView() {
+        List<WebElement> productViewLink = driver.findElements(By.linkText( "Create New View"));
+        productViewLink.get(1).click();
+        return new ViewPage(driver);
+    }
+
     public ViewPage clickEditView() {
         editLink.click();
         return new ViewPage(driver);
@@ -76,6 +82,7 @@ public class AppBody {
         // Click the OK button in the Alert
         alert.accept();
     }
+	
 
     public Boolean getSelectedValue(String to_verify) {
         int band = 0;

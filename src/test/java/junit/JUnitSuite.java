@@ -15,6 +15,11 @@ import org.junit.runners.Suite;
         EditLead.class,
         CreateNewCampaign.class,
         EditCampaign.class
+		CreateNewOpportunities.class,
+        EditOpporttunities.class,
+		CreateNewProducts.class,
+        EditProducts.class,
+        CreatePostChatter.class,
 })
 
 
