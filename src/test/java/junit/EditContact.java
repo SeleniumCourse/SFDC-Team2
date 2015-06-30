@@ -1,6 +1,5 @@
 package junit;
 
-import framework.DriverManager;
 import framework.Environment;
 import org.junit.After;
 import org.junit.Assert;
@@ -11,12 +10,12 @@ import pages.*;
 /**
  * Created by Mario Perez on 6/16/2015.
  */
-public class EditLead {
+public class EditContact {
 
     private LoginPage loginPage;
     private MainApp mainApp;
 
-    private AppBody appLeads;
+    private AppBody appAccount;
 
     @Before
     public void setUp() {
@@ -24,34 +23,34 @@ public class EditLead {
         String email = Environment.getInstance().getPrimaryUser();
         String password = Environment.getInstance().getPrimaryPassword();
         String userName = Environment.getInstance().getDisplayName();
+        String [] availableFields = {"Created Date","Facebook", "Level"};
+        String [][] filterAdditionalFields = {{"Name","starts with","Juan"},{"Phone","starts with","555"}};
 
         mainApp = loginPage.loginAs(email,password,userName);
 
         AppHeader appHeader = mainApp.goToAppHeader();
-        appLeads = appHeader.clickLeads();
+        appAccount = appHeader.clickContacts();
 
-        String [] availableFields = {"Last Name","First Name"};
-        String [][] filterAdditionalFields = {{"Name","equals","Test"},{"Email","contains","mario.cbba@salesforce.com"}};
-
-        appLeads.clickNewView();
-        ViewPage viewPage = new ViewPageBuilder("New Lead","NewLead01")
+        appAccount.clickNewView();
+        ViewPage viewPage = new ViewPageBuilder("New Contact","NewContact01")
                 .setFilterByOwnerMyViewRadioBtn(true)
                 .setfilterByAdditionalField(filterAdditionalFields)
                 .setAvailableFields(availableFields)
                 .setVisibleAllUsersRadioBtn(true)
                 .build();
         viewPage.createView();
-
     }
 
     @Test
     public void testUntitled() {
 
-        String [] availableFields = {"Phone","Mobile"};
-        String [][] filterAdditionalFields = {{"First Name","equals","Mario"},{"Company","equals","Jalasoft"}};
-        appLeads.setViewComboBox("New Lead");
-        appLeads.clickEditView();
-        ViewPage viewPage = new ViewPageBuilder("Lead Edited","LeadEdited01")
+        String [] availableFields = {"First Name","Last Name", "Account ID"};
+        String [][] filterAdditionalFields = {{"Name","starts with","Pablo"},{"Phone","starts with","774"}};
+
+        appAccount.setViewComboBox("New Contact");
+        appAccount.clickEditView();
+
+        ViewPage viewPage = new ViewPageBuilder("Contact Edited","ContactEdited02")
                 .setFilterByOwnerAllViewsRadioBtn(true)
                 .setfilterByAdditionalField(filterAdditionalFields)
                 .setAvailableFields(availableFields)
@@ -59,13 +58,13 @@ public class EditLead {
                 .build();
         viewPage.createView();
 
-        Assert.assertTrue("Test Passed", appLeads.getSelectedValue("Lead Edited"));
+        Assert.assertTrue("Test Passed", appAccount.getSelectedValue("Contact Edited"));
 
     }
 
     @After
     public void tearDown() {
-        appLeads.clickDelete();
+        appAccount.clickDelete();
 
     }
 }

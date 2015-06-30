@@ -1,6 +1,5 @@
 package junit;
 
-import framework.DriverManager;
 import framework.Environment;
 import org.junit.After;
 import org.junit.Assert;
@@ -9,14 +8,14 @@ import org.junit.Test;
 import pages.*;
 
 /**
- * Created by Fernando Nakamura on 6/26/2015.
+ * Created by Mario Perez on 6/16/2015.
  */
-public class CreateNewProducts {
+public class CreateNewAccount {
 
     private LoginPage loginPage;
     private MainApp mainApp;
 
-    private AppBody appProducts;
+    private AppBody appAccount;
 
     @Before
     public void setUp() {
@@ -31,26 +30,29 @@ public class CreateNewProducts {
     @Test
     public void testUntitled() {
 
-        String [] availableFields = {"Created Date","Last Modified Date"};
-        String [][] filterAdditionalFields = {{"Product Name","equals","Test"},{"Product Code","equals","Test"}};
+        String [] availableFields = {"Billing City","Shipping City", "Account Number"};
+        String [][] filterAdditionalFields = {{"Account Name","equals","Test"},{"Phone","starts with","555"}};
 
         AppHeader appHeader = mainApp.goToAppHeader();
-        appProducts = appHeader.clickProducts();
+        appAccount = appHeader.clickAccounts();
 
-        appProducts.clickNewProductView();
-        ViewPage viewPage = new ViewPageBuilder("NewViewFNC","NewViewFNCUnique")
+        appAccount.clickNewView();
+        ViewPage viewPage = new ViewPageBuilder("NewViewJPDS","NewViewJPDSUnique")
+                .setFilterByOwnerMyViewRadioBtn(true)
+                .setFilterByOwnerAllViewsRadioBtn(true)
                 .setfilterByAdditionalField(filterAdditionalFields)
                 .setAvailableFields(availableFields)
+                .setVisibleAllUsersRadioBtn(true)
                 .build();
         viewPage.createView();
 
-        Assert.assertTrue("Test Passed", appProducts.getSelectedValue("NewViewFNC"));
+        Assert.assertTrue("Test Passed", appAccount.getSelectedValue("NewViewJPDS"));
 
     }
 
     @After
     public void tearDown() {
-        appProducts.clickDelete();
+        appAccount.clickDelete();
 
     }
 }

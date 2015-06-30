@@ -62,8 +62,6 @@ public class ChatterPage {
             wait.until(ExpectedConditions.visibilityOf(postTextArea));
         } catch (WebDriverException e) {
             throw new WebDriverException(e);
-        } finally {
-            driver.switchTo().defaultContent();
         }
     }
 
@@ -76,7 +74,6 @@ public class ChatterPage {
             buttonPostArea.click();
         } catch (WebDriverException e) {
             throw new WebDriverException(e);
-        } finally {
         }
     }
 
@@ -93,7 +90,6 @@ public class ChatterPage {
             buttonReplyComment.click();
         } catch (WebDriverException e) {
             throw new WebDriverException(e);
-        } finally {
         }
     }
 
