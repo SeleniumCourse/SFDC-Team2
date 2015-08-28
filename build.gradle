@@ -42,18 +42,11 @@ dependencies {
     // TestNG is also supported by the Gradle Test task. Just change the
     // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
     // 'test.useTestNG()' to your build script.
-//    testCompile group: 'junit', name: 'junit', version: '4.11'
-
     compile 'org.testng:testng:6.9.6'
 
     compile 'com.github.detro:phantomjsdriver:1.2.0'
 
-//    compile 'junit:junit:4.12'
     compile 'org.seleniumhq.selenium:selenium-java:2.46.0'
-//    compile 'org.testng:testng:6.9.4'
-
-//    testCompile 'org.testng:testng:6.8.1'
-
 }
 
 task downloadDrivers(type: Copy) {
@@ -89,40 +82,18 @@ if(browser!="Firefox"){
     downloadDrivers.execute()
 }
 
-task runJUnitTestCases(type: Test) {
-    testLogging {
-        events "started", "passed", "failed"
+task runTestNGTestCases(type: Test) {
+
+    useTestNG()
+
+    options {
+        suites('src/test/resources/Suite.xml')
+
     }
-
-    include suites
-
     systemProperties.put('primaryUserName', primaryUserName)
     systemProperties.put('primaryUserPassword', primaryUserPassword)
     systemProperties.put('browser', browser)
-
-    }
-
-//task runTestNGTestCases(type: Test) {
-//
-//    useTestNG()
-//
-//    testLogging {
-//        events "started", "passed", "failed", "skipped"
-//    }
-//
-//    File[] suitesFiles = splitSuites(suites)
-//    options {
-//        suites(suitesFiles)
-//        includeGroups(groups)
-//    }
-//
-//    systemProperties.put('primaryUserName', primaryUserName)
-//    systemProperties.put('primaryUserPassword', primaryUserPassword)
-//    systemProperties.put('browser', browser)
-//
-//    println browser
-//
-//}
+}
 
 //Method to split suites if they are added with commas through command line
 def File[] splitSuites(String suites) {

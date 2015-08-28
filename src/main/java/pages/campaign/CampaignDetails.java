@@ -116,17 +116,17 @@ public class CampaignDetails extends DetailsBase{
 
     public String getExpectedRevenue(){
         wait.until(ExpectedConditions.visibilityOf(expectedRevenueContainer));
-        return Helper.removeDolarCharToString(expectedRevenueContainer.getText());
+        return Helper.removeDollarCharToString(expectedRevenueContainer.getText());
     }
 
     public String getBudgetedCost(){
         wait.until(ExpectedConditions.visibilityOf(budgetedCostContainer));
-        return Helper.removeDolarCharToString(budgetedCostContainer.getText());
+        return Helper.removeDollarCharToString(budgetedCostContainer.getText());
     }
 
     public String getActualCost(){
         wait.until(ExpectedConditions.visibilityOf(actualCostContainer));
-        return Helper.removeDolarCharToString(actualCostContainer.getText());
+        return Helper.removeDollarCharToString(actualCostContainer.getText());
     }
 
     public String getExpectedResponse(){

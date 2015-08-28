@@ -5,7 +5,7 @@ package framework;
  */
 public class Helper {
 
-    public static String removeDolarCharToString(String baseString){
+    public static String removeDollarCharToString(String baseString){
         return baseString.replace("$", "").trim();
     }
 }

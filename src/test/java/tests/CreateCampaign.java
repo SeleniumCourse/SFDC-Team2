@@ -1,5 +1,6 @@
 package tests;
 
+import framework.Helper;
 import pages.campaign.CampaignDetails;
 import pages.campaign.CampaignForm;
 import pages.campaign.CampaignHome;
@@ -62,6 +63,7 @@ public class CreateCampaign {
         Assert.assertEquals(campaignDetails.getStartDate(), startDate);
         Assert.assertEquals(campaignDetails.getEndDate(), endDate);
         Assert.assertEquals(campaignDetails.getExpectedRevenue(), expectedRevenue);
+        Assert.assertEquals(campaignDetails.getBudgetedCost(), budgetedCost);
         Assert.assertEquals(campaignDetails.getActualCost(), actualCost);
         Assert.assertEquals(campaignDetails.getExpectedResponse(), expectedResponse.concat("%"));
         Assert.assertEquals(campaignDetails.getNumSet(), numSet);
