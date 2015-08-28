@@ -12,24 +12,24 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
 
-        CreateNewLead.class,
-        EditLead.class,
-        CreateNewCampaign.class,
-        EditCampaign.class,
-		CreateNewOpportunities.class,
-        EditOpportunities.class,
-		CreateNewProducts.class,
-        EditProducts.class,
-        CreatePostChatter.class,
-        CreateNewAccount.class,
-        EditAccount.class,
-        CreateNewContact.class,
-        EditContact.class
+//        CreateNewLead.class,
+//        EditLead.class,
+//        CreateNewCampaign.class,
+//        EditCampaign.class,
+//		CreateNewOpportunities.class,
+//        EditOpportunities.class,
+//		CreateNewProducts.class,
+//        EditProducts.class,
+//        CreatePostChatter.class,
+//        CreateNewAccount.class,
+//        EditAccount.class,
+//        CreateNewContact.class,
+//        EditContact.class
 })
 
 public class JUnitSuite {
     @AfterClass
     public static void afterSuite() {
-        DriverManager.getInstance().quit();
+//        DriverManager.getInstance().quit();
     }
 }
