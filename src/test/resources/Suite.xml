@@ -4,6 +4,7 @@
     <test name="Nopackage" >
         <classes>
             <class name="tests.CreateCampaign" />
+            <class name="tests.Opportunity" />
         </classes>
     </test>
 </suite>

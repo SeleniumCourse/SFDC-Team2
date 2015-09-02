@@ -21,8 +21,8 @@ public class CampaignHome extends BaseHome {
 
     @Override
     public CampaignForm clickNewBtn(){
-        wait.until(ExpectedConditions.elementToBeClickable(newBtn));
-        newBtn.click();
+        wait.until(ExpectedConditions.elementToBeClickable(super.newBtn));
+        super.newBtn.click();
         return new CampaignForm(driver);
     }
 

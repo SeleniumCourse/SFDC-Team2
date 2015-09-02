@@ -1,6 +1,5 @@
 package tests;
 
-import framework.Helper;
 import pages.campaign.CampaignDetails;
 import pages.campaign.CampaignForm;
 import pages.campaign.CampaignHome;
@@ -40,7 +39,7 @@ public class CreateCampaign {
     @Test
     public void createCampaign(){
         NavigationTab navigationTab = mainApp.goToNavigationTab();
-        CampaignHome campaignHome = navigationTab.goToCampaignHome();
+        CampaignHome campaignHome = navigationTab.goToCampaignTab();
         CampaignForm campaignForm = campaignHome.clickNewBtn();
         CampaignDetails campaignDetails = campaignForm.setCpnName(cpnName)
                 .checkActive()
