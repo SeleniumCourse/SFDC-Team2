@@ -2,6 +2,9 @@ package pages.campaign;
 
 import framework.Helper;
 import framework.DriverManager;
+import framework.LogManager;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.WebDriverException;
 import pages.basepages.DetailsBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -76,6 +79,32 @@ public class CampaignDetails extends DetailsBase{
         return new CampaignForm(driver);
     }
 
+    @Override
+    public CampaignHome clickDeleteBtn(boolean confirmDeletion){
+        wait.until(ExpectedConditions.visibilityOf(deleteBtn));
+        deleteBtn.click();
+        Alert alert;
+
+        try{
+            alert = driver.switchTo().alert();
+
+            if (confirmDeletion){
+                alert.accept();
+                LogManager.getInstance().addInformationLog(this.getClass().getName(),
+                        "Accept button was clicked on Delete dialog");
+            }else{
+                alert.dismiss();
+                LogManager.getInstance().addInformationLog(this.getClass().getName(),
+                        "Cancel button was clicked on Delete dialog");
+            }
+        }
+        catch(WebDriverException e){
+             LogManager.getInstance().addErrorLog(this.getClass().getName(),
+                     "Delete button could not be clicked", e.fillInStackTrace());
+        }
+        return new CampaignHome(driver);
+    }
+
     public String getCampaignName(){
         String campaignName;
 
@@ -116,17 +145,17 @@ public class CampaignDetails extends DetailsBase{
 
     public String getExpectedRevenue(){
         wait.until(ExpectedConditions.visibilityOf(expectedRevenueContainer));
-        return Helper.removeDollarCharToString(expectedRevenueContainer.getText());
+        return Helper.removeSubstringToString("$", expectedRevenueContainer.getText());
     }
 
     public String getBudgetedCost(){
         wait.until(ExpectedConditions.visibilityOf(budgetedCostContainer));
-        return Helper.removeDollarCharToString(budgetedCostContainer.getText());
+        return Helper.removeSubstringToString("$", budgetedCostContainer.getText());
     }
 
     public String getActualCost(){
         wait.until(ExpectedConditions.visibilityOf(actualCostContainer));
-        return Helper.removeDollarCharToString(actualCostContainer.getText());
+        return Helper.removeSubstringToString("$", actualCostContainer.getText());
     }
 
     public String getExpectedResponse(){
@@ -143,4 +172,5 @@ public class CampaignDetails extends DetailsBase{
         wait.until(ExpectedConditions.visibilityOf(descriptionContainer));
         return descriptionContainer.getText();
     }
+
 }

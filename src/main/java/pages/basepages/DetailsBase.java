@@ -17,6 +17,11 @@ public abstract class DetailsBase {
     @CacheLookup
     protected WebElement editBtn;
 
+    @FindBy(css = "input[value='Delete']")
+    @CacheLookup
+    protected WebElement deleteBtn;
 
     public abstract Object clickEditBtn();
+
+    public abstract Object clickDeleteBtn(boolean isDeleted);
 }

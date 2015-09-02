@@ -32,4 +32,13 @@ public class CampaignHome extends BaseHome {
         cpnLnk.click();
         return new CampaignDetails(driver);
     }
+
+    public boolean isCampaignPresent(String cpnName){
+        boolean response = false;
+
+        if ( driver.findElements(By.linkText(cpnName)).size() > 0 ){
+            response = true;
+        }
+        return response;
+    }
 }

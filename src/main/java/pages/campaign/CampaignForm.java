@@ -75,9 +75,11 @@ public class CampaignForm extends FormBase {
         return this;
     }
 
-    public CampaignForm checkActive(){
+    public CampaignForm setActive(boolean activate){
         wait.until(ExpectedConditions.elementToBeClickable(activeChkbox));
-        activeChkbox.click();
+        if ( ( activate && !activeChkbox.isSelected() ) || ( !activate && activeChkbox.isSelected() ) ){
+            activeChkbox.click();
+        }
         return this;
     }
 
