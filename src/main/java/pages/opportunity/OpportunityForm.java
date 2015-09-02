@@ -9,8 +9,6 @@ import org.openqa.selenium.support.ui.Select;
 import pages.LookupPage;
 import pages.basepages.FormBase;
 
-import java.util.LinkedList;
-import java.util.Set;
 
 /**
  * Created by Virginia Sanabria on 8/30/2015.
@@ -52,7 +50,7 @@ public class OpportunityForm extends FormBase{
     @CacheLookup
     private WebElement probabilityTxt;
 
-    @FindBy(xpath= "//td[contains(., 'Order Number')]/following-sibling::td/input")
+    @FindBy(xpath= "//td[contains(., 'Order Number')]/following-sibling::td[1]/input")
     @CacheLookup
     private WebElement orderNumberTxt;
 
@@ -90,19 +88,10 @@ public class OpportunityForm extends FormBase{
         return this;
     }
 
-    public OpportunityForm selectAccount(String accountName) {
-        String windowID = super.driver.getWindowHandle();
+    public OpportunityForm setAccount(String accountName) {
         lookupIcon.click();
-
-        Set<String> setWindows = super.driver.getWindowHandles();
-        LinkedList<String> listWindows = new LinkedList<String>(setWindows);
-        super.driver.switchTo().window(listWindows.getLast());
-
         LookupPage lookupPage = new LookupPage();
-        lookupPage.searchByAccountName(accountName);
-        lookupPage.clickAccountName(accountName);
-
-        super.driver.switchTo().window(windowID);
+        lookupPage.selectAccount(accountName);
         return this;
     }
 

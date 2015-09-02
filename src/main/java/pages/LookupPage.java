@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import pages.basepages.BaseHome;
+import java.util.LinkedList;
+import java.util.Set;
 
 /**
  * Created by Virginia Sanabria on 8/27/2015.
@@ -42,4 +44,16 @@ public class LookupPage extends BaseHome {
         super.driver.findElement(By.linkText(accountName)).click();
     }
 
+    public void selectAccount(String accountName) {
+        String windowID = super.driver.getWindowHandle();
+        Set<String> setWindows = super.driver.getWindowHandles();
+        LinkedList<String> listWindows = new LinkedList<String>(setWindows);
+        super.driver.switchTo().window(listWindows.getLast());
+
+        LookupPage lookupPage = new LookupPage();
+        lookupPage.searchByAccountName(accountName);
+        lookupPage.clickAccountName(accountName);
+
+        super.driver.switchTo().window(windowID);
+    }
 }

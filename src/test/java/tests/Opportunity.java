@@ -18,7 +18,7 @@ import pages.opportunity.OpportunityForm;
 public class Opportunity {
     private MainApp mainApp;
 
-    private final String opportunityName = "virginiaOp33";
+    private final String opportunityName = "virginiaOp555";
     private final String accountName = "accountTest3";
     private final String typeName = "Existing Customer - Replacement";
     private final String leadSource = "Phone Inquiry";
@@ -44,10 +44,10 @@ public class Opportunity {
     @Test
     public void createOpportunity(){
         NavigationTab navigationTab = mainApp.goToNavigationTab();
-        OpportunitiesHome opportunitiesHome = navigationTab.goToOpportunityHome();
+        OpportunitiesHome opportunitiesHome = navigationTab.goToOpportunityTab();
         OpportunityForm opportunityForm = opportunitiesHome.clickNewBtn();
         OpportunityDetails opportunityDetails = opportunityForm.setOpyName(opportunityName)
-                .selectAccount(accountName)
+                .setAccount(accountName)
                 .selectType(typeName)
                 .selectLeadSource(leadSource)
                 .setAmount(amount)
@@ -63,10 +63,10 @@ public class Opportunity {
                 .setDescription(description)
                 .clickSaveBtn();
 
-        Assert.assertEquals(opportunityDetails.getOpportunityName(), opportunityName, "The opportunity name is not the expected");
-        Assert.assertEquals(opportunityDetails.getAccountName(), accountName, "The account name is not the expected");
-        Assert.assertEquals(opportunityDetails.getType(), typeName, "The type is not the expected");
-        Assert.assertEquals(opportunityDetails.getLeadSource(), leadSource, "The lead source is not the expected");
+        Assert.assertEquals(opportunityDetails.getOpportunityNameContainer(), opportunityName, "The opportunity name is not the expected");
+        Assert.assertEquals(opportunityDetails.getAccountNameTxtContainer(), accountName, "The account name is not the expected");
+        Assert.assertEquals(opportunityDetails.getTypeComBoxContainer(), typeName, "The type is not the expected");
+        Assert.assertEquals(opportunityDetails.getLeadSourceContainer(), leadSource, "The lead source is not the expected");
         Assert.assertEquals(opportunityDetails.getAmount(), amount, "The amount is not the expected");
         Assert.assertEquals(opportunityDetails.getCloseDateValue(), closeDate, "The close date is not the expected");
         Assert.assertEquals(opportunityDetails.getNexStep(), nextStep, "The next step is not the expected");

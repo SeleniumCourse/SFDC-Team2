@@ -1,6 +1,5 @@
 package pages.opportunity;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -12,31 +11,31 @@ import pages.basepages.DetailsBase;
 public class OpportunityDetails extends DetailsBase {
     @FindBy(id = "opp3_ileinner")
     @CacheLookup
-    private WebElement opportunityName;
+    private WebElement opportunityNameContainer;
 
     @FindBy(id = "opp4_ileinner")
     @CacheLookup
-    private WebElement accountName;
+    private WebElement accountNameTxtContainer;
 
     @FindBy(id = "opp5_ileinner")
     @CacheLookup
-    private WebElement type;
+    private WebElement typeComBoxContainer;
 
     @FindBy(id = "opp6_ileinner")
     @CacheLookup
-    private WebElement leadSource;
+    private WebElement leadSourceContainer;
 
     @FindBy(id = "opp9_ileinner")
     @CacheLookup
-    private WebElement closeDate;
+    private WebElement closeDateContainer;
 
     @FindBy(id = "opp10_ileinner")
     @CacheLookup
-    private WebElement nextStep;
+    private WebElement nextStepContainer;
 
     @FindBy(id = "opp11_ileinner")
     @CacheLookup
-    private WebElement stage;
+    private WebElement stageContainer;
 
     @Override
     public Object clickEditBtn() {
@@ -44,28 +43,28 @@ public class OpportunityDetails extends DetailsBase {
         return null;
     }
 
-    public String getOpportunityName() {
-        return this.opportunityName.getText();
+    public String getOpportunityNameContainer() {
+        return this.opportunityNameContainer.getText();
     }
 
-    public String getAccountName() {
-        return this.accountName.getText();
+    public String getAccountNameTxtContainer() {
+        return this.accountNameTxtContainer.getText();
     }
 
     public String getCloseDateValue() {
-        return this.closeDate.getText();
+        return this.closeDateContainer.getText();
     }
 
     public String getStageValue() {
-        return this.stage.getText();
+        return this.stageContainer.getText();
     }
 
-    public String getType() {
-        return this.type.getText();
+    public String getTypeComBoxContainer() {
+        return this.typeComBoxContainer.getText();
     }
 
-    public String getLeadSource() {
-        return this.leadSource.getText();
+    public String getLeadSourceContainer() {
+        return this.leadSourceContainer.getText();
     }
 
     public String getAmount() {
@@ -74,7 +73,7 @@ public class OpportunityDetails extends DetailsBase {
     }
 
     public String getNexStep() {
-        return this.nextStep.getText();
+        return this.nextStepContainer.getText();
     }
 
     public String getProbability() {

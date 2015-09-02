@@ -20,7 +20,7 @@ public class NavigationTab {
 
     @FindBy(linkText = "Campaigns")
     @CacheLookup
-    private WebElement campaignsLnk;
+    private WebElement campaignsTab;
 
     @FindBy(linkText = "Opportunities")
     @CacheLookup
@@ -32,13 +32,13 @@ public class NavigationTab {
         PageFactory.initElements(driver, this);
     }
 
-    public CampaignHome goToCampaignHome(){
-        wait.until(ExpectedConditions.elementToBeClickable(campaignsLnk));
-        campaignsLnk.click();
+    public CampaignHome goToCampaignTab(){
+        wait.until(ExpectedConditions.elementToBeClickable(campaignsTab));
+        campaignsTab.click();
         return new CampaignHome(driver);
     }
 
-    public OpportunitiesHome goToOpportunityHome() {
+    public OpportunitiesHome goToOpportunityTab() {
         wait.until(ExpectedConditions.elementToBeClickable( opportunitiesTab));
         opportunitiesTab.click();
         return new OpportunitiesHome();
