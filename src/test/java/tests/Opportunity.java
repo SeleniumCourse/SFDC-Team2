@@ -65,7 +65,7 @@ public class Opportunity {
 
         Assert.assertEquals(opportunityDetails.getOpportunityNameContainer(), opportunityName, "The opportunity name is not the expected");
         Assert.assertEquals(opportunityDetails.getAccountNameTxtContainer(), accountName, "The account name is not the expected");
-       /* Assert.assertEquals(opportunityDetails.getTypeComBoxContainer(), typeName, "The type is not the expected");
+        Assert.assertEquals(opportunityDetails.getTypeComBoxContainer(), typeName, "The type is not the expected");
         Assert.assertEquals(opportunityDetails.getLeadSourceContainer(), leadSource, "The lead source is not the expected");
         Assert.assertEquals(opportunityDetails.getAmount(), amount, "The amount is not the expected");
         Assert.assertEquals(opportunityDetails.getCloseDateValue(), closeDate, "The close date is not the expected");
@@ -77,7 +77,7 @@ public class Opportunity {
         Assert.assertEquals(opportunityDetails.getTrackingNumber(), trackingNumber, "The tracking number is not the expected");
         Assert.assertEquals(opportunityDetails.getMainCompetitor(), mainCompetitor, "The main competitor is not the expected");
         Assert.assertEquals(opportunityDetails.getDeliveryInstallStatus(), deliveryInstallStatus, "The delivery install status is not the expected");
-        Assert.assertEquals(opportunityDetails.getDescription(), description, "The description is not the expected");*/
+        Assert.assertEquals(opportunityDetails.getDescription(), description, "The description is not the expected");
     }
 
     @AfterClass
