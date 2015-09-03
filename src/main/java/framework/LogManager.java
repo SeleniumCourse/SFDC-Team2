@@ -12,22 +12,22 @@ public class LogManager {
     private static Logger logger;
 
 
-    public LogManager (){
+    public LogManager() {
         logger = LoggerFactory.getLogger(LogManager.class);
     }
 
-    public static LogManager getInstance(){
-        if ( instance == null ){
+    public static LogManager getInstance() {
+        if (instance == null) {
             instance = new LogManager();
         }
         return instance;
     }
 
-    public void addInformationLog(String className, String message){
-        logger.info(className + ": " + message );
+    public void addInformationLog(String className, String message) {
+        logger.info(className + ": " + message);
     }
 
-    public void addErrorLog(String className, String message, Throwable error){
+    public void addErrorLog(String className, String message, Throwable error) {
         logger.error(className + ": " + message, error);
     }
 }

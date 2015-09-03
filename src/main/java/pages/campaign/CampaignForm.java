@@ -62,91 +62,91 @@ public class CampaignForm extends FormBase {
     @CacheLookup
     private WebElement descriptionTxtArea;
 
-    public CampaignForm(WebDriver driver){
+    public CampaignForm(WebDriver driver) {
         super.driver = driver;
         super.wait = DriverManager.getInstance().getWait();
         PageFactory.initElements(driver, this);
     }
 
-    public CampaignForm setCpnName(String cpnName){
+    public CampaignForm setCpnName(String cpnName) {
         wait.until(ExpectedConditions.visibilityOf(cpnNameTxt));
         cpnNameTxt.clear();
         cpnNameTxt.sendKeys(cpnName);
         return this;
     }
 
-    public CampaignForm setActive(boolean activate){
+    public CampaignForm setActive(boolean activate) {
         wait.until(ExpectedConditions.elementToBeClickable(activeChkbox));
-        if ( ( activate && !activeChkbox.isSelected() ) || ( !activate && activeChkbox.isSelected() ) ){
+        if ((activate && !activeChkbox.isSelected()) || (!activate && activeChkbox.isSelected())) {
             activeChkbox.click();
         }
         return this;
     }
 
-    public CampaignForm selectType(String option){
+    public CampaignForm selectType(String option) {
         wait.until(ExpectedConditions.visibilityOf(typeCmbbox));
         Select typePicklist = new Select(typeCmbbox);
         typePicklist.selectByValue(option);
         return this;
     }
 
-    public CampaignForm selectStatus(String option){
+    public CampaignForm selectStatus(String option) {
         wait.until(ExpectedConditions.visibilityOf(statusCmbbox));
         Select statusPicklist = new Select(statusCmbbox);
         statusPicklist.selectByValue(option);
         return this;
     }
 
-    public CampaignForm setStartDate(String startDate){
+    public CampaignForm setStartDate(String startDate) {
         wait.until(ExpectedConditions.visibilityOf(startDateTxt));
         startDateTxt.clear();
         startDateTxt.sendKeys(startDate);
         return this;
     }
 
-    public CampaignForm setEndDate(String endDate){
+    public CampaignForm setEndDate(String endDate) {
         wait.until(ExpectedConditions.visibilityOf(endDateTxt));
         endDateTxt.clear();
         endDateTxt.sendKeys(endDate);
         return this;
     }
 
-    public CampaignForm setExpectedRevenue(String expectedRevenue){
+    public CampaignForm setExpectedRevenue(String expectedRevenue) {
         wait.until(ExpectedConditions.visibilityOf(expectedRevenueTxt));
         expectedRevenueTxt.clear();
         expectedRevenueTxt.sendKeys(expectedRevenue);
         return this;
     }
 
-    public CampaignForm setBudgetedCost(String budgetedCost){
+    public CampaignForm setBudgetedCost(String budgetedCost) {
         wait.until(ExpectedConditions.visibilityOf(budgetedCostTxt));
         budgetedCostTxt.clear();
         budgetedCostTxt.sendKeys(budgetedCost);
         return this;
     }
 
-    public CampaignForm setActualCost(String actualCost){
+    public CampaignForm setActualCost(String actualCost) {
         wait.until(ExpectedConditions.visibilityOf(actualCostTxt));
         actualCostTxt.clear();
         actualCostTxt.sendKeys(actualCost);
         return this;
     }
 
-    public CampaignForm setExpectedResponse(String expectedResponse){
+    public CampaignForm setExpectedResponse(String expectedResponse) {
         wait.until(ExpectedConditions.visibilityOf(expectedResponseTxt));
         expectedResponseTxt.clear();
         expectedResponseTxt.sendKeys(expectedResponse);
         return this;
     }
 
-    public CampaignForm setNumSet(String numSet){
+    public CampaignForm setNumSet(String numSet) {
         wait.until(ExpectedConditions.visibilityOf(numSentTxt));
         numSentTxt.clear();
         numSentTxt.sendKeys(numSet);
         return this;
     }
 
-    public CampaignForm setDescription(String description){
+    public CampaignForm setDescription(String description) {
         wait.until(ExpectedConditions.visibilityOf(descriptionTxtArea));
         descriptionTxtArea.clear();
         descriptionTxtArea.sendKeys(description);
@@ -154,7 +154,7 @@ public class CampaignForm extends FormBase {
     }
 
     @Override
-    public CampaignDetails clickSaveBtn(){
+    public CampaignDetails clickSaveBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(saveBtn));
         saveBtn.click();
         return new CampaignDetails(driver);

@@ -7,7 +7,7 @@ import java.util.UUID;
  */
 public class Helper {
 
-    public static String removeSubstringToString(String subString, String baseString){
+    public static String removeSubstringToString(String subString, String baseString) {
         return baseString.replace(subString, "").trim();
     }
 
@@ -17,7 +17,7 @@ public class Helper {
      * @param base
      * @return String
      */
-    public static String generateUniqueString(String base){
+    public static String generateUniqueString(String base) {
         String uuid = UUID.randomUUID().toString();
         return base + "-" + uuid;
     }

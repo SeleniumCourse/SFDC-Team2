@@ -16,11 +16,11 @@ public abstract class BaseHome {
     protected WebDriverWait wait;
 
 
-    @FindBy (css = "input[name='new']")
+    @FindBy(css = "input[name='new']")
     @CacheLookup
     protected WebElement newBtn;
 
-   public BaseHome() {
+    public BaseHome() {
         this.driver = DriverManager.getInstance().getDriver();
         this.wait = DriverManager.getInstance().getWait();
         PageFactory.initElements(driver, this);

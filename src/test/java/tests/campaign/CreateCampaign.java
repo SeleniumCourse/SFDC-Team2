@@ -34,13 +34,13 @@ public class CreateCampaign {
     private final String TEXT_DESC = "text description";
 
     @BeforeClass
-    public void setUp(){
+    public void setUp() {
         Login login = new Login();
         mainApp = login.loginAsPrimaryUser();
     }
 
     @Test
-    public void createCampaign(){
+    public void createCampaign() {
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         CampaignHome campaignHome = navigationTab.goToCampaignTab();
         CampaignForm campaignForm = campaignHome.clickNewBtn();
@@ -73,7 +73,7 @@ public class CreateCampaign {
     }
 
     @AfterClass
-    public void tearDown(){
+    public void tearDown() {
         CampaignGenie.deleteCampaignObjectAndQuitBrowserDriver(campaignDetails);
     }
 }

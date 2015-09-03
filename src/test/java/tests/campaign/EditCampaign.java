@@ -18,7 +18,7 @@ public class EditCampaign {
 
     private final String CPN_NAME = Helper.generateUniqueString("CpnName");
     private final boolean ACTIVATE = false;
-    private final String NEW_CPN_NAME =  Helper.generateUniqueString("NewCpnName");
+    private final String NEW_CPN_NAME = Helper.generateUniqueString("NewCpnName");
     private final String TYPE = "Partners";
     private final String STATUS = "Completed";
     private final String START_DATE = "8/22/2015";
@@ -31,26 +31,26 @@ public class EditCampaign {
     private final String DESC = "Campaign desc";
 
     @BeforeClass
-    public void setUp(){
+    public void setUp() {
         campaignDetails = CampaignGenie.createCampaignObject(CPN_NAME);
     }
 
     @Test
-    public void editCampaign(){
+    public void editCampaign() {
         campaignForm = campaignDetails.clickEditBtn();
         campaignDetails = campaignForm.setCpnName(NEW_CPN_NAME)
-                            .setActive(ACTIVATE)
-                            .selectType(TYPE)
-                            .selectStatus(STATUS)
-                            .setStartDate(START_DATE)
-                            .setEndDate(END_DATE)
-                            .setExpectedRevenue(EXPECTED_REVENUE)
-                            .setBudgetedCost(BUDGETED_REVENUE)
-                            .setActualCost(ACTUAL_COST)
-                            .setExpectedResponse(EXPECTED_RESPONSE)
-                            .setNumSet(NUM_SET)
-                            .setDescription(DESC)
-                            .clickSaveBtn();
+                .setActive(ACTIVATE)
+                .selectType(TYPE)
+                .selectStatus(STATUS)
+                .setStartDate(START_DATE)
+                .setEndDate(END_DATE)
+                .setExpectedRevenue(EXPECTED_REVENUE)
+                .setBudgetedCost(BUDGETED_REVENUE)
+                .setActualCost(ACTUAL_COST)
+                .setExpectedResponse(EXPECTED_RESPONSE)
+                .setNumSet(NUM_SET)
+                .setDescription(DESC)
+                .clickSaveBtn();
 
         Assert.assertEquals(campaignDetails.getCampaignName(), NEW_CPN_NAME);
         Assert.assertFalse(campaignDetails.getActiveStatus());
@@ -67,7 +67,7 @@ public class EditCampaign {
     }
 
     @AfterClass
-    public void tearDown(){
+    public void tearDown() {
         CampaignGenie.deleteCampaignObjectAndQuitBrowserDriver(campaignDetails);
     }
 

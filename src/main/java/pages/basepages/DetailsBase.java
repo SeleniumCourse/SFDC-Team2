@@ -27,7 +27,7 @@ public abstract class DetailsBase {
     @CacheLookup
     protected WebElement deleteBtn;
 
-    public DetailsBase(){
+    public DetailsBase() {
         this.driver = DriverManager.getInstance().getDriver();
         this.wait = DriverManager.getInstance().getWait();
         PageFactory.initElements(driver, this);
@@ -37,25 +37,24 @@ public abstract class DetailsBase {
 
     public abstract Object clickDeleteBtn(boolean confirmDeletion);
 
-    public void clickDeleteButton(boolean confirmDeletion){
+    public void clickDeleteButton(boolean confirmDeletion) {
         wait.until(ExpectedConditions.visibilityOf(deleteBtn));
         deleteBtn.click();
         Alert alert;
 
-        try{
+        try {
             alert = driver.switchTo().alert();
 
-            if (confirmDeletion){
+            if (confirmDeletion) {
                 alert.accept();
                 LogManager.getInstance().addInformationLog(this.getClass().getName(),
                         "Accept button was clicked on Delete dialog");
-            }else{
+            } else {
                 alert.dismiss();
                 LogManager.getInstance().addInformationLog(this.getClass().getName(),
                         "Cancel button was clicked on Delete dialog");
             }
-        }
-        catch(WebDriverException e){
+        } catch (WebDriverException e) {
             LogManager.getInstance().addErrorLog(this.getClass().getName(),
                     "Delete button could not be clicked", e.fillInStackTrace());
         }

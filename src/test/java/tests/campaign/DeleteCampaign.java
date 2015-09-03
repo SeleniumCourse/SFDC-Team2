@@ -18,19 +18,19 @@ public class DeleteCampaign {
     private final String CAMPAIGN_NAME = Helper.generateUniqueString("Cpn");
 
     @BeforeClass
-    public void SetUp(){
+    public void SetUp() {
         campaignDetails = CampaignGenie.createCampaignObject(CAMPAIGN_NAME);
     }
 
     @Test
-    public void deleteCampaign(){
+    public void deleteCampaign() {
         CampaignHome campaignHome = campaignDetails.clickDeleteBtn(true);
 
         Assert.assertFalse(campaignHome.isCampaignPresent(CAMPAIGN_NAME));
     }
 
     @AfterClass
-    public void tearDown(){
+    public void tearDown() {
         DriverManager.getInstance().getDriver().quit();
     }
 }
