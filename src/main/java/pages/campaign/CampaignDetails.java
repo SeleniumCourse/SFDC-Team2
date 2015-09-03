@@ -1,6 +1,6 @@
 package pages.campaign;
 
-import framework.Helper;
+import utils.Helper;
 import framework.DriverManager;
 import pages.basepages.DetailsBase;
 import org.openqa.selenium.WebDriver;

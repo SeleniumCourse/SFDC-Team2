@@ -82,9 +82,7 @@ public class OpportunityForm extends FormBase{
     }
 
     public OpportunityForm setOpyName(String opportunityName) {
-        super.wait.until(ExpectedConditions.visibilityOf(opyNameTxt));
-        opyNameTxt.clear();
-        opyNameTxt.sendKeys(opportunityName);
+        super.webDriverTools.clearAndSendKeys(opyNameTxt, opportunityName);
         return this;
     }
 
@@ -96,90 +94,67 @@ public class OpportunityForm extends FormBase{
     }
 
     public OpportunityForm selectType(String type) {
-        Select select = new Select(this.typeComBox);
-        select.selectByVisibleText(type);
+        super.webDriverTools.selectOptionInComboBoxByVisibleText(this.typeComBox, type);
         return this;
     }
 
     public OpportunityForm selectLeadSource(String lead) {
-        Select select = new Select(this.leadSourceComBox);
-        select.selectByVisibleText(lead);
+        super.webDriverTools.selectOptionInComboBoxByVisibleText(this.leadSourceComBox, lead);
         return this;
     }
 
     public OpportunityForm setAmount(String amount) {
-        super.wait.until(ExpectedConditions.visibilityOf(this.amountTxt));
-        this.amountTxt.clear();
-        this.amountTxt.sendKeys(amount);
+        super.webDriverTools.clearAndSendKeys(this.amountTxt, amount);
         return this;
     }
 
     public OpportunityForm setCloseDate(String closeDate) {
-        super.wait.until(ExpectedConditions.visibilityOf(this.closeDateTxt));
-        this.closeDateTxt.clear();
-        this.closeDateTxt.sendKeys(closeDate);
+        super.webDriverTools.clearAndSendKeys(this.closeDateTxt, closeDate);
         return this;
     }
 
     public OpportunityForm setNextStep(String nextStep) {
-        super.wait.until(ExpectedConditions.visibilityOf(this.nextStepTxt));
-        this.nextStepTxt.clear();
-        this.nextStepTxt.sendKeys(nextStep);
+        super.webDriverTools.clearAndSendKeys(this.nextStepTxt, nextStep);
         return this;
     }
 
     public OpportunityForm selectStage(String stage) {
-        Select select = new Select(this.stageComBox);
-        select.selectByVisibleText(stage);
+        super.webDriverTools.selectOptionInComboBoxByVisibleText(this.stageComBox, stage);
         return this;
     }
 
     public OpportunityForm setProbability(String probability) {
-        super.wait.until(ExpectedConditions.visibilityOf(this.probabilityTxt));
-        this.probabilityTxt.clear();
-        this.probabilityTxt.sendKeys(probability);
+        super.webDriverTools.clearAndSendKeys(this.probabilityTxt, probability);
         return this;
     }
 
     public OpportunityForm setOrderNumber(String orderNumber) {
-        super.wait.until(ExpectedConditions.visibilityOf(this.orderNumberTxt));
-        this.orderNumberTxt.clear();
-        this.orderNumberTxt.sendKeys(orderNumber);
+        super.webDriverTools.clearAndSendKeys(this.orderNumberTxt, orderNumber);
         return this;
     }
 
     public OpportunityForm setCurrentGenerator(String currentGenerator) {
-        super.wait.until(ExpectedConditions.visibilityOf(this.currentGeneratorTxt));
-        this.currentGeneratorTxt.clear();
-        this.currentGeneratorTxt.sendKeys(currentGenerator);
+        super.webDriverTools.clearAndSendKeys(this.currentGeneratorTxt, currentGenerator);
         return this;
     }
 
     public OpportunityForm setTrackingNumber(String trackingNumber) {
-        super.wait.until(ExpectedConditions.visibilityOf(this.trackingNumberTxt));
-        this.trackingNumberTxt.clear();
-        this.trackingNumberTxt.sendKeys(trackingNumber);
+        super.webDriverTools.clearAndSendKeys(this.trackingNumberTxt, trackingNumber);
         return this;
     }
 
     public OpportunityForm setMainCompetitor(String mainCompetitor) {
-        super.wait.until(ExpectedConditions.visibilityOf(this.mainCompetitorTxt));
-        this.mainCompetitorTxt.clear();
-        this.mainCompetitorTxt.sendKeys(mainCompetitor);
+        super.webDriverTools.clearAndSendKeys(this.mainCompetitorTxt, mainCompetitor);
         return this;
     }
 
     public OpportunityForm selectDeliveryInstallStatus(String deliveryInstall) {
-        Select select = new Select(this.deliveryInstallComBox);
-        select.selectByVisibleText(deliveryInstall);
+        super.webDriverTools.selectOptionInComboBoxByVisibleText(this.deliveryInstallComBox, deliveryInstall);
         return this;
     }
 
     public OpportunityForm setDescription(String description) {
-        super.wait.until(ExpectedConditions.visibilityOf(this.descriptionTextArea));
-        this.descriptionTextArea.clear();
-        this.descriptionTextArea.sendKeys(description);
+        super.webDriverTools.clearAndSendKeys(this.descriptionTextArea, description);
         return this;
     }
-
 }

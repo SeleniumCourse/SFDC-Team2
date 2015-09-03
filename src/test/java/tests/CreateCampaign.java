@@ -5,7 +5,7 @@ import pages.campaign.CampaignForm;
 import pages.campaign.CampaignHome;
 import pages.Login;
 import pages.MainApp;
-import pages.NavigationTab;
+import components.NavigationTab;
 import framework.DriverManager;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
