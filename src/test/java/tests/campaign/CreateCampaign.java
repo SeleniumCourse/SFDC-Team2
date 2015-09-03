@@ -8,7 +8,6 @@ import pages.campaign.CampaignHome;
 import pages.Login;
 import pages.MainApp;
 import pages.NavigationTab;
-import framework.DriverManager;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -43,7 +42,7 @@ public class CreateCampaign {
     @Test
     public void createCampaign(){
         NavigationTab navigationTab = mainApp.goToNavigationTab();
-        CampaignHome campaignHome = navigationTab.goToCampaignHome();
+        CampaignHome campaignHome = navigationTab.goToCampaignTab();
         CampaignForm campaignForm = campaignHome.clickNewBtn();
         campaignDetails = campaignForm.setCpnName(CPN_NAME)
                 .setActive(ACTIVATE)

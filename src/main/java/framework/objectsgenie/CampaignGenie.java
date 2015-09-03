@@ -35,7 +35,7 @@ public class CampaignGenie {
         MainApp mainApp = login.loginAsPrimaryUser();
 
         NavigationTab navigationTab = mainApp.goToNavigationTab();
-        CampaignHome campaignHome = navigationTab.goToCampaignHome();
+        CampaignHome campaignHome = navigationTab.goToCampaignTab();
         CampaignForm campaignForm = campaignHome.clickNewBtn();
         CampaignDetails campaignDetails = campaignForm.setCpnName(campaignName)
                 .setActive(ACTIVATE)
