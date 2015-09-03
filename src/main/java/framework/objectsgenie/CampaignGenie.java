@@ -1,5 +1,6 @@
 package framework.objectsgenie;
 
+import framework.DriverManager;
 import pages.Login;
 import pages.MainApp;
 import pages.NavigationTab;
@@ -26,6 +27,7 @@ public class CampaignGenie {
     /**
      * Create a Campaign object
      *
+     * @params campaignName: Campaign Name object to be created
      * @return CampaignDetails object
      */
     public static CampaignDetails createCampaignObject(String campaignName){
@@ -50,4 +52,10 @@ public class CampaignGenie {
                 .clickSaveBtn();
         return campaignDetails;
     }
+
+    public static void deleteCampaignObjectAndQuitBrowserDriver(CampaignDetails campaignDetails){
+        campaignDetails.clickDeleteButton(true);
+        DriverManager.getInstance().getDriver().quit();
+    }
+
 }

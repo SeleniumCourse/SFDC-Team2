@@ -81,27 +81,7 @@ public class CampaignDetails extends DetailsBase{
 
     @Override
     public CampaignHome clickDeleteBtn(boolean confirmDeletion){
-        wait.until(ExpectedConditions.visibilityOf(deleteBtn));
-        deleteBtn.click();
-        Alert alert;
-
-        try{
-            alert = driver.switchTo().alert();
-
-            if (confirmDeletion){
-                alert.accept();
-                LogManager.getInstance().addInformationLog(this.getClass().getName(),
-                        "Accept button was clicked on Delete dialog");
-            }else{
-                alert.dismiss();
-                LogManager.getInstance().addInformationLog(this.getClass().getName(),
-                        "Cancel button was clicked on Delete dialog");
-            }
-        }
-        catch(WebDriverException e){
-             LogManager.getInstance().addErrorLog(this.getClass().getName(),
-                     "Delete button could not be clicked", e.fillInStackTrace());
-        }
+        clickDeleteButton(confirmDeletion);
         return new CampaignHome(driver);
     }
 

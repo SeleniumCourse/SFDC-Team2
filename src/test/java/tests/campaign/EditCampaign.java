@@ -68,7 +68,7 @@ public class EditCampaign {
 
     @AfterClass
     public void tearDown(){
-        DriverManager.getInstance().getDriver().quit();
+        CampaignGenie.deleteCampaignObjectAndQuitBrowserDriver(campaignDetails);
     }
 
 }

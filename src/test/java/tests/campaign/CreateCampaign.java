@@ -1,6 +1,7 @@
 package tests.campaign;
 
 import framework.Helper;
+import framework.objectsgenie.CampaignGenie;
 import pages.campaign.CampaignDetails;
 import pages.campaign.CampaignForm;
 import pages.campaign.CampaignHome;
@@ -18,6 +19,7 @@ import org.testng.annotations.Test;
  */
 public class CreateCampaign {
     private MainApp mainApp;
+    private CampaignDetails campaignDetails;
 
     private final String CPN_NAME = Helper.generateUniqueString("CpnName");
     private final String TYPE = "Partners";
@@ -43,7 +45,7 @@ public class CreateCampaign {
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         CampaignHome campaignHome = navigationTab.goToCampaignHome();
         CampaignForm campaignForm = campaignHome.clickNewBtn();
-        CampaignDetails campaignDetails = campaignForm.setCpnName(CPN_NAME)
+        campaignDetails = campaignForm.setCpnName(CPN_NAME)
                 .setActive(ACTIVATE)
                 .selectType(TYPE)
                 .selectStatus(STATUS)
@@ -73,6 +75,6 @@ public class CreateCampaign {
 
     @AfterClass
     public void tearDown(){
-        DriverManager.getInstance().getDriver().quit();
+        CampaignGenie.deleteCampaignObjectAndQuitBrowserDriver(campaignDetails);
     }
 }
