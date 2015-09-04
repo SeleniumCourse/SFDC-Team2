@@ -7,7 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Login;
 import pages.MainApp;
-import pages.NavigationTab;
+import components.NavigationTab;
 import pages.opportunity.OpportunitiesHome;
 import pages.opportunity.OpportunityDetails;
 import pages.opportunity.OpportunityForm;
@@ -18,7 +18,7 @@ import pages.opportunity.OpportunityForm;
 public class Opportunity {
     private MainApp mainApp;
 
-    private final String opportunityName = "virginiaOp555";
+    private final String opportunityName = "virginiaOp777";
     private final String accountName = "accountTest3";
     private final String typeName = "Existing Customer - Replacement";
     private final String leadSource = "Phone Inquiry";

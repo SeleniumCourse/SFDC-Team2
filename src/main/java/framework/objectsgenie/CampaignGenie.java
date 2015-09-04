@@ -1,9 +1,9 @@
 package framework.objectsgenie;
 
+import components.NavigationTab;
 import framework.DriverManager;
 import pages.Login;
 import pages.MainApp;
-import pages.NavigationTab;
 import pages.campaign.CampaignDetails;
 import pages.campaign.CampaignForm;
 import pages.campaign.CampaignHome;

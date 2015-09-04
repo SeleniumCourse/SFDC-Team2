@@ -1,13 +1,13 @@
 package tests.campaign;
 
 import framework.DriverManager;
-import framework.Helper;
 import framework.objectsgenie.CampaignGenie;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.campaign.*;
+import utils.Helper;
 
 /**
  * Created by Marcelo Ferrufino on 8/31/2015.

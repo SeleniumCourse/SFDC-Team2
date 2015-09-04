@@ -1,6 +1,6 @@
 package pages.campaign;
 
-import framework.Helper;
+import utils.Helper;
 import framework.DriverManager;
 import framework.LogManager;
 import org.openqa.selenium.Alert;

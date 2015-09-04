@@ -1,17 +1,17 @@
 package tests.campaign;
 
-import framework.Helper;
+import components.NavigationTab;
 import framework.objectsgenie.CampaignGenie;
 import pages.campaign.CampaignDetails;
 import pages.campaign.CampaignForm;
 import pages.campaign.CampaignHome;
 import pages.Login;
 import pages.MainApp;
-import pages.NavigationTab;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import utils.Helper;
 
 /**
  * Created by Marcelo Ferrufino on 8/22/2015.

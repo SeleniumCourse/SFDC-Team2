@@ -159,4 +159,8 @@ public class CampaignForm extends FormBase {
         saveBtn.click();
         return new CampaignDetails(driver);
     }
+
+    public CampaignForm checkActive() {
+        return this;
+    }
 }

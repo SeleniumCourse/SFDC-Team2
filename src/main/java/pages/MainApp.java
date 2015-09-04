@@ -1,5 +1,6 @@
 package pages;
 
+import components.NavigationTab;
 import org.openqa.selenium.WebDriver;
 
 /**
