@@ -33,4 +33,11 @@ public class WebDriverTools {
             throw new WebDriverException("The combo box is not displayed:", e.getCause());
         }
     }
+
+    public void checkOrClearCheckbox(WebElement element, boolean checked) {
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        if ((checked && !element.isSelected()) || (!checked && element.isSelected())) {
+            element.click();
+        }
+    }
 }

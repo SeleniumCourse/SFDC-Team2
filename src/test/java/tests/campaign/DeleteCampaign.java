@@ -1,7 +1,7 @@
 package tests.campaign;
 
 import framework.DriverManager;
-import framework.objectsgenie.CampaignGenie;
+import utils.CampaignGenie;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;

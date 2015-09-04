@@ -13,24 +13,18 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  */
 public class CampaignHome extends BaseHome {
 
-    public CampaignHome(WebDriver driver) {
-        super.driver = driver;
-        super.wait = DriverManager.getInstance().getWait();
-        PageFactory.initElements(driver, this);
-    }
-
     @Override
     public CampaignForm clickNewBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(super.newBtn));
         super.newBtn.click();
-        return new CampaignForm(driver);
+        return new CampaignForm();
     }
 
     public CampaignDetails selectRecentCpn(String cpnName) {
         wait.until(ExpectedConditions.elementToBeClickable(By.linkText(cpnName)));
         WebElement cpnLnk = driver.findElement(By.linkText(cpnName));
         cpnLnk.click();
-        return new CampaignDetails(driver);
+        return new CampaignDetails();
     }
 
     public boolean isCampaignPresent(String cpnName) {

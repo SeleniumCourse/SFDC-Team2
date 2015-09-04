@@ -35,7 +35,7 @@ public class NavigationTab {
     public CampaignHome goToCampaignTab(){
         wait.until(ExpectedConditions.elementToBeClickable(campaignsTab));
         campaignsTab.click();
-        return new CampaignHome(driver);
+        return new CampaignHome();
     }
 
     public OpportunitiesHome goToOpportunityTab() {

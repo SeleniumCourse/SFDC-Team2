@@ -1,14 +1,10 @@
 package pages.campaign;
 
-import framework.DriverManager;
 import pages.basepages.FormBase;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 
 /**
  * Created by Marcelo Ferrufino on 8/22/2015.
@@ -56,100 +52,69 @@ public class CampaignForm extends FormBase {
 
     @FindBy(id = "cpn13")
     @CacheLookup
-    private WebElement numSentTxt;
+    private WebElement numSetTxt;
 
     @FindBy(id = "cpn4")
     @CacheLookup
     private WebElement descriptionTxtArea;
 
-    public CampaignForm(WebDriver driver) {
-        super.driver = driver;
-        super.wait = DriverManager.getInstance().getWait();
-        PageFactory.initElements(driver, this);
-    }
-
     public CampaignForm setCpnName(String cpnName) {
-        wait.until(ExpectedConditions.visibilityOf(cpnNameTxt));
-        cpnNameTxt.clear();
-        cpnNameTxt.sendKeys(cpnName);
+        super.webDriverTools.clearAndSendKeys(cpnNameTxt, cpnName);
         return this;
     }
 
     public CampaignForm setActive(boolean activate) {
-        wait.until(ExpectedConditions.elementToBeClickable(activeChkbox));
-        if ((activate && !activeChkbox.isSelected()) || (!activate && activeChkbox.isSelected())) {
-            activeChkbox.click();
-        }
+        super.webDriverTools.checkOrClearCheckbox(activeChkbox, activate);
         return this;
     }
 
     public CampaignForm selectType(String option) {
-        wait.until(ExpectedConditions.visibilityOf(typeCmbbox));
-        Select typePicklist = new Select(typeCmbbox);
-        typePicklist.selectByValue(option);
+        super.webDriverTools.selectOptionInComboBoxByVisibleText(typeCmbbox, option);
         return this;
     }
 
     public CampaignForm selectStatus(String option) {
-        wait.until(ExpectedConditions.visibilityOf(statusCmbbox));
-        Select statusPicklist = new Select(statusCmbbox);
-        statusPicklist.selectByValue(option);
+        super.webDriverTools.selectOptionInComboBoxByVisibleText(statusCmbbox, option);
         return this;
     }
 
     public CampaignForm setStartDate(String startDate) {
-        wait.until(ExpectedConditions.visibilityOf(startDateTxt));
-        startDateTxt.clear();
-        startDateTxt.sendKeys(startDate);
+        super.webDriverTools.clearAndSendKeys(startDateTxt, startDate);
         return this;
     }
 
     public CampaignForm setEndDate(String endDate) {
-        wait.until(ExpectedConditions.visibilityOf(endDateTxt));
-        endDateTxt.clear();
-        endDateTxt.sendKeys(endDate);
+        super.webDriverTools.clearAndSendKeys(endDateTxt, endDate);
         return this;
     }
 
     public CampaignForm setExpectedRevenue(String expectedRevenue) {
-        wait.until(ExpectedConditions.visibilityOf(expectedRevenueTxt));
-        expectedRevenueTxt.clear();
-        expectedRevenueTxt.sendKeys(expectedRevenue);
+        super.webDriverTools.clearAndSendKeys(expectedRevenueTxt, expectedRevenue);
         return this;
     }
 
     public CampaignForm setBudgetedCost(String budgetedCost) {
-        wait.until(ExpectedConditions.visibilityOf(budgetedCostTxt));
-        budgetedCostTxt.clear();
-        budgetedCostTxt.sendKeys(budgetedCost);
+        super.webDriverTools.clearAndSendKeys(budgetedCostTxt, budgetedCost);
         return this;
     }
 
     public CampaignForm setActualCost(String actualCost) {
-        wait.until(ExpectedConditions.visibilityOf(actualCostTxt));
-        actualCostTxt.clear();
-        actualCostTxt.sendKeys(actualCost);
+        super.webDriverTools.clearAndSendKeys(actualCostTxt, actualCost);
         return this;
     }
 
     public CampaignForm setExpectedResponse(String expectedResponse) {
-        wait.until(ExpectedConditions.visibilityOf(expectedResponseTxt));
-        expectedResponseTxt.clear();
-        expectedResponseTxt.sendKeys(expectedResponse);
+        super.webDriverTools.clearAndSendKeys(expectedResponseTxt, expectedResponse);
         return this;
     }
 
     public CampaignForm setNumSet(String numSet) {
-        wait.until(ExpectedConditions.visibilityOf(numSentTxt));
-        numSentTxt.clear();
-        numSentTxt.sendKeys(numSet);
+        super.webDriverTools.clearAndSendKeys(numSetTxt, numSet);
         return this;
     }
 
     public CampaignForm setDescription(String description) {
-        wait.until(ExpectedConditions.visibilityOf(descriptionTxtArea));
-        descriptionTxtArea.clear();
-        descriptionTxtArea.sendKeys(description);
+        super.webDriverTools.clearAndSendKeys(descriptionTxtArea, description);
         return this;
     }
 
@@ -157,10 +122,6 @@ public class CampaignForm extends FormBase {
     public CampaignDetails clickSaveBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(saveBtn));
         saveBtn.click();
-        return new CampaignDetails(driver);
-    }
-
-    public CampaignForm checkActive() {
-        return this;
+        return new CampaignDetails();
     }
 }
