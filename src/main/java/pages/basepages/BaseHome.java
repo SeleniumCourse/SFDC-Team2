@@ -10,13 +10,12 @@ import components.BaseWebUI;
  */
 public abstract class BaseHome extends BaseWebUI {
 
-    @FindBy (css = "input[name='new']")
+    @FindBy(css = "input[name='new']")
     @CacheLookup
     protected WebElement newBtn;
 
    public BaseHome() {
-
-    }
+   }
 
     public abstract Object clickNewBtn();
 }

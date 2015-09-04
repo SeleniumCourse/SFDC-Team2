@@ -43,6 +43,11 @@ public class OpportunityDetails extends DetailsBase {
         return null;
     }
 
+    @Override
+    public Object clickDeleteBtn(boolean confirmDeletion) {
+        return null;
+    }
+
     public String getOpportunityNameContainer() {
         return this.opportunityNameContainer.getText();
     }

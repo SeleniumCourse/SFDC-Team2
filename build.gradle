@@ -47,6 +47,11 @@ dependencies {
     compile 'com.github.detro:phantomjsdriver:1.2.0'
 
     compile 'org.seleniumhq.selenium:selenium-java:2.46.0'
+
+    compile 'org.slf4j:slf4j-api:1.7.12'
+    compile 'org.slf4j:slf4j-simple:1.7.12'
+
+
 }
 
 task downloadDrivers(type: Copy) {
