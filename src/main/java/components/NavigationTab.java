@@ -1,4 +1,4 @@
-package pages;
+package components;
 
 import framework.DriverManager;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.account.AccountHome;
 import pages.campaign.CampaignHome;
+import pages.opportunity.OpportunitiesHome;
 
 /**
  * Created by Marcelo Ferrufino on 8/22/2015.
@@ -20,7 +21,11 @@ public class NavigationTab {
 
     @FindBy(linkText = "Campaigns")
     @CacheLookup
-    private WebElement campaignsLnk;
+    private WebElement campaignsTab;
+
+    @FindBy(linkText = "Opportunities")
+    @CacheLookup
+    private WebElement opportunitiesTab;
 
     @FindBy(linkText = "Accounts")
     @CacheLookup
@@ -32,10 +37,10 @@ public class NavigationTab {
         PageFactory.initElements(driver, this);
     }
 
-    public CampaignHome goToCampaignHome(){
-        wait.until(ExpectedConditions.elementToBeClickable(campaignsLnk));
-        campaignsLnk.click();
-        return new CampaignHome(driver);
+    public CampaignHome goToCampaignTab(){
+        wait.until(ExpectedConditions.elementToBeClickable(campaignsTab));
+        campaignsTab.click();
+        return new CampaignHome();
     }
     public AccountHome goToAccountHome(){
         wait.until(ExpectedConditions.elementToBeClickable(accountsLnk));
@@ -43,4 +48,9 @@ public class NavigationTab {
         return new AccountHome(driver);
     }
 
+    public OpportunitiesHome goToOpportunityTab() {
+        wait.until(ExpectedConditions.elementToBeClickable( opportunitiesTab));
+        opportunitiesTab.click();
+        return new OpportunitiesHome();
+    }
 }

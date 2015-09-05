@@ -1,5 +1,6 @@
 package tests;
 
+import components.NavigationTab;
 import framework.DriverManager;
 import org.junit.Assert;
 import org.testng.annotations.AfterClass;
@@ -7,7 +8,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Login;
 import pages.MainApp;
-import pages.NavigationTab;
 import pages.account.AccountDetails;
 import pages.account.AccountForm;
 import pages.account.AccountHome;

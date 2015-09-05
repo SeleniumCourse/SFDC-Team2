@@ -1,7 +1,10 @@
 package pages.campaign;
 
-import framework.Helper;
+import utils.Helper;
 import framework.DriverManager;
+import framework.LogManager;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.WebDriverException;
 import pages.basepages.DetailsBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +16,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * Created by Marcelo Ferrufino on 8/22/2015.
  */
-public class CampaignDetails extends DetailsBase{
+public class CampaignDetails extends DetailsBase {
 
     @FindBy(id = "cpn1_ileinner")
     @CacheLookup
@@ -63,20 +66,20 @@ public class CampaignDetails extends DetailsBase{
     @CacheLookup
     private WebElement descriptionContainer;
 
-    public CampaignDetails(WebDriver driver){
-        super.driver = driver;
-        super.wait = DriverManager.getInstance().getWait();
-        PageFactory.initElements(driver, this);
+    @Override
+    public CampaignForm clickEditBtn() {
+        wait.until(ExpectedConditions.elementToBeClickable(editBtn));
+        editBtn.click();
+        return new CampaignForm();
     }
 
     @Override
-    public CampaignForm clickEditBtn(){
-        wait.until(ExpectedConditions.elementToBeClickable(editBtn));
-        editBtn.click();
-        return new CampaignForm(driver);
+    public CampaignHome clickDeleteBtn(boolean confirmDeletion) {
+        clickDeleteButton(confirmDeletion);
+        return new CampaignHome();
     }
 
-    public String getCampaignName(){
+    public String getCampaignName() {
         String campaignName;
 
         wait.until(ExpectedConditions.visibilityOf(cpnNameContainer));
@@ -84,63 +87,64 @@ public class CampaignDetails extends DetailsBase{
         return campaignName.replace("[View Hierarchy]", "").trim();
     }
 
-    public boolean getActiveStatus(){
+    public boolean getActiveStatus() {
         boolean status = false;
 
         wait.until(ExpectedConditions.visibilityOf(activeContainer));
-        if ( activeContainer.getAttribute("title").equalsIgnoreCase("Checked") ){
+        if (activeContainer.getAttribute("title").equalsIgnoreCase("Checked")) {
             status = true;
         }
         return status;
     }
 
-    public String getType(){
+    public String getType() {
         wait.until(ExpectedConditions.visibilityOf(typeContainer));
         return typeContainer.getText();
     }
 
-    public String getStatus(){
+    public String getStatus() {
         wait.until(ExpectedConditions.visibilityOf(statusContainer));
         return statusContainer.getText();
     }
 
-    public String getStartDate(){
+    public String getStartDate() {
         wait.until(ExpectedConditions.visibilityOf(startDateContainer));
         return startDateContainer.getText();
     }
 
-    public String getEndDate(){
+    public String getEndDate() {
         wait.until(ExpectedConditions.visibilityOf(endDateContainer));
         return endDateContainer.getText();
     }
 
-    public String getExpectedRevenue(){
+    public String getExpectedRevenue() {
         wait.until(ExpectedConditions.visibilityOf(expectedRevenueContainer));
-        return Helper.removeDollarCharToString(expectedRevenueContainer.getText());
+        return Helper.removeSubstringToString("$", expectedRevenueContainer.getText());
     }
 
-    public String getBudgetedCost(){
+    public String getBudgetedCost() {
         wait.until(ExpectedConditions.visibilityOf(budgetedCostContainer));
-        return Helper.removeDollarCharToString(budgetedCostContainer.getText());
+        return Helper.removeSubstringToString("$", budgetedCostContainer.getText());
     }
 
-    public String getActualCost(){
+    public String getActualCost() {
         wait.until(ExpectedConditions.visibilityOf(actualCostContainer));
-        return Helper.removeDollarCharToString(actualCostContainer.getText());
+        return Helper.removeSubstringToString("$", actualCostContainer.getText());
     }
 
-    public String getExpectedResponse(){
+    public String getExpectedResponse() {
         wait.until(ExpectedConditions.visibilityOf(expectedResponseContainer));
         return expectedResponseContainer.getText();
     }
 
-    public String getNumSet(){
+    public String getNumSet() {
         wait.until(ExpectedConditions.visibilityOf(numSetContainer));
         return numSetContainer.getText();
     }
 
-    public String getDescription(){
+    public String getDescription() {
         wait.until(ExpectedConditions.visibilityOf(descriptionContainer));
         return descriptionContainer.getText();
     }
+
 }

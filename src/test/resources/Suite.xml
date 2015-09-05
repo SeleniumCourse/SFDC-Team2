@@ -4,6 +4,11 @@
     <test name="Nopackage" >
         <classes>
             <class name="tests.CreateAccount" />
-        </classes>
-    </test>
+
+            <class name="tests.campaign.CreateCampaign" />
+            <class name="tests.campaign.EditCampaign" />
+            <class name="tests.campaign.DeleteCampaign" />
+            <class name="tests.Opportunity" />
+       </classes>
+   </test>
 </suite>

@@ -117,9 +117,7 @@ public class AccountForm extends FormBase {
         return new AccountDetails (driver);
     }
     public AccountForm setAccountName(String accountName){
-        wait.until(ExpectedConditions.visibilityOf(accountNameTxt));
-        accountNameTxt.clear();
-        accountNameTxt.sendKeys(accountName);
+        super.webDriverTools.clearAndSendKeys(this.accountNameTxt, accountName);
         return this;
     }
 

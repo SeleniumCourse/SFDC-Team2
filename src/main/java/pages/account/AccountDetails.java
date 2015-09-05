@@ -1,7 +1,6 @@
 package pages.account;
 
 import framework.DriverManager;
-import framework.Helper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -10,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.basepages.DetailsBase;
+import utils.Helper;
 
 
 /**
@@ -116,6 +116,11 @@ public class AccountDetails extends DetailsBase {
         return new AccountForm(driver);
     }
 
+    @Override
+    public Object clickDeleteBtn(boolean confirmDeletion) {
+        return null;
+    }
+
     public String getAccountName(){
         String accountName;
         wait.until(ExpectedConditions.visibilityOf(accountNameContainer));
@@ -165,7 +170,8 @@ public class AccountDetails extends DetailsBase {
     }
     public String getAccountRevenue(){
         wait.until(ExpectedConditions.visibilityOf(accountRevenueContainer));
-        return Helper.removeDollarCharToString(accountRevenueContainer.getText());
+       // return Helper.removeDollarCharToString(accountRevenueContainer.getText());
+        return null;
     }
     public String getAccountOwnership(){
         wait.until(ExpectedConditions.visibilityOf(accountOwnershipContainer));
