@@ -66,23 +66,17 @@ public class CampaignDetails extends DetailsBase {
     @CacheLookup
     private WebElement descriptionContainer;
 
-    public CampaignDetails(WebDriver driver) {
-        super.driver = driver;
-        super.wait = DriverManager.getInstance().getWait();
-        PageFactory.initElements(driver, this);
-    }
-
     @Override
     public CampaignForm clickEditBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(editBtn));
         editBtn.click();
-        return new CampaignForm(driver);
+        return new CampaignForm();
     }
 
     @Override
     public CampaignHome clickDeleteBtn(boolean confirmDeletion) {
         clickDeleteButton(confirmDeletion);
-        return new CampaignHome(driver);
+        return new CampaignHome();
     }
 
     public String getCampaignName() {

@@ -1,4 +1,4 @@
-package framework.objectsgenie;
+package utils;
 
 import components.NavigationTab;
 import framework.DriverManager;

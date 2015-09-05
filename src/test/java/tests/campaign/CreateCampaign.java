@@ -1,7 +1,7 @@
 package tests.campaign;
 
 import components.NavigationTab;
-import framework.objectsgenie.CampaignGenie;
+import utils.CampaignGenie;
 import pages.campaign.CampaignDetails;
 import pages.campaign.CampaignForm;
 import pages.campaign.CampaignHome;
