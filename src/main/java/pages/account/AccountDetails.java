@@ -170,8 +170,7 @@ public class AccountDetails extends DetailsBase {
     }
     public String getAccountRevenue(){
         wait.until(ExpectedConditions.visibilityOf(accountRevenueContainer));
-       // return Helper.removeDollarCharToString(accountRevenueContainer.getText());
-        return null;
+        return Helper.removeSubstringToString("$", accountRevenueContainer.getText());
     }
     public String getAccountOwnership(){
         wait.until(ExpectedConditions.visibilityOf(accountOwnershipContainer));
@@ -207,7 +206,6 @@ public class AccountDetails extends DetailsBase {
         wait.until(ExpectedConditions.visibilityOf(accountEmployeesContainer));
         return accountEmployeesContainer.getText();
     }
-
     public String getShippingbillingProvince(){
         wait.until(ExpectedConditions.visibilityOf(accountShippingbillingProvinceContainer));
         return accountShippingbillingProvinceContainer.getText();

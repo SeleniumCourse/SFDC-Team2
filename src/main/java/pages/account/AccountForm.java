@@ -21,239 +21,211 @@ public class AccountForm extends FormBase {
 
     @FindBy(id = "acc5")
     @CacheLookup
-    private WebElement accountNumber;
+    private WebElement accountNumberTxt;
 
     @FindBy(id = "acc8")
     @CacheLookup
-    private WebElement accountRevenue;
+    private WebElement accountRevenueTxt;
 
     @FindBy(id = "acc10")
     @CacheLookup
-    private WebElement accountPhone;
+    private WebElement accountPhoneTxt;
 
     @FindBy(id = "acc11")
     @CacheLookup
-    private WebElement accountFax;
+    private WebElement accountFaxTxt;
 
     @FindBy(id = "acc12")
     @CacheLookup
-    private WebElement accountWebsite;
+    private WebElement accountWebsiteTxt;
 
     @FindBy(id = "acc13")
     @CacheLookup
-    private WebElement accountTickerSymbol;
+    private WebElement accountTickerSymbolText;
 
     @FindBy(id = "acc15")
     @CacheLookup
-    private WebElement accountEmployees;
+    private WebElement accountEmployeesTxt;
 
     @FindBy(id = "acc16")
     @CacheLookup
-    private WebElement accountSIC;
+    private WebElement accountSICTxt;
 
     @FindBy(id = "acc17street")
     @CacheLookup
-    private WebElement accountBillingStreet;
+    private WebElement accountBillingStreetTxt;
 
     @FindBy(id = "acc17city")
     @CacheLookup
-    private WebElement accountBillingCity;
+    private WebElement accountBillingCityTxt;
 
     @FindBy(id = "acc17country")
     @CacheLookup
-    private WebElement accountBillingCountry;
+    private WebElement accountBillingCountryTxt;
 
     @FindBy(id = "acc18street")
     @CacheLookup
-    private WebElement accountShippingStreet;
+    private WebElement accountShippingStreetTxt;
 
     @FindBy(id = "acc18state")
     @CacheLookup
-    private WebElement accountProvince;
+    private WebElement accountProvinceTxt;
 
     @FindBy(id = "acc18country")
     @CacheLookup
-    private WebElement accountShippingCountry;
+    private WebElement accountShippingCountryTxt;
 
     @FindBy(name = "acc6")
     @CacheLookup
-    private WebElement listType;
+    private WebElement listTypeCmbbox;
 
     @FindBy(name = "acc7")
     @CacheLookup
-    private WebElement listIndustry;
+    private WebElement listIndustryCmbbox;
 
     @FindBy(name = "acc14")
     @CacheLookup
-    private WebElement listOwnership;
+    private WebElement listOwnershipCmbbox;
 
     @FindBy(id = "00N61000000tWPH")
     @CacheLookup
-    private WebElement customerPriority;
+    private WebElement customerPriorityCmbbox;
 
     @FindBy(id = "00N61000000tWPJ")
     @CacheLookup
-    private WebElement SLA;
+    private WebElement SLACmbbox;
 
     @FindBy(id = "00N61000000tWPG")
     @CacheLookup
-    private WebElement active;
+    private WebElement activeCmbbox;
 
     @FindBy(id = "acc20")
     @CacheLookup
-    private WebElement accountDescription;
-
-
+    private WebElement accountDescriptionTxt;
 
     public AccountForm(WebDriver driver){
         super.driver = driver;
         super.wait = DriverManager.getInstance().getWait();
         PageFactory.initElements(driver, this);
     }
+
     @Override
     public AccountDetails clickSaveBtn(){
         wait.until(ExpectedConditions.elementToBeClickable(saveBtn));
         saveBtn.click();
         return new AccountDetails (driver);
     }
+
     public AccountForm setAccountName(String accountName){
-        super.webDriverTools.clearAndSendKeys(this.accountNameTxt, accountName);
+        super.webDriverTools.clearAndSendKeys(accountNameTxt, accountName);
         return this;
     }
 
     public AccountForm setAccountNumber(String accountnumber){
-        wait.until(ExpectedConditions.visibilityOf(accountNumber));
-        accountNumber.clear();
-        accountNumber.sendKeys(accountnumber);
+        super.webDriverTools.clearAndSendKeys(accountNumberTxt, accountnumber);
         return this;
     }
+
     public AccountForm setAccountRevenue(String accountrevenue){
-        wait.until(ExpectedConditions.visibilityOf(accountRevenue));
-        accountRevenue.clear();
-        accountRevenue.sendKeys(accountrevenue);
+        super.webDriverTools.clearAndSendKeys(accountRevenueTxt, accountrevenue);
         return this;
     }
+
     public AccountForm setAccountPhone(String accountphone){
-        wait.until(ExpectedConditions.visibilityOf(accountPhone));
-        accountPhone.clear();
-        accountPhone.sendKeys(accountphone);
+        super.webDriverTools.clearAndSendKeys(accountPhoneTxt, accountphone);
         return this;
     }
 
     public AccountForm setAccountFax(String accountfax){
-        wait.until(ExpectedConditions.visibilityOf(accountFax));
-        accountFax.clear();
-        accountFax.sendKeys(accountfax);
+        super.webDriverTools.clearAndSendKeys(accountFaxTxt, accountfax);
         return this;
     }
 
     public AccountForm setAccountWebsite(String accountwebsite){
-        wait.until(ExpectedConditions.visibilityOf(accountWebsite));
-        accountWebsite.clear();
-        accountWebsite.sendKeys(accountwebsite);
+        super.webDriverTools.clearAndSendKeys(accountWebsiteTxt, accountwebsite);
         return this;
     }
 
     public AccountForm setAccountTickersymbol(String accountTickersymbol){
-        wait.until(ExpectedConditions.visibilityOf(accountTickerSymbol));
-        accountTickerSymbol.clear();
-        accountTickerSymbol.sendKeys(accountTickersymbol);
+        super.webDriverTools.clearAndSendKeys(accountTickerSymbolText, accountTickersymbol);
         return this;
     }
 
     public AccountForm setAccountEmployees(String accountemployees){
-        wait.until(ExpectedConditions.visibilityOf(accountEmployees));
-        accountEmployees.clear();
-        accountEmployees.sendKeys(accountemployees);
+        super.webDriverTools.clearAndSendKeys(accountEmployeesTxt, accountemployees);
         return this;
     }
 
     public AccountForm setAccountSIC(String accountsic){
-        wait.until(ExpectedConditions.visibilityOf(accountSIC));
-        accountSIC.clear();
-        accountSIC.sendKeys(accountsic);
+        super.webDriverTools.clearAndSendKeys(accountSICTxt, accountsic);
         return this;
     }
 
     public AccountForm setAccountBillingStreet(String accountbillingStreet){
-        wait.until(ExpectedConditions.visibilityOf(accountBillingStreet));
-        accountBillingStreet.clear();
-        accountBillingStreet.sendKeys(accountbillingStreet);
+        super.webDriverTools.clearAndSendKeys(accountBillingStreetTxt, accountbillingStreet);
         return this;
+
     }
 
    public AccountForm setAccountBillingCity(String accountbillingCity){
-       wait.until(ExpectedConditions.visibilityOf(accountBillingCity));
-       accountBillingCity.clear();
-       accountBillingCity.sendKeys(accountbillingCity);
+       super.webDriverTools.clearAndSendKeys(accountBillingCityTxt, accountbillingCity);
        return this;
    }
+
    public AccountForm setAccountBillingCountry(String accountbillingCountry){
-       wait.until(ExpectedConditions.visibilityOf(accountBillingCountry));
-       accountBillingCountry.clear();
-       accountBillingCountry.sendKeys(accountbillingCountry);
+       super.webDriverTools.clearAndSendKeys(accountBillingCityTxt, accountbillingCountry);
        return this;
    }
+
    public AccountForm setAccountShippingStreet(String accountshippingStreet){
-       wait.until(ExpectedConditions.visibilityOf(accountShippingStreet));
-       accountShippingStreet.clear();
-       accountShippingStreet.sendKeys(accountshippingStreet);
+       super.webDriverTools.clearAndSendKeys(accountShippingStreetTxt, accountshippingStreet);
        return this;
    }
+
    public AccountForm setAccountProvince(String accountprovince){
-       wait.until(ExpectedConditions.visibilityOf(accountProvince));
-       accountProvince.clear();
-       accountProvince.sendKeys(accountprovince);
+       super.webDriverTools.clearAndSendKeys(accountProvinceTxt, accountprovince);
        return this;
    }
 
    public AccountForm setAccountShippingCountry(String accountbillingCountry){
-       wait.until(ExpectedConditions.visibilityOf(accountShippingCountry));
-       accountShippingCountry.clear();
-       accountShippingCountry.sendKeys(accountbillingCountry);
+       super.webDriverTools.clearAndSendKeys(accountShippingCountryTxt, accountbillingCountry);
        return this;
    }
 
     public AccountForm setAccountDescription(String accountdescription){
-        wait.until(ExpectedConditions.visibilityOf(accountDescription));
-        accountDescription.clear();
-        accountDescription.sendKeys(accountdescription);
+        super.webDriverTools.clearAndSendKeys(accountDescriptionTxt, accountdescription);
         return this;
     }
 
     public AccountForm selectAccountType(String type){
-        Select selectBox = new Select(listType);
-        selectBox.selectByVisibleText(type);
+        super.webDriverTools.selectOptionInComboBoxByVisibleText(listTypeCmbbox, type);
         return this;
     }
+
     public AccountForm selectAccountIndustry(String Industry){
-        Select selectBox = new Select(listIndustry);
-        selectBox.selectByVisibleText(Industry);
+        super.webDriverTools.selectOptionInComboBoxByVisibleText(listTypeCmbbox, Industry);
         return this;
     }
 
     public AccountForm selectAccountOwnership(String listownership){
-        Select selectBox = new Select(listOwnership);
-        selectBox.selectByVisibleText(listownership);
+        super.webDriverTools.selectOptionInComboBoxByVisibleText(listOwnershipCmbbox, listownership);
         return this;
     }
 
     public AccountForm selectAccountCustomerPriority(String customerpriority){
-        Select selectBox = new Select(customerPriority);
-        selectBox.selectByVisibleText(customerpriority);
+        super.webDriverTools.selectOptionInComboBoxByVisibleText(customerPriorityCmbbox, customerpriority);
         return this;
     }
 
     public AccountForm selectAccountSLA(String sla){
-        Select selectBox = new Select(SLA);
-        selectBox.selectByVisibleText(sla);
+        super.webDriverTools.selectOptionInComboBoxByVisibleText(SLACmbbox, sla);
         return this;
     }
 
     public AccountForm selectAccountActive(String activeaccount){
-        Select selectBox = new Select(active);
-        selectBox.selectByVisibleText(activeaccount);
+        super.webDriverTools.selectOptionInComboBoxByVisibleText(activeCmbbox, activeaccount);
         return this;
+
     }
 
 
