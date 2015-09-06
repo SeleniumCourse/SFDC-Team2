@@ -14,9 +14,7 @@ import pages.opportunity.OpportunitiesHome;
 /**
  * Created by Marcelo Ferrufino on 8/22/2015.
  */
-public class NavigationTab {
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class NavigationTab extends BaseWebUI {
 
     @FindBy(linkText = "Campaigns")
     @CacheLookup
@@ -26,10 +24,7 @@ public class NavigationTab {
     @CacheLookup
     private WebElement opportunitiesTab;
 
-    public NavigationTab(WebDriver driver){
-        this.driver = driver;
-        wait = DriverManager.getInstance().getWait();
-        PageFactory.initElements(driver, this);
+    public NavigationTab() {
     }
 
     public CampaignHome goToCampaignTab(){
