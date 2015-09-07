@@ -1,12 +1,9 @@
 package pages.account;
 
-import framework.DriverManager;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.basepages.DetailsBase;
 import utils.Helper;
@@ -15,7 +12,6 @@ import utils.Helper;
 /**
  * Created by noelia on 8/26/2015.
  */
-
 
 public class AccountDetails extends DetailsBase {
     @FindBy(id = "acc2_ileinner")
@@ -37,7 +33,7 @@ public class AccountDetails extends DetailsBase {
     @FindBy(id = "acc17_ileinner")
     @CacheLookup
     private WebElement accountBillingAddressContainer;
-    Actions action ;
+
     @FindBy(id = "acc17street")
     @CacheLookup
     private WebElement accountBillingStreetContainer;
@@ -62,16 +58,13 @@ public class AccountDetails extends DetailsBase {
     @CacheLookup
     private WebElement accountOwnershipContainer;
 
-
     @FindBy(id = "acc10_ileinner")
     @CacheLookup
     private WebElement accountPhoneContainer;
 
-
     @FindBy(id = "acc11_ileinner")
     @CacheLookup
     private WebElement accountFaxContainer;
-
 
     @FindBy(id = "acc12_ilecell")
     @CacheLookup
@@ -84,7 +77,6 @@ public class AccountDetails extends DetailsBase {
     @FindBy(id = "acc15_ileinner")
     @CacheLookup
     private WebElement accountEmployeesContainer;
-
 
     @FindBy(id = "acc16_ileinner")
     @CacheLookup
@@ -102,23 +94,22 @@ public class AccountDetails extends DetailsBase {
     @CacheLookup
     private WebElement accountDescriptionContainer;
 
-
-    public AccountDetails(WebDriver driver){
-        super.driver = driver;
-        super.wait = DriverManager.getInstance().getWait();
-        PageFactory.initElements(driver, this);
-    }
+    @FindBy(id = "acc20_ileinner")
+    @CacheLookup
+    private WebElement accountNumberLocation;
+    private Actions action ;
 
     @Override
     public AccountForm clickEditBtn(){
         wait.until(ExpectedConditions.elementToBeClickable(editBtn));
         editBtn.click();
-        return new AccountForm(driver);
+        return new AccountForm();
     }
 
     @Override
-    public Object clickDeleteBtn(boolean confirmDeletion) {
-        return null;
+    public AccountHome clickDeleteBtn(boolean confirmDeletion) {
+        clickDeleteButton(confirmDeletion);
+        return new AccountHome();
     }
 
     public String getAccountName(){
@@ -136,7 +127,6 @@ public class AccountDetails extends DetailsBase {
         action= new Actions(driver);
         wait.until(ExpectedConditions.visibilityOf(accountBillingAddressContainer));
         action.doubleClick(accountBillingAddressContainer).perform();
-
         return this;
     }
 
@@ -147,12 +137,12 @@ public class AccountDetails extends DetailsBase {
     }
 
     public String getAccountBillingStreet(){
+        this.getAccountBillingAddress();
         wait.until(ExpectedConditions.visibilityOf(accountBillingStreetContainer));
         return accountBillingStreetContainer.getText();
     }
     public String getAccountBillingCity(){
         wait.until(ExpectedConditions.visibilityOf(accountBillingCityContainer));
-
         return accountBillingCityContainer.getText();
     }
     public String getAccountBillingCountry(){

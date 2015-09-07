@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.Contact.ContactHome;
 import pages.account.AccountHome;
 import pages.campaign.CampaignHome;
 import pages.opportunity.OpportunitiesHome;
@@ -29,7 +30,11 @@ public class NavigationTab {
 
     @FindBy(linkText = "Accounts")
     @CacheLookup
-    private WebElement accountsLnk;
+    private WebElement accountsTab;
+
+    @FindBy(linkText = "Contacts")
+    @CacheLookup
+    private WebElement contactsTab;
 
     public NavigationTab(WebDriver driver){
         this.driver = driver;
@@ -42,15 +47,20 @@ public class NavigationTab {
         campaignsTab.click();
         return new CampaignHome();
     }
-    public AccountHome goToAccountHome(){
-        wait.until(ExpectedConditions.elementToBeClickable(accountsLnk));
-        accountsLnk.click();
-        return new AccountHome(driver);
+    public AccountHome goToAccountTab(){
+        wait.until(ExpectedConditions.elementToBeClickable(accountsTab));
+        accountsTab.click();
+        return new AccountHome();
     }
-
     public OpportunitiesHome goToOpportunityTab() {
         wait.until(ExpectedConditions.elementToBeClickable( opportunitiesTab));
         opportunitiesTab.click();
         return new OpportunitiesHome();
     }
+    public ContactHome goToContactTab() {
+        wait.until(ExpectedConditions.elementToBeClickable(contactsTab));
+        contactsTab.click();
+        return new ContactHome();
+    }
+
 }

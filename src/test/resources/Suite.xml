@@ -3,8 +3,12 @@
 <suite name="Suite" verbose="1" >
     <test name="Nopackage" >
         <classes>
-            <class name="tests.CreateAccount" />
-
+            <class name="tests.Account.CreateAccount" />
+            <class name="tests.Account.DeleteAccount" />
+            <class name="tests.Account.EditAccount" />
+            <class name="tests.Contact.CreateContact" />
+            <class name="tests.Contact.DeleteContact" />
+            <class name="tests.Contact.EditContact" />
             <class name="tests.campaign.CreateCampaign" />
             <class name="tests.campaign.EditCampaign" />
             <class name="tests.campaign.DeleteCampaign" />

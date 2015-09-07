@@ -1,13 +1,9 @@
 package pages.account;
 
-import framework.DriverManager;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import pages.basepages.FormBase;
 
 /**
@@ -71,9 +67,9 @@ public class AccountForm extends FormBase {
     @CacheLookup
     private WebElement accountProvinceTxt;
 
-    @FindBy(id = "acc18country")
+    @FindBy(xpath = "td[contains(., 'Number of Locations')]/following-sibling::td//input")
     @CacheLookup
-    private WebElement accountShippingCountryTxt;
+    private WebElement numberLocationTxt;
 
     @FindBy(name = "acc6")
     @CacheLookup
@@ -87,15 +83,15 @@ public class AccountForm extends FormBase {
     @CacheLookup
     private WebElement listOwnershipCmbbox;
 
-    @FindBy(id = "00N61000000tWPH")
+    @FindBy(xpath = "//td[contains(., 'Customer')]/following-sibling::td//select")
     @CacheLookup
     private WebElement customerPriorityCmbbox;
 
-    @FindBy(id = "00N61000000tWPJ")
+    @FindBy(xpath= "//td[contains(., 'SLA')]/following-sibling::td//select")
     @CacheLookup
     private WebElement SLACmbbox;
 
-    @FindBy(id = "00N61000000tWPG")
+    @FindBy(xpath = "//td[contains(., 'Active')]/following-sibling::td//select")
     @CacheLookup
     private WebElement activeCmbbox;
 
@@ -103,17 +99,12 @@ public class AccountForm extends FormBase {
     @CacheLookup
     private WebElement accountDescriptionTxt;
 
-    public AccountForm(WebDriver driver){
-        super.driver = driver;
-        super.wait = DriverManager.getInstance().getWait();
-        PageFactory.initElements(driver, this);
-    }
 
     @Override
     public AccountDetails clickSaveBtn(){
         wait.until(ExpectedConditions.elementToBeClickable(saveBtn));
         saveBtn.click();
-        return new AccountDetails (driver);
+        return new AccountDetails ();
     }
 
     public AccountForm setAccountName(String accountName){
@@ -187,8 +178,8 @@ public class AccountForm extends FormBase {
        return this;
    }
 
-   public AccountForm setAccountShippingCountry(String accountbillingCountry){
-       super.webDriverTools.clearAndSendKeys(accountShippingCountryTxt, accountbillingCountry);
+   public AccountForm setAccountnumberLocation(String numberLocation){
+       super.webDriverTools.clearAndSendKeys(numberLocationTxt, numberLocation);
        return this;
    }
 
@@ -203,7 +194,7 @@ public class AccountForm extends FormBase {
     }
 
     public AccountForm selectAccountIndustry(String Industry){
-        super.webDriverTools.selectOptionInComboBoxByVisibleText(listTypeCmbbox, Industry);
+        super.webDriverTools.selectOptionInComboBoxByVisibleText(listIndustryCmbbox, Industry);
         return this;
     }
 

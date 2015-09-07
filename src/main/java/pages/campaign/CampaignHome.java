@@ -1,12 +1,9 @@
 package pages.campaign;
 
-import framework.DriverManager;
-import pages.basepages.BaseHome;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import pages.basepages.BaseHome;
 
 /**
  * Created by Marcelo Ferrufino on 8/22/2015.
