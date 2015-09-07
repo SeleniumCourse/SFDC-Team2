@@ -9,7 +9,7 @@ import pages.basepages.FormBase;
 /**
  * Created by noelia on 9/6/2015.
  */
-public class ContactForm extends FormBase{
+public class ContactForm extends FormBase {
 
     @FindBy(id = "name_firstcon2")
     @CacheLookup
@@ -59,11 +59,11 @@ public class ContactForm extends FormBase{
     @CacheLookup
     private WebElement assstPhoneTxt;
 
-    @FindBy(xpath= "//td[contains(., 'Languages')]/following-sibling::td//input")
+    @FindBy(xpath = "//td[contains(., 'Languages')]/following-sibling::td//input")
     @CacheLookup
     private WebElement languagesTxt;
 
-    @FindBy(xpath= "//td[contains(., 'Level')]/following-sibling::td//select")
+    @FindBy(xpath = "//td[contains(., 'Level')]/following-sibling::td//select")
     @CacheLookup
     private WebElement levelTxt;
 
@@ -116,7 +116,7 @@ public class ContactForm extends FormBase{
         return this;
     }
 
-    public ContactForm setbirthDay(String birthday) {
+    public ContactForm setBirthDay(String birthday) {
         super.webDriverTools.clearAndSendKeys(birthdateTxt, birthday);
         return this;
     }

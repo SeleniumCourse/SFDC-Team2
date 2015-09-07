@@ -9,7 +9,7 @@ import pages.basepages.DetailsBase;
 /**
  * Created by noelia on 9/6/2015.
  */
-public class ContactDetails extends DetailsBase{
+public class ContactDetails extends DetailsBase {
 
     @FindBy(id = "con2_ileinner")
     @CacheLookup
@@ -67,71 +67,74 @@ public class ContactDetails extends DetailsBase{
     @CacheLookup
     private WebElement levelContainer;
 
-    public String getlanguages(){
+    public String getlanguages() {
         wait.until(ExpectedConditions.visibilityOf(levelContainer));
         return levelContainer.getText();
     }
 
-    public String getAssistantLevel(){
+    public String getAssistantLevel() {
         wait.until(ExpectedConditions.visibilityOf(levelContainer));
         return levelContainer.getText();
     }
 
-    public String getEmail(){
+    public String getEmail() {
         wait.until(ExpectedConditions.visibilityOf(emailContainer));
         return emailContainer.getText();
     }
-    public String getAssistantPhone(){
+
+    public String getAssistantPhone() {
         wait.until(ExpectedConditions.visibilityOf(assistantPhoneContainer));
         return assistantPhoneContainer.getText();
     }
-    public String getAssistant(){
+
+    public String getAssistant() {
         wait.until(ExpectedConditions.visibilityOf(assistantContainer));
         return assistantContainer.getText();
     }
 
-    public String getDescription(){
+    public String getDescription() {
         wait.until(ExpectedConditions.visibilityOf(descriptionContainer));
         return descriptionContainer.getText();
     }
 
-    public String getFax(){
+    public String getFax() {
         wait.until(ExpectedConditions.visibilityOf(faxContainer));
         return faxContainer.getText();
     }
 
-    public String getlead(){
+    public String getlead() {
         wait.until(ExpectedConditions.visibilityOf(leadContainer));
         return leadContainer.getText();
     }
-    public String getMobilePhone(){
+
+    public String getMobilePhone() {
         wait.until(ExpectedConditions.visibilityOf(mobilePhoneContainer));
         return mobilePhoneContainer.getText();
     }
 
-    public String getPhone(){
+    public String getPhone() {
         wait.until(ExpectedConditions.visibilityOf(phoneContainer));
         return phoneContainer.getText();
     }
 
-    public String getbirthDay(){
+    public String getBirthDay() {
         wait.until(ExpectedConditions.visibilityOf(birthDayContainer));
         return birthDayContainer.getText();
     }
 
-    public String getfistName() {
+    public String getFistName() {
         String contactName;
         wait.until(ExpectedConditions.visibilityOf(firstNameContainer));
         contactName = firstNameContainer.getText();
         return contactName;
     }
 
-    public String getTitle(){
+    public String getTitle() {
         wait.until(ExpectedConditions.visibilityOf(titleContainer));
         return titleContainer.getText();
     }
 
-    public String getDepartment(){
+    public String getDepartment() {
         wait.until(ExpectedConditions.visibilityOf(departmentContainer));
         return departmentContainer.getText();
     }

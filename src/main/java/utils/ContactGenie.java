@@ -30,24 +30,24 @@ public class ContactGenie {
     private static String DESCRIPTION = "text description";
 
     /**
-     * Create a Campaign object
+     * Create a Contact object
      *
-     * @params campaignName: Campaign Name object to be created
-     * @return CampaignDetails object
+     * @return ContactDetails object
+     * @params contactName: Contact Name object to be created
      */
-    public static ContactDetails createContactObject(String contactName){
+    public static ContactDetails createContactObject(String contactName) {
         Login login = new Login();
         MainApp mainApp = login.loginAsPrimaryUser();
 
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         ContactHome contactHome = navigationTab.goToContactTab();
         ContactForm contactForm = (ContactForm) contactHome.clickNewBtn();
-         ContactDetails contactDetails = contactForm.setLastName(contactName)
+        ContactDetails contactDetails = contactForm.setLastName(contactName)
                 .selectFirstName(FIRSTNAME_mR)
                 .setFirstName(FIRST_NAME)
                 .setTitle(TITLE)
                 .setDepartament(DEPARTMENT)
-                .setbirthDay(BIRTHDAY)
+                .setBirthDay(BIRTHDAY)
                 .selectLead(LEAD)
                 .setPhone(PHONE)
                 .setMobile(MOBILE)
@@ -61,7 +61,7 @@ public class ContactGenie {
         return contactDetails;
     }
 
-    public static void deleteContactObjectAndQuitBrowserDriver(ContactDetails campaignDetails){
+    public static void deleteContactObjectAndQuitBrowserDriver(ContactDetails campaignDetails) {
         campaignDetails.clickDeleteButton(true);
         DriverManager.getInstance().getDriver().quit();
     }

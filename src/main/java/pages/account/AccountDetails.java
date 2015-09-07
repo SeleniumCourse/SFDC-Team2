@@ -48,7 +48,7 @@ public class AccountDetails extends DetailsBase {
 
     @FindBy(id = "InlineEditDialogX")
     @CacheLookup
-    private WebElement accountcloseBillingshippingAddress;
+    private WebElement accountCloseBillingShippingAddress;
 
     @FindBy(id = "acc7_ileinner")
     @CacheLookup
@@ -97,10 +97,10 @@ public class AccountDetails extends DetailsBase {
     @FindBy(id = "acc20_ileinner")
     @CacheLookup
     private WebElement accountNumberLocation;
-    private Actions action ;
+    private Actions action;
 
     @Override
-    public AccountForm clickEditBtn(){
+    public AccountForm clickEditBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(editBtn));
         editBtn.click();
         return new AccountForm();
@@ -112,95 +112,110 @@ public class AccountDetails extends DetailsBase {
         return new AccountHome();
     }
 
-    public String getAccountName(){
+    public String getAccountName() {
         String accountName;
         wait.until(ExpectedConditions.visibilityOf(accountNameContainer));
         accountName = accountNameContainer.getText();
         return accountName.replace("[View Hierarchy]", "").trim();
     }
-    public String getAccountNumber(){
+
+    public String getAccountNumber() {
         wait.until(ExpectedConditions.visibilityOf(accountNumberContainer));
         return accountNumberContainer.getText();
     }
 
-    public AccountDetails getAccountBillingAddress(){
-        action= new Actions(driver);
+    public AccountDetails getAccountBillingAddress() {
+        action = new Actions(driver);
         wait.until(ExpectedConditions.visibilityOf(accountBillingAddressContainer));
         action.doubleClick(accountBillingAddressContainer).perform();
         return this;
     }
 
-    public AccountDetails closeAccountBillingAddress(){
-        wait.until(ExpectedConditions.visibilityOf(accountcloseBillingshippingAddress));
-        accountcloseBillingshippingAddress.click();
+    public AccountDetails closeAccountBillingAddress() {
+        wait.until(ExpectedConditions.visibilityOf(accountCloseBillingShippingAddress));
+        accountCloseBillingShippingAddress.click();
         return this;
     }
 
-    public String getAccountBillingStreet(){
+    public String getAccountBillingStreet() {
         this.getAccountBillingAddress();
         wait.until(ExpectedConditions.visibilityOf(accountBillingStreetContainer));
         return accountBillingStreetContainer.getText();
     }
-    public String getAccountBillingCity(){
+
+    public String getAccountBillingCity() {
         wait.until(ExpectedConditions.visibilityOf(accountBillingCityContainer));
         return accountBillingCityContainer.getText();
     }
-    public String getAccountBillingCountry(){
+
+    public String getAccountBillingCountry() {
         wait.until(ExpectedConditions.visibilityOf(accountBillingCountryContainer));
         return accountBillingCountryContainer.getText();
     }
 
-    public String getAccountType(){
+    public String getAccountType() {
         wait.until(ExpectedConditions.visibilityOf(accountTypeContainer));
         return accountTypeContainer.getText();
     }
-    public String getAccountIndustry(){
+
+    public String getAccountIndustry() {
         wait.until(ExpectedConditions.visibilityOf(accountIndustryContainer));
         return accountIndustryContainer.getText();
     }
-    public String getAccountRevenue(){
+
+    public String getAccountRevenue() {
         wait.until(ExpectedConditions.visibilityOf(accountRevenueContainer));
         return Helper.removeSubstringToString("$", accountRevenueContainer.getText());
     }
-    public String getAccountOwnership(){
+
+    public String getAccountOwnership() {
         wait.until(ExpectedConditions.visibilityOf(accountOwnershipContainer));
         return accountOwnershipContainer.getText();
     }
-    public String getAccountPhone(){
+
+    public String getAccountPhone() {
         wait.until(ExpectedConditions.visibilityOf(accountPhoneContainer));
         return accountPhoneContainer.getText();
     }
-    public String getAccountFax(){
+
+    public String getAccountFax() {
         wait.until(ExpectedConditions.visibilityOf(accountFaxContainer));
         return accountFaxContainer.getText();
     }
-    public String getAccountWebside(){
+
+    public String getAccountWebside() {
         wait.until(ExpectedConditions.visibilityOf(accountWebsideContainer));
         return accountWebsideContainer.getText();
     }
-    public AccountDetails getShippingAddress(){
-        action= new Actions(driver);
+
+    public AccountDetails getShippingAddress() {
+        action = new Actions(driver);
         wait.until(ExpectedConditions.visibilityOf(accountShippingAddressContainer));
         action.doubleClick(accountShippingAddressContainer).perform();
         return this;
     }
-    public String getAccountTikersimbolo(){
+
+    public String getAccountTikersimbolo() {
         wait.until(ExpectedConditions.visibilityOf(accountTikersimboloContainer));
         return accountTikersimboloContainer.getText();
     }
-    public String getAccountSIC(){
+
+    public String getAccountSIC() {
         wait.until(ExpectedConditions.visibilityOf(accountSICContainer));
         return accountSICContainer.getText();
     }
-    public String getAccountEmployees(){
+
+    public String getAccountEmployees() {
         wait.until(ExpectedConditions.visibilityOf(accountEmployeesContainer));
         return accountEmployeesContainer.getText();
     }
-    public String getShippingbillingProvince(){
+
+    public String getShippingbillingProvince() {
         wait.until(ExpectedConditions.visibilityOf(accountShippingbillingProvinceContainer));
         return accountShippingbillingProvinceContainer.getText();
     }
-    public String getAccountDescription(){
+
+    public String getAccountDescription() {
         wait.until(ExpectedConditions.visibilityOf(accountDescriptionContainer));
         return accountDescriptionContainer.getText().trim();
     }

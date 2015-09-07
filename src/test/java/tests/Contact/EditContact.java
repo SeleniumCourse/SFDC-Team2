@@ -48,7 +48,7 @@ public class EditContact {
                 .setFirstName(FIRST_NAME)
                 .setTitle(TITLE)
                 .setDepartament(DEPARTMENT)
-                .setbirthDay(BIRTHDAY)
+                .setBirthDay(BIRTHDAY)
                 .selectLead(LEAD)
                 .setPhone(PHONE)
                 .setMobile(MOBILE)
@@ -61,7 +61,7 @@ public class EditContact {
                 .clickSaveBtn();
         Assert.assertEquals(contactDetails.getTitle(),TITLE);
         Assert.assertEquals(contactDetails.getDepartment(), DEPARTMENT);
-        Assert.assertEquals(contactDetails.getbirthDay(), BIRTHDAY);
+        Assert.assertEquals(contactDetails.getBirthDay(), BIRTHDAY);
         Assert.assertEquals(contactDetails.getlead(), LEAD);
         Assert.assertEquals(contactDetails.getEmail(), EMAIL);
         Assert.assertEquals(contactDetails.getPhone(), PHONE);
