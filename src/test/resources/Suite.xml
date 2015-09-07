@@ -6,7 +6,9 @@
             <class name="tests.campaign.CreateCampaign" />
             <class name="tests.campaign.EditCampaign" />
             <class name="tests.campaign.DeleteCampaign" />
-            <class name="tests.Opportunity" />
+            <class name="tests.opportunity.CreateOpportunity" />
+            <class name="tests.opportunity.EditOpportunity"/>
+            <class name="tests.opportunity.DeleteOpportunity"/>
        </classes>
    </test>
 </suite>

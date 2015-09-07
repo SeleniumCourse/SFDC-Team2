@@ -3,7 +3,9 @@ package pages.opportunity;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.basepages.DetailsBase;
+import utils.Helper;
 
 /**
  * Created by Virginia Sanabria on 8/27/2015.
@@ -25,6 +27,10 @@ public class OpportunityDetails extends DetailsBase {
     @CacheLookup
     private WebElement leadSourceContainer;
 
+    @FindBy(id = "opp7_ileinner")
+    @CacheLookup
+    private WebElement amountContainer;
+
     @FindBy(id = "opp9_ileinner")
     @CacheLookup
     private WebElement closeDateContainer;
@@ -37,15 +43,45 @@ public class OpportunityDetails extends DetailsBase {
     @CacheLookup
     private WebElement stageContainer;
 
+    @FindBy(id = "opp12_ileinner")
+    @CacheLookup
+    private WebElement probabilityContainer;
+
+    @FindBy(xpath = "//td[contains(text(), 'Order Number')]/following-sibling::td[1]/div")
+    @CacheLookup
+    private WebElement orderNumberContainer;
+
+    @FindBy(xpath = "//td[contains(text(), 'Current Generator(s)')]/following-sibling::td[1]/div")
+    @CacheLookup
+    private WebElement currentGeneContainer;
+
+    @FindBy(xpath = "//td[contains(text(), 'Tracking Number')]/following-sibling::td[1]/div")
+    @CacheLookup
+    private WebElement trackingNumberContainer;
+
+    @FindBy(xpath = "//td[contains(text(), 'Main Competitor(s)')]/following-sibling::td/div")
+    @CacheLookup
+    private WebElement mainContainer;
+
+    @FindBy(xpath = "//td[contains(text(), 'Delivery/Installation Status')]/following-sibling::td/div")
+    @CacheLookup
+    private WebElement deliveryInstContainer;
+
+    @FindBy(id = "opp14_ileinner")
+    @CacheLookup
+    private WebElement descriptionContainer;
+
     @Override
-    public Object clickEditBtn() {
-        //TODO
-        return null;
+    public OpportunityForm clickEditBtn() {
+        super.wait.until(ExpectedConditions.elementToBeClickable(editBtn));
+        super.editBtn.click();
+        return new OpportunityForm();
     }
 
     @Override
-    public Object clickDeleteBtn(boolean confirmDeletion) {
-        return null;
+    public OpportunitiesHome clickDeleteBtn(boolean confirmDeletion) {
+        clickDeleteButton(confirmDeletion);
+        return new OpportunitiesHome();
     }
 
     public String getOpportunityNameContainer() {
@@ -54,14 +90,6 @@ public class OpportunityDetails extends DetailsBase {
 
     public String getAccountNameTxtContainer() {
         return this.accountNameTxtContainer.getText();
-    }
-
-    public String getCloseDateValue() {
-        return this.closeDateContainer.getText();
-    }
-
-    public String getStageValue() {
-        return this.stageContainer.getText();
     }
 
     public String getTypeComBoxContainer() {
@@ -73,46 +101,46 @@ public class OpportunityDetails extends DetailsBase {
     }
 
     public String getAmount() {
-        //TODO
-        return null;
+        return Helper.removeSubstringToString("$", this.amountContainer.getText());
+    }
+
+    public String getCloseDateValue() {
+        return this.closeDateContainer.getText();
     }
 
     public String getNexStep() {
         return this.nextStepContainer.getText();
     }
 
+    public String getStageValue() {
+        return this.stageContainer.getText();
+    }
+
     public String getProbability() {
-        //TODO
-        return null;
+        return Helper.removeSubstringToString("%", this.probabilityContainer.getText());
     }
 
     public String getOrderNumber() {
-        //TODO
-        return null;
+        return this.orderNumberContainer.getText();
     }
 
     public String getCurrentGenerator() {
-        //TODO
-        return null;
+        return this.currentGeneContainer.getText();
     }
 
     public String getTrackingNumber() {
-        //TODO
-        return null;
+        return this.trackingNumberContainer.getText();
     }
 
     public String getMainCompetitor() {
-        //TODO
-        return null;
+        return this.mainContainer.getText();
     }
 
     public String getDeliveryInstallStatus() {
-        //TODO
-        return null;
+        return this.deliveryInstContainer.getText();
     }
 
     public String getDescription() {
-        //TODO
-        return null;
+        return this.descriptionContainer.getText();
     }
 }

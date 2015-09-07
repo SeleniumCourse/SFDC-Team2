@@ -1,5 +1,6 @@
 package pages;
 
+import components.BaseWebUI;
 import framework.DriverManager;
 import framework.Environment;
 import org.openqa.selenium.WebDriver;
@@ -13,9 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by Marcelo Ferrufino on 8/22/2015.
  */
-public class Login {
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class Login extends BaseWebUI {
 
     @FindBy(id = "username")
     @CacheLookup
@@ -30,9 +29,6 @@ public class Login {
     private WebElement loginBtn;
 
     public Login(){
-        driver = DriverManager.getInstance().getDriver();
-        wait = DriverManager.getInstance().getWait();
-        PageFactory.initElements(driver, this);
     }
 
     public void setUserName(String userName){
@@ -59,7 +55,7 @@ public class Login {
     public MainApp clickLoginBtn(){
         wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
         loginBtn.click();
-        return new MainApp(driver);
+        return new MainApp();
     }
 
 }
