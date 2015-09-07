@@ -3,9 +3,9 @@
 <suite name="Suite" verbose="1" >
     <test name="Nopackage" >
         <classes>
-            <class name="tests.Account.CreateAccount" />
-            <class name="tests.Account.DeleteAccount" />
-            <class name="tests.Account.EditAccount" />
+            <class name="tests.account.CreateAccount" />
+            <class name="tests.account.DeleteAccount" />
+            <class name="tests.account.EditAccount" />
             <class name="tests.Contact.CreateContact" />
             <class name="tests.Contact.DeleteContact" />
             <class name="tests.Contact.EditContact" />

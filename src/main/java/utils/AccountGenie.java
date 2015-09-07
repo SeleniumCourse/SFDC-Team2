@@ -30,9 +30,9 @@ public class AccountGenie {
 
 
     /**
-     * Create a Account object
+     * Create a account object
      *
-     * @params AccountName: Account Name object to be created
+     * @params AccountName: account Name object to be created
      * @return AccountDetails object
      */
     public static AccountDetails createAccountObject(String AccountName){
