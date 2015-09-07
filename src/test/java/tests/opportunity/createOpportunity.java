@@ -1,13 +1,12 @@
 package tests.opportunity;
 
-import framework.DriverManager;
+import components.NavigationTab;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Login;
 import pages.MainApp;
-import components.NavigationTab;
 import pages.opportunity.OpportunitiesHome;
 import pages.opportunity.OpportunityDetails;
 import pages.opportunity.OpportunityForm;

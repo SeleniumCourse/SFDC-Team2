@@ -1,4 +1,4 @@
-package pages.campaign;
+package pages.account;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -6,25 +6,29 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.basepages.BaseHome;
 
 /**
- * Created by Marcelo Ferrufino on 8/22/2015.
+ * Created by noelia on 8/26/2015.
  */
-public class CampaignHome extends BaseHome {
+
+public class AccountHome extends BaseHome {
 
     @Override
-    public CampaignForm clickNewBtn() {
+    public AccountForm clickNewBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(super.newBtn));
         super.newBtn.click();
-        return new CampaignForm();
+        return new AccountForm();
     }
 
-    public CampaignDetails selectRecentCpn(String cpnName) {
+    public AccountDetails selectRecentCpn(String cpnName) {
         wait.until(ExpectedConditions.elementToBeClickable(By.linkText(cpnName)));
         WebElement cpnLnk = driver.findElement(By.linkText(cpnName));
         cpnLnk.click();
-        return new CampaignDetails();
+        return new AccountDetails();
     }
 
-    public boolean isCampaignPresent(String cpnName) {
+    public boolean isAccountPresent(String cpnName) {
         return driver.findElements(By.linkText(cpnName)).size() > 0;
     }
+
+
 }
+

@@ -1,14 +1,12 @@
 package components;
 
-import framework.DriverManager;
-import pages.campaign.CampaignHome;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.Contact.ContactHome;
+import pages.account.AccountHome;
+import pages.campaign.CampaignHome;
 import pages.opportunity.OpportunitiesHome;
 import pages.product.ProductHome;
 
@@ -25,6 +23,14 @@ public class NavigationTab extends BaseWebUI {
     @CacheLookup
     private WebElement opportunitiesTab;
 
+    @FindBy(linkText = "Accounts")
+    @CacheLookup
+    private WebElement accountsTab;
+
+    @FindBy(linkText = "Contacts")
+    @CacheLookup
+    private WebElement contactsTab;
+
     @FindBy(linkText = "Products")
     @CacheLookup
     private WebElement productsTab;
@@ -37,11 +43,21 @@ public class NavigationTab extends BaseWebUI {
         campaignsTab.click();
         return new CampaignHome();
     }
-
+    public AccountHome goToAccountTab(){
+        wait.until(ExpectedConditions.elementToBeClickable(accountsTab));
+        accountsTab.click();
+        return new AccountHome();
+    }
     public OpportunitiesHome goToOpportunityTab() {
         wait.until(ExpectedConditions.elementToBeClickable(opportunitiesTab));
         opportunitiesTab.click();
         return new OpportunitiesHome();
+    }
+
+    public ContactHome goToContactTab() {
+        wait.until(ExpectedConditions.elementToBeClickable(contactsTab));
+        contactsTab.click();
+        return new ContactHome();
     }
 
     public ProductHome goToProductTab() {
