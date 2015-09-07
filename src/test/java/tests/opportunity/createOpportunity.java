@@ -1,4 +1,4 @@
-package tests;
+package tests.opportunity;
 
 import framework.DriverManager;
 import org.testng.Assert;
@@ -11,18 +11,19 @@ import components.NavigationTab;
 import pages.opportunity.OpportunitiesHome;
 import pages.opportunity.OpportunityDetails;
 import pages.opportunity.OpportunityForm;
+import utils.OpportunityGenie;
 
 /**
  * Created by Virginia Sanabria on 8/27/2015.
  */
-public class Opportunity {
+public class CreateOpportunity {
     private MainApp mainApp;
 
-    private final String opportunityName = "virginiaOp777";
+    private final String opportunityName = "virginiaOp8";
     private final String accountName = "accountTest3";
     private final String typeName = "Existing Customer - Replacement";
     private final String leadSource = "Phone Inquiry";
-    private final String amount = "12";
+    private final String amount = "12.00";
     private final String closeDate = "8/11/2015";
     private final String nextStep = "nextSTep1";
     private final String stage = "Prospecting";
@@ -33,20 +34,22 @@ public class Opportunity {
     private final String mainCompetitor = "competitor1";
     private final String deliveryInstallStatus = "Yet to begin";
     private final String description = "this is new opportunity";
+    private OpportunityDetails opportunityDetails;
+
 
     @BeforeClass
-    public void setUp(){
+    public void setUp() {
         Login login = new Login();
         mainApp = login.loginAsPrimaryUser();
         //TOD create an account
     }
 
     @Test
-    public void createOpportunity(){
+    public void createOpportunity() {
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         OpportunitiesHome opportunitiesHome = navigationTab.goToOpportunityTab();
         OpportunityForm opportunityForm = opportunitiesHome.clickNewBtn();
-        OpportunityDetails opportunityDetails = opportunityForm.setOpyName(opportunityName)
+        opportunityDetails = opportunityForm.setOpyName(opportunityName)
                 .setAccount(accountName)
                 .selectType(typeName)
                 .selectLeadSource(leadSource)
@@ -81,7 +84,7 @@ public class Opportunity {
     }
 
     @AfterClass
-    public void tearDown(){
-        DriverManager.getInstance().getDriver().close();
+    public void tearDown() {
+        OpportunityGenie.deleteOpportunityAndQuitBrowserDriver(opportunityDetails);
     }
 }

@@ -10,13 +10,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.opportunity.OpportunitiesHome;
+import pages.product.ProductHome;
 
 /**
  * Created by Marcelo Ferrufino on 8/22/2015.
  */
-public class NavigationTab {
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class NavigationTab extends BaseWebUI {
 
     @FindBy(linkText = "Campaigns")
     @CacheLookup
@@ -26,10 +25,11 @@ public class NavigationTab {
     @CacheLookup
     private WebElement opportunitiesTab;
 
-    public NavigationTab(WebDriver driver){
-        this.driver = driver;
-        wait = DriverManager.getInstance().getWait();
-        PageFactory.initElements(driver, this);
+    @FindBy(linkText = "Products")
+    @CacheLookup
+    private WebElement productsTab;
+
+    public NavigationTab() {
     }
 
     public CampaignHome goToCampaignTab(){
@@ -39,8 +39,14 @@ public class NavigationTab {
     }
 
     public OpportunitiesHome goToOpportunityTab() {
-        wait.until(ExpectedConditions.elementToBeClickable( opportunitiesTab));
+        wait.until(ExpectedConditions.elementToBeClickable(opportunitiesTab));
         opportunitiesTab.click();
         return new OpportunitiesHome();
+    }
+
+    public ProductHome goToProductTab() {
+        wait.until(ExpectedConditions.elementToBeClickable(productsTab));
+        productsTab.click();
+        return new ProductHome();
     }
 }
