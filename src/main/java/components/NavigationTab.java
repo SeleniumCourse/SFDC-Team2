@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.Contact.ContactHome;
 import pages.account.AccountHome;
 import pages.campaign.CampaignHome;
+import pages.lead.LeadHome;
 import pages.opportunity.OpportunitiesHome;
 import pages.product.ProductHome;
 
@@ -35,8 +36,9 @@ public class NavigationTab extends BaseWebUI {
     @CacheLookup
     private WebElement productsTab;
 
-    public NavigationTab() {
-    }
+    @FindBy(linkText = "Leads")
+    @CacheLookup
+    private WebElement leadsTab;
 
     public CampaignHome goToCampaignTab(){
         wait.until(ExpectedConditions.elementToBeClickable(campaignsTab));
@@ -64,5 +66,11 @@ public class NavigationTab extends BaseWebUI {
         wait.until(ExpectedConditions.elementToBeClickable(productsTab));
         productsTab.click();
         return new ProductHome();
+    }
+
+    public LeadHome goToLeadTab() {
+        wait.until(ExpectedConditions.elementToBeClickable(leadsTab));
+        leadsTab.click();
+        return new LeadHome();
     }
 }

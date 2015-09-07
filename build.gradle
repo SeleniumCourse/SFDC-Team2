@@ -98,6 +98,12 @@ task runTestNGTestCases(type: Test) {
     systemProperties.put('primaryUserName', primaryUserName)
     systemProperties.put('primaryUserPassword', primaryUserPassword)
     systemProperties.put('browser', browser)
+    systemProperties.put('mode', mode)
+    systemProperties.put('userName', userName)
+    systemProperties.put('key', key)
+    systemProperties.put('remoteBrowser', remoteBrowser)
+    systemProperties.put('remotePlatform', remotePlatform)
+    systemProperties.put('remoteVersion', remoteVersion)
 }
 
 //Method to split suites if they are added with commas through command line

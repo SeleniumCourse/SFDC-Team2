@@ -31,7 +31,7 @@ public class LookupPage extends BaseHome {
         return null;
     }
 
-    public void searchByAccountName(String accountName) {
+    public void searchByObjectName(String accountName) {
         super.driver.switchTo().frame(this.searchFrame);
         searchTxt.clear();
         searchTxt.sendKeys(accountName);
@@ -39,20 +39,20 @@ public class LookupPage extends BaseHome {
         super.driver.switchTo().defaultContent();
     }
 
-    public void clickAccountName(String accountName) {
+    public void clickObjectName(String accountName) {
         super.driver.switchTo().frame(this.resultsFrame);
         super.driver.findElement(By.linkText(accountName)).click();
     }
 
-    public void selectAccount(String accountName) {
+    public void selectObject(String accountName) {
         String windowID = super.driver.getWindowHandle();
         Set<String> setWindows = super.driver.getWindowHandles();
         LinkedList<String> listWindows = new LinkedList<String>(setWindows);
         super.driver.switchTo().window(listWindows.getLast());
 
         LookupPage lookupPage = new LookupPage();
-        lookupPage.searchByAccountName(accountName);
-        lookupPage.clickAccountName(accountName);
+        lookupPage.searchByObjectName(accountName);
+        lookupPage.clickObjectName(accountName);
 
         super.driver.switchTo().window(windowID);
     }

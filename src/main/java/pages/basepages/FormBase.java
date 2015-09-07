@@ -10,7 +10,7 @@ import components.BaseWebUI;
  */
 public abstract class FormBase extends BaseWebUI {
 
-    @FindBy(css = "input[name='save'")
+    @FindBy(css = "input[name='save']")
     @CacheLookup
     protected WebElement saveBtn;
 

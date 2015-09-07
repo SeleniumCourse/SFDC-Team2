@@ -18,6 +18,8 @@
             <class name="tests.product.CreateProduct"/>
             <class name="tests.product.EditProduct"/>
             <class name="tests.product.DeleteProduct"/>
+
+            <class name="tests.lead.CreateLead" />
        </classes>
    </test>
 </suite>

@@ -1,11 +1,9 @@
 package pages.opportunity;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import pages.LookupPage;
 import pages.basepages.FormBase;
 
@@ -89,7 +87,7 @@ public class OpportunityForm extends FormBase{
     public OpportunityForm setAccount(String accountName) {
         lookupIcon.click();
         LookupPage lookupPage = new LookupPage();
-        lookupPage.selectAccount(accountName);
+        lookupPage.selectObject(accountName);
         return this;
     }
 
