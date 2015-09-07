@@ -66,4 +66,15 @@ public class Environment {
         return getEnv("displayName");
     }
 
+    public String getMode() { return getEnv("mode"); }
+
+    public String getUserName() { return getEnv("userName"); }
+
+    public String getKey() { return getEnv("key"); }
+
+    public String getRemoteBrowser() { return getEnv("remoteBrowser"); }
+
+    public String getRemotePlatform() { return getEnv("remotePlatform"); }
+
+    public String getRemoteVersion() { return getEnv("remoteVersion"); }
 }

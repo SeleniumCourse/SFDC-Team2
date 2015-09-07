@@ -55,4 +55,9 @@ public abstract class DetailsBase extends BaseWebUI {
                     "Delete button could not be clicked", e.fillInStackTrace());
         }
     }
+
+    protected String getValue(WebElement element) {
+        super.wait.until(ExpectedConditions.visibilityOf(element));
+        return element.getText();
+    }
 }

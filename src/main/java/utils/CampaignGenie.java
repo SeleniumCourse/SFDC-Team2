@@ -23,6 +23,7 @@ public class CampaignGenie {
     private final static String EXPECTED_RESPONSE = "10.00";
     private final static String NUM_SET = "700";
     private final static String DESCRIPTION = "campaign description";
+    private static CampaignDetails campaignDetails;
 
     /**
      * Create a Campaign object
@@ -31,6 +32,18 @@ public class CampaignGenie {
      * @return CampaignDetails object
      */
     public static CampaignDetails createCampaignObject(String campaignName){
+        createCampaign(campaignName);
+        return campaignDetails;
+    }
+
+
+    /**
+     * Create a Campaign object
+     *
+     * @params campaignName: Campaign Name object to be created
+     * @return CampaignDetails object
+     */
+    public static MainApp createCampaign(String campaignName){
         Login login = new Login();
         MainApp mainApp = login.loginAsPrimaryUser();
 
@@ -50,7 +63,7 @@ public class CampaignGenie {
                 .setNumSet(NUM_SET)
                 .setDescription(DESCRIPTION)
                 .clickSaveBtn();
-        return campaignDetails;
+        return mainApp;
     }
 
     public static void deleteCampaignObjectAndQuitBrowserDriver(CampaignDetails campaignDetails){

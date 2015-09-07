@@ -4,11 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import pages.ViewPage;
-import pages.basepages.BaseHome;
 import pages.basepages.FormBase;
-import pages.opportunity.OpportunityForm;
-import sun.plugin2.util.AppletEnumeration;
 
 /**
  * Created by Virginia Sanabria on 9/5/2015.
