@@ -1,4 +1,4 @@
-package tests.Account;
+package tests.account;
 
 import org.junit.BeforeClass;
 import org.testng.Assert;

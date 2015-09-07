@@ -1,4 +1,4 @@
-package tests.Account;
+package tests.account;
 
 import framework.DriverManager;
 import org.junit.Assert;
