@@ -26,7 +26,7 @@ public class DeleteOpportunity {
     @Test
     public void deleteOpportunity() {
         OpportunitiesHome opportunitiesHome = opportunityDetails.clickDeleteBtn(true);
-        String errorMessage = String.format("The %s opportunity name is displayed yet", opptyName);
+        String errorMessage = String.format("The %s opportunity is displayed yet", opptyName);
         Assert.assertFalse(opportunitiesHome.isItemPresentInList(opptyName), errorMessage);
     }
 

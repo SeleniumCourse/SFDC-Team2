@@ -80,7 +80,7 @@ public class OpportunityDetails extends DetailsBase {
 
     @Override
     public OpportunitiesHome clickDeleteBtn(boolean confirmDeletion) {
-        clickDeleteButton(confirmDeletion);
+        super.clickDeleteButton(confirmDeletion);
         return new OpportunitiesHome();
     }
 
