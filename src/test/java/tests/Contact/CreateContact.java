@@ -25,10 +25,11 @@ public class CreateContact {
         Login login = new Login();
         mainApp = login.loginAsPrimaryUser();
     }
-    @Test(dataProvider = "dataProviderContact", dataProviderClass = DataProviders.class)
+    @Test(groups = {"Acceptance"}, dataProvider = "dataProviderContact", dataProviderClass = DataProviders.class)
     public void contact(String FIRSTNAME_mR, String FIRST_NAME, String TITLE, String DEPARTMENT, String BIRTHDAY, String PHONE,
                         String MOBILE, String FAX, String EMAIL, String ASSISTANT, String LANGUAGES, String LEVEL, String DESCRIPTION, String LEAD) {
         String lAST_NAME = Helper.generateUniqueString("LN");
+
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         ContactHome contactHome = navigationTab.goToContactTab();
         ContactForm contactForm = (ContactForm) contactHome.clickNewBtn();

@@ -1,5 +1,7 @@
 package utils;
 
+import framework.DriverManager;
+
 import java.util.UUID;
 
 /**
@@ -22,4 +24,15 @@ public class Helper {
         return base + "-" + uuid;
     }
 
+    public static boolean isLoginPage() {
+        String baseUrl = removeSubstringToString("https://", DriverManager.getInstance().getBaseUrl());
+        String url = removeSubstringToString("https://", DriverManager.getInstance().getDriver().getCurrentUrl());
+        String urlSegments[] = url.split("/");
+
+        if ( baseUrl.equalsIgnoreCase(urlSegments[0]) ){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

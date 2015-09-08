@@ -1,8 +1,8 @@
 package tests.account;
 
-import org.junit.BeforeClass;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.account.AccountDetails;
 import pages.account.AccountForm;

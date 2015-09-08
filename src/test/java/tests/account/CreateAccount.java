@@ -40,7 +40,7 @@ public class CreateAccount {
         Login login = new Login();
         mainApp = login.loginAsPrimaryUser();
     }
-    @Test(dataProvider = "dataProviderAccount", dataProviderClass = DataProviders.class)
+    @Test(groups = {"Acceptance"}, dataProvider = "dataProviderAccount", dataProviderClass = DataProviders.class)
     public void createAccount(String accountName, String accountNumber,String accountPhone,String accountRevenue,String accountFax,
                               String accountTickerSymbol,String accountEmployees, String accountSICode,String accountType ,String accountIndustry,
                               String accountListOwnership,String accountSLA, String accountActive,String accountDescription){

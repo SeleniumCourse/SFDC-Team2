@@ -28,9 +28,4 @@ public class DeleteCampaign {
 
         Assert.assertFalse(campaignHome.isCampaignPresent(CAMPAIGN_NAME));
     }
-
-    @AfterClass
-    public void tearDown() {
-        DriverManager.getInstance().getDriver().quit();
-    }
 }

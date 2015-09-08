@@ -23,6 +23,7 @@ public class DriverManager {
     private WebDriver driver;
     private WebDriverWait wait;
 
+    private final String baseUrl = "https://login.salesforce.com";
     private String browser = Environment.getInstance().getBrowser();
     private String mode = Environment.getInstance().getMode();
     private String userName = Environment.getInstance().getUserName();
@@ -45,8 +46,6 @@ public class DriverManager {
     }
 
     private void initializeDriver(){
-        String baseUrl = "https://login.salesforce.com";
-
         if (mode.equalsIgnoreCase("Local")) {
             if (browser.equalsIgnoreCase("Firefox")) {
                 driver = new FirefoxDriver();
@@ -77,8 +76,8 @@ public class DriverManager {
             }
         }
 
-        driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
-        wait = new WebDriverWait(driver, 90);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 15);
 
         driver.get(baseUrl);
 
@@ -92,6 +91,8 @@ public class DriverManager {
     public WebDriverWait getWait() {
         return wait;
     }
+
+    public String getBaseUrl() { return baseUrl; }
 
     public void quit() {
         try{

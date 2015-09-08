@@ -30,11 +30,4 @@ public class DeleteContact {
 
             Assert.assertFalse(contactHome. isContactHomePresent(CONTACT_NAME));
         }
-
-        @AfterClass
-        public void tearDown() {
-            DriverManager.getInstance().getDriver().quit();
-        }
-
-
 }

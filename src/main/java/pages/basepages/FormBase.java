@@ -14,8 +14,5 @@ public abstract class FormBase extends BaseWebUI {
     @CacheLookup
     protected WebElement saveBtn;
 
-    public FormBase() {
-    }
-
     protected abstract Object clickSaveBtn();
 }
