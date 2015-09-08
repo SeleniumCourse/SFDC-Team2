@@ -7,6 +7,9 @@ import pages.Contact.ContactForm;
 import pages.Contact.ContactHome;
 import pages.Login;
 import pages.MainApp;
+import pages.basepages.BaseViewDetails;
+import pages.opportunity.OpportunitiesHome;
+import pages.opportunity.OpportunityViewForm;
 
 /**
  * Created by noelia on 9/6/2015.
@@ -30,10 +33,10 @@ public class ContactGenie {
     private static String DESCRIPTION = "text description";
 
     /**
-     * Create a Contact object
+     * Create a contact object
      *
      * @return ContactDetails object
-     * @params contactName: Contact Name object to be created
+     * @params contactName: contact Name object to be created
      */
     public static ContactDetails createContactObject(String contactName) {
         MainApp mainApp;
@@ -70,4 +73,18 @@ public class ContactGenie {
     public static void deleteContactObjectAndQuitBrowserDriver(ContactDetails campaignDetails) {
         campaignDetails.clickDeleteButton(true);
     }
+
+    public static BaseViewDetails createSingleViewContact(String viewName, String viewUniqueName) {
+        Login login = new Login();
+        MainApp mainApp = login.loginAsPrimaryUser();
+        NavigationTab navigationTab = mainApp.goToNavigationTab();
+        OpportunitiesHome opportunitiesHome = navigationTab.goToOpportunityTab();
+        OpportunityViewForm opportunityViewForm = opportunitiesHome.clickCreateNewViewLnk();
+        BaseViewDetails baseViewDetails = opportunityViewForm.setViewNameTxt(viewName)
+                .setViewUniqueNameTxt(viewUniqueName)
+                .clickSaveBtn();
+
+        return baseViewDetails;
+    }
+
 }

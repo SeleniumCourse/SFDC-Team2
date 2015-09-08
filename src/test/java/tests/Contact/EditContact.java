@@ -1,4 +1,4 @@
-package tests.Contact;
+package tests.contact;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;

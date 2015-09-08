@@ -8,6 +8,9 @@ import pages.MainApp;
 import pages.account.AccountDetails;
 import pages.account.AccountForm;
 import pages.account.AccountHome;
+import pages.basepages.BaseViewDetails;
+import pages.opportunity.OpportunitiesHome;
+import pages.opportunity.OpportunityViewForm;
 
 /**
  * Created by noelia on 9/6/2015.
@@ -70,5 +73,18 @@ public class AccountGenie {
     public static void deleteAccountObjectAndQuitBrowserDriver(AccountDetails accountDetails) {
         accountDetails.clickDeleteButton(true);
         //DriverManager.getInstance().getDriver().quit();
+    }
+
+    public static BaseViewDetails createSingleViewAccount(String viewName, String viewUniqueName) {
+        Login login = new Login();
+        MainApp mainApp = login.loginAsPrimaryUser();
+        NavigationTab navigationTab = mainApp.goToNavigationTab();
+        OpportunitiesHome opportunitiesHome = navigationTab.goToOpportunityTab();
+        OpportunityViewForm opportunityViewForm = opportunitiesHome.clickCreateNewViewLnk();
+        BaseViewDetails baseViewDetails = opportunityViewForm.setViewNameTxt(viewName)
+                .setViewUniqueNameTxt(viewUniqueName)
+                .clickSaveBtn();
+
+        return baseViewDetails;
     }
 }

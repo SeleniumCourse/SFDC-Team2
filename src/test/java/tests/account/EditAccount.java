@@ -34,7 +34,8 @@ public class EditAccount {
     private final String accountDescription = "This is la description ";
 
     @BeforeClass
-    public void setUp() {
+    public void setUp(){
+
         accountDetails = AccountGenie.createAccountObject(APN_NAME);
     }
 

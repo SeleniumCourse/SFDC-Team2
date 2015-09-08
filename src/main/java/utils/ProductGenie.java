@@ -4,6 +4,9 @@ import components.NavigationTab;
 import framework.DriverManager;
 import pages.Login;
 import pages.MainApp;
+import pages.basepages.BaseViewDetails;
+import pages.opportunity.OpportunitiesHome;
+import pages.opportunity.OpportunityViewForm;
 import pages.product.ProductDetails;
 import pages.product.ProductForm;
 import pages.product.ProductHome;
@@ -35,5 +38,18 @@ public class ProductGenie {
                 .setActiveStatus(true)
                 .clickSaveBtn();
         return productDetails;
+    }
+
+    public static BaseViewDetails createSingleViewProduct(String viewName, String viewUniqueName) {
+        Login login = new Login();
+        MainApp mainApp = login.loginAsPrimaryUser();
+        NavigationTab navigationTab = mainApp.goToNavigationTab();
+        OpportunitiesHome opportunitiesHome = navigationTab.goToOpportunityTab();
+        OpportunityViewForm opportunityViewForm = opportunitiesHome.clickCreateNewViewLnk();
+        BaseViewDetails baseViewDetails = opportunityViewForm.setViewNameTxt(viewName)
+                .setViewUniqueNameTxt(viewUniqueName)
+                .clickSaveBtn();
+
+        return baseViewDetails;
     }
 }

@@ -35,9 +35,13 @@ public abstract class BaseHome extends BaseWebUI {
         return driver.findElements(By.linkText(itemName)).size() > 0;
     }
 
-    public OpportunityViewForm clickEditLink() {
+    public BaseViewForm clickEditLink() {
         super.wait.until(ExpectedConditions.elementToBeClickable(editLnk));
         this.editLnk.click();
-        return new OpportunityViewForm();
+        return new BaseViewForm();
     }
+
+
+
+
 }

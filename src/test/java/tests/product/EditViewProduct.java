@@ -1,4 +1,4 @@
-package tests.opportunity;
+package tests.product;
 
 import framework.DriverManager;
 import org.testng.Assert;
@@ -7,21 +7,15 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.basepages.BaseViewDetails;
 import pages.basepages.BaseViewForm;
-import pages.opportunity.OpportunityViewForm;
 import utils.LeadGenie;
-import utils.OpportunityGenie;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static java.util.Arrays.asList;
+import utils.ProductGenie;
 
 /**
- * Created by Virginia Sanabria on 9/7/2015.
+ * Created by Noelia Melgarejo on 9/8/2015.
  */
-public class EditViewOpportunity {
+public class EditViewProduct {
     private BaseViewDetails baseViewDetails;
-    private BaseViewForm opportunityViewForm;
+    private BaseViewForm productViewForm;
 
     private final String viewName = "newTesViewOppy01";
     private final String viewUniqueName = "newTesViewOppy01";
@@ -32,25 +26,25 @@ public class EditViewOpportunity {
 
     @BeforeClass
     public void setUp() {
-        baseViewDetails = OpportunityGenie.createSingleViewOpportunity(viewName, viewUniqueName);
+        baseViewDetails = ProductGenie.createSingleViewProduct(viewName, viewUniqueName);
     }
 
     @Test
-    public void editViewOpportunity() {
-        opportunityViewForm = baseViewDetails.clickEditLink();
-        baseViewDetails = opportunityViewForm.setViewNameTxt(updateViewName)
+    public void editViewProduct() {
+        productViewForm = baseViewDetails.clickEditLink();
+        baseViewDetails = productViewForm.setViewNameTxt(updateViewName)
                 .setViewUniqueNameTxt(updateViewUniqueName)
 
                 .clickSaveBtn();
         Assert.assertEquals(baseViewDetails.getFirstSelectedView(), updateViewName, " The opportunity view is not updated");
-        opportunityViewForm  = baseViewDetails.clickEditLink();
-        Assert.assertEquals(opportunityViewForm.getViewName(), updateViewName, "The opportunity view name is not updated as expected");
-        Assert.assertEquals(opportunityViewForm.getViewUniqueName(), updateViewUniqueName, "The opportunity view unique name is not updated as expected");
+        productViewForm  = baseViewDetails.clickEditLink();
+        Assert.assertEquals(productViewForm.getViewName(), updateViewName, "The opportunity view name is not updated as expected");
+        Assert.assertEquals(productViewForm.getViewUniqueName(), updateViewUniqueName, "The opportunity view unique name is not updated as expected");
     }
 
     @AfterClass
     public void tearDown() {
-        baseViewDetails = opportunityViewForm.clickSaveBtn();
+        baseViewDetails = productViewForm.clickSaveBtn();
         baseViewDetails.clickDeleteBtn();
         DriverManager.getInstance().getDriver().quit();
     }

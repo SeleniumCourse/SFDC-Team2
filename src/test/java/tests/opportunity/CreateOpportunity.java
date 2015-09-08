@@ -19,7 +19,9 @@ import utils.OpportunityGenie;
 public class CreateOpportunity {
     private MainApp mainApp;
     private final String opportunityName = "virginiaOp8";
+
     private final String accountName = "accountTest33";
+
     private final String typeName = "Existing Customer - Replacement";
     private final String leadSource = "Phone Inquiry";
     private final String amount = "12.00";
@@ -38,8 +40,9 @@ public class CreateOpportunity {
 
     @BeforeClass
     public void setUp() {
+
         AccountGenie.createAccountObject(accountName);
-        mainApp = new MainApp();
+        mainApp=new MainApp();
     }
 
     @Test(groups = {"Acceptance"})
