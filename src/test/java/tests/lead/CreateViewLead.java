@@ -11,6 +11,7 @@ import pages.MainApp;
 import pages.basepages.BaseViewDetails;
 import pages.lead.LeadHome;
 import pages.lead.LeadViewForm;
+import utils.Helper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +33,12 @@ public class CreateViewLead {
 
     @BeforeClass
     public void setUp() {
-        Login login = new Login();
-        mainApp = login.loginAsPrimaryUser();
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
     }
 
     @Test
@@ -50,6 +55,5 @@ public class CreateViewLead {
     @AfterClass
     public void tearDown() {
         baseViewDetails.clickDeleteBtn();
-        DriverManager.getInstance().getDriver().quit();
     }
 }

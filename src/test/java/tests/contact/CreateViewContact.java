@@ -11,6 +11,7 @@ import pages.MainApp;
 import pages.basepages.BaseViewDetails;
 import pages.contact.ContactHome;
 import pages.contact.ContactViewForm;
+import utils.Helper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +35,12 @@ public class CreateViewContact {
 
     @BeforeClass
     public void setUp() {
-        Login login = new Login();
-        mainApp = login.loginAsPrimaryUser();
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
     }
 
     @Test
@@ -54,6 +59,5 @@ public class CreateViewContact {
     @AfterClass
     public void tearDown() {
         baseViewDetails.clickDeleteBtn();
-        DriverManager.getInstance().getDriver().quit();
     }
 }

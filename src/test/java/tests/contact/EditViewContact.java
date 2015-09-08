@@ -46,6 +46,5 @@ public class EditViewContact {
     public void tearDown() {
         baseViewDetails = contactViewForm.clickSaveBtn();
         baseViewDetails.clickDeleteBtn();
-        DriverManager.getInstance().getDriver().quit();
     }
 }

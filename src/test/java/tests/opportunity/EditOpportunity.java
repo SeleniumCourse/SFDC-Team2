@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.opportunity.OpportunityDetails;
 import pages.opportunity.OpportunityForm;
+import utils.AccountGenie;
 import utils.Helper;
 import utils.OpportunityGenie;
 
@@ -36,6 +37,7 @@ public class EditOpportunity {
 
     @BeforeClass
     public void setUp() {
+        AccountGenie.createAccountObject(updateAccountName);
         opportunityDetails = OpportunityGenie.createOpportunityObject(opptyName, accountName);
     }
 

@@ -11,6 +11,7 @@ import pages.opportunity.OpportunitiesHome;
 import pages.opportunity.OpportunityDetails;
 import pages.opportunity.OpportunityForm;
 import utils.AccountGenie;
+import utils.Helper;
 import utils.OpportunityGenie;
 
 /**
@@ -40,9 +41,13 @@ public class CreateOpportunity {
 
     @BeforeClass
     public void setUp() {
-
         AccountGenie.createAccountObject(accountName);
-        mainApp=new MainApp();
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
     }
 
     @Test(groups = {"Acceptance"})

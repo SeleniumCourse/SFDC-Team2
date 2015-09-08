@@ -46,6 +46,5 @@ public class EditViewAccount {
     public void tearDown() {
         baseViewDetails = accountViewForm.clickSaveBtn();
         baseViewDetails.clickDeleteBtn();
-        DriverManager.getInstance().getDriver().quit();
     }
 }

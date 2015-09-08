@@ -13,6 +13,7 @@ import pages.opportunity.OpportunitiesHome;
 import pages.opportunity.OpportunityForm;
 import pages.opportunity.OpportunityViewDetails;
 import pages.opportunity.OpportunityViewForm;
+import utils.Helper;
 
 import static java.util.Arrays.asList;
 
@@ -34,8 +35,12 @@ public class CreateViewOpportunity {
 
     @BeforeClass
     public void setUp() {
-        Login login = new Login();
-        mainApp = login.loginAsPrimaryUser();
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
     }
 
     @Test
@@ -46,7 +51,6 @@ public class CreateViewOpportunity {
         baseViewDetails = opportunityViewForm.setViewNameTxt(viewName)
                 .setViewUniqueNameTxt(viewUniqueName)
                 .selectFieldComboBox(1, fieldValue)
-                //.selectOperatorComboBox(1, operatorValue)
                 .setValueTxt(1, valueTxt)
                 .selectFieldsTodDisplayed(displayedFields)
                 .clickSaveBtn();

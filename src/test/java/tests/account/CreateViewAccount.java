@@ -11,6 +11,7 @@ import pages.MainApp;
 import pages.account.AccountHome;
 import pages.account.AccountViewForm;
 import pages.basepages.BaseViewDetails;
+import utils.Helper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,15 +28,17 @@ public class CreateViewAccount {
 
     private final String viewName = "newTesViewOppy01";
     private final String viewUniqueName = "newTesViewOppy01";
-    //private final String fieldValue = "Closed";
-   // private final String operatorValue = "contains";
     private final String valueTxt = "true";
     private final List<String> displayedFields = new ArrayList<String>(asList("Webside"));
 
     @BeforeClass
     public void setUp() {
-        Login login = new Login();
-        mainApp = login.loginAsPrimaryUser();
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
     }
 
     @Test
@@ -45,8 +48,6 @@ public class CreateViewAccount {
         AccountViewForm accountViewForm = accountHome.clickCreateNewViewLnk();
         baseViewDetails = accountViewForm.setViewNameTxt(viewName)
                 .setViewUniqueNameTxt(viewUniqueName)
-               // .selectFieldComboBox(1, fieldValue)
-                        //.selectOperatorComboBox(1, operatorValue)
                 .setValueTxt(1, valueTxt)
                 .clickSaveBtn();
         Assert.assertEquals(baseViewDetails.getFirstSelectedView(), viewName, " The account view was not created");
@@ -54,7 +55,6 @@ public class CreateViewAccount {
     @AfterClass
     public void tearDown() {
         baseViewDetails.clickDeleteBtn();
-        DriverManager.getInstance().getDriver().quit();
     }
 
 }

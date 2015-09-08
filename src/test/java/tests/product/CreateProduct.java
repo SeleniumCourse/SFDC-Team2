@@ -10,6 +10,7 @@ import pages.MainApp;
 import pages.product.ProductDetails;
 import pages.product.ProductForm;
 import pages.product.ProductHome;
+import utils.Helper;
 import utils.ProductGenie;
 
 /**
@@ -26,8 +27,12 @@ public class CreateProduct {
 
     @BeforeClass
     public void setUp() {
-        Login login = new Login();
-        mainApp = login.loginAsPrimaryUser();
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
     }
 
     @Test(groups = {"Acceptance"})

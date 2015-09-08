@@ -18,7 +18,6 @@ public class ProductGenie {
 
     public static void deleteProductAndQuitBrowserDriver(ProductDetails productDetails) {
         productDetails.clickDeleteButton(true);
-        DriverManager.getInstance().getDriver().quit();
     }
 
     public static ProductDetails createActiveProductObject(String productName) {
@@ -41,8 +40,15 @@ public class ProductGenie {
     }
 
     public static BaseViewDetails createSingleViewProduct(String viewName, String viewUniqueName) {
-        Login login = new Login();
-        MainApp mainApp = login.loginAsPrimaryUser();
+        MainApp mainApp;
+
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
+
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         OpportunitiesHome opportunitiesHome = navigationTab.goToOpportunityTab();
         OpportunityViewForm opportunityViewForm = opportunitiesHome.clickCreateNewViewLnk();
