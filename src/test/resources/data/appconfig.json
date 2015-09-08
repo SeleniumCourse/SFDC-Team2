@@ -1,0 +1,11 @@
+{
+	"browser":
+	{
+		"navigator":"chrome"
+	},
+	"ExternalFile":
+	{
+		"excelPath": "\\src\\test\\resources\\data",
+		"dataProviderData":"\\Data.xls"		
+	}
+}

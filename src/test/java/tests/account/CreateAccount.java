@@ -11,6 +11,7 @@ import pages.account.AccountDetails;
 import pages.account.AccountForm;
 import pages.account.AccountHome;
 import utils.AccountGenie;
+import utils.DataProviders;
 
 
 /**
@@ -18,7 +19,6 @@ import utils.AccountGenie;
  */
 public class CreateAccount {
     private MainApp mainApp;
-
     private final String accountName = "AccountName01L2";
     private final String accountNumber = "12400";
     private final String accountPhone= "accountPhoneL2";
@@ -40,9 +40,11 @@ public class CreateAccount {
         Login login = new Login();
         mainApp = login.loginAsPrimaryUser();
     }
+    @Test(groups = {"Acceptance"}, dataProvider = "dataProviderAccount", dataProviderClass = DataProviders.class)
+    public void createAccount(String accountName, String accountNumber,String accountPhone,String accountRevenue,String accountFax,
+                              String accountTickerSymbol,String accountEmployees, String accountSICode,String accountType ,String accountIndustry,
+                              String accountListOwnership,String accountSLA, String accountActive,String accountDescription){
 
-    @Test(groups = {"Acceptance"})
-    public void createAccount(){
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         AccountHome accountHome = navigationTab.goToAccountTab();
         AccountForm accountForm = accountHome.clickNewBtn();

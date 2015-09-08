@@ -1,4 +1,4 @@
-package tests.Contact;
+package tests.contact;
 
 import components.NavigationTab;
 import org.testng.Assert;
@@ -12,7 +12,7 @@ import pages.Login;
 import pages.MainApp;
 import utils.ContactGenie;
 import utils.Helper;
-
+import utils.DataProviders;
 /**
  * Created by noelia on 9/6/2015.
  */
@@ -20,29 +20,16 @@ public class CreateContact {
     private MainApp mainApp;
     private ContactDetails contactDetails;
 
-    private final String lAST_NAME = Helper.generateUniqueString("LN");
-    private final String FIRSTNAME_mR = "Mr.";
-    private final String FIRST_NAME = "JUSTIN";
-    private final String TITLE = "title";
-    private final String DEPARTMENT = "florida";
-    private final String BIRTHDAY = "8/22/2015";
-    private final String LEAD = "Web";
-    private final String PHONE = "456666";
-    private final String MOBILE = "998852456";
-    private final String FAX = "faxx";
-    private final String EMAIL = "noelia@gmail.com";
-    private final String ASSISTANT = "assistant";
-    private final String LANGUAGES = "English";
-    private final String LEVEL = "Secondary";
-    private final String DESCRIPTION = "text description";
-
     @BeforeClass
     public void setUp() {
         Login login = new Login();
         mainApp = login.loginAsPrimaryUser();
     }
-    @Test(groups = {"Acceptance"})
-    public void contact() {
+    @Test(groups = {"Acceptance"}, dataProvider = "dataProviderContact", dataProviderClass = DataProviders.class)
+    public void contact(String FIRSTNAME_mR, String FIRST_NAME, String TITLE, String DEPARTMENT, String BIRTHDAY, String PHONE,
+                        String MOBILE, String FAX, String EMAIL, String ASSISTANT, String LANGUAGES, String LEVEL, String DESCRIPTION, String LEAD) {
+        String lAST_NAME = Helper.generateUniqueString("LN");
+
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         ContactHome contactHome = navigationTab.goToContactTab();
         ContactForm contactForm = (ContactForm) contactHome.clickNewBtn();

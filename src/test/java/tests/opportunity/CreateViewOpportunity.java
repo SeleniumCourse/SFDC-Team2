@@ -56,6 +56,5 @@ public class CreateViewOpportunity {
     @AfterClass
     public void tearDown() {
         baseViewDetails.clickDeleteBtn();
-        DriverManager.getInstance().getDriver().quit();
     }
 }
