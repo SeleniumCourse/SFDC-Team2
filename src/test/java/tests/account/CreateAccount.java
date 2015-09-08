@@ -20,7 +20,7 @@ public class CreateAccount {
     private MainApp mainApp;
 
     private final String accountName = "AccountName01L2";
-    private final String accountNumber = "1240";
+    private final String accountNumber = "12400";
     private final String accountPhone= "accountPhoneL2";
     private final String accountRevenue= "45";
     private final String accountFax= "accountFax";
