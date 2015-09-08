@@ -14,6 +14,12 @@ public class ContactHome extends BaseHome {
         super.newBtn.click();
         return new ContactForm();
     }
+
+    @Override
+    public Object clickCreateNewViewLnk() {
+        return null;
+    }
+
     public boolean isContactHomePresent(String cpnName) {
         return driver.findElements(By.linkText(cpnName)).size() > 0;
     }

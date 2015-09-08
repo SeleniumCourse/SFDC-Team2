@@ -16,4 +16,11 @@ public class OpportunitiesHome extends BaseHome {
         super.newBtn.click();
         return new OpportunityForm();
     }
+
+    @Override
+    public OpportunityViewForm clickCreateNewViewLnk() {
+        super.wait.until(ExpectedConditions.elementToBeClickable(this.createNewViewLnk));
+        createNewViewLnk.click();
+        return new OpportunityViewForm();
+    }
 }

@@ -17,6 +17,11 @@ public class CampaignHome extends BaseHome {
         return new CampaignForm();
     }
 
+    @Override
+    public Object clickCreateNewViewLnk() {
+        return null;
+    }
+
     public CampaignDetails selectRecentCpn(String cpnName) {
         wait.until(ExpectedConditions.elementToBeClickable(By.linkText(cpnName)));
         WebElement cpnLnk = driver.findElement(By.linkText(cpnName));
