@@ -104,38 +104,11 @@ public class BaseViewForm extends BaseWebUI {
         return this;
     }
 
- /*   public BaseViewForm filterByOwnerMyViewRadioBtn() {
-        if (!myViewRadioBtn.isSelected()) {
-            myViewRadioBtn.click();
-        }
-        return this;
+    public String getViewName() {
+        return this.viewNameTxt.getAttribute("value");
     }
 
-    public BaseViewForm filterByOwnerAllViewsRadioBtn() {
-        if (!allViewRadioBtn.isSelected()) {
-            allViewRadioBtn.click();
-        }
-        return this;
+    public String getViewUniqueName() {
+        return this.viewUniqueNameTxt.getAttribute("value");
     }
-
-    public BaseViewForm visibleAllUsersRadioBtn() {
-        if (!visibleAllUsersRadioBtn.isSelected()) {
-            visibleAllUsersRadioBtn.click();
-        }
-        return this;
-    }
-
-    public BaseViewForm visibleCertainGroupsRadioBtn() {
-        if (!visibleCertainGroupsRadioBtn.isSelected()) {
-            visibleCertainGroupsRadioBtn.click();
-        }
-        return this;
-    }
-
-    public BaseViewForm visibleOnlyToMeRadioBtn() {
-        if (!visibleOnlyToMeRadioBtn.isSelected()) {
-            visibleOnlyToMeRadioBtn.click();
-        }
-        return this;
-    }*/
 }

@@ -15,7 +15,7 @@ import utils.OpportunityGenie;
  */
 public class EditOpportunity {
     private final String opptyName = Helper.generateUniqueString("OpptyName");
-    private final String accountName = "accountTest3";
+    private final String accountName = "accountTest33";
     private final String updateOpptyName = "updateOppty";
     private final String updateAccountName = "accountTest4";
     private final String typeName = "Existing Customer - Replacement";

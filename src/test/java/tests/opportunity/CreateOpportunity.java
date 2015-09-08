@@ -10,6 +10,7 @@ import pages.MainApp;
 import pages.opportunity.OpportunitiesHome;
 import pages.opportunity.OpportunityDetails;
 import pages.opportunity.OpportunityForm;
+import utils.AccountGenie;
 import utils.OpportunityGenie;
 
 /**
@@ -17,9 +18,8 @@ import utils.OpportunityGenie;
  */
 public class CreateOpportunity {
     private MainApp mainApp;
-
     private final String opportunityName = "virginiaOp8";
-    private final String accountName = "accountTest3";
+    private final String accountName = "accountTest33";
     private final String typeName = "Existing Customer - Replacement";
     private final String leadSource = "Phone Inquiry";
     private final String amount = "12.00";
@@ -38,9 +38,8 @@ public class CreateOpportunity {
 
     @BeforeClass
     public void setUp() {
-        Login login = new Login();
-        mainApp = login.loginAsPrimaryUser();
-        //TOD create an account
+        AccountGenie.createAccountObject(accountName);
+        mainApp = new MainApp();
     }
 
     @Test

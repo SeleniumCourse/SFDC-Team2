@@ -29,9 +29,4 @@ public class DeleteOpportunity {
         String errorMessage = String.format("The %s opportunity is displayed yet", opptyName);
         Assert.assertFalse(opportunitiesHome.isItemPresentInList(opptyName), errorMessage);
     }
-
-    @AfterClass
-    public void tearDown() {
-        DriverManager.getInstance().getDriver().quit();
-    }
 }
