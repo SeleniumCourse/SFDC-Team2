@@ -31,6 +31,11 @@ public class LookupPage extends BaseHome {
         return null;
     }
 
+    @Override
+    public Object clickCreateNewViewLnk() {
+        return null;
+    }
+
     public void searchByObjectName(String accountName) {
         super.driver.switchTo().frame(this.searchFrame);
         searchTxt.clear();

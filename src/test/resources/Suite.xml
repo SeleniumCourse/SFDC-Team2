@@ -15,10 +15,10 @@
             <class name="tests.opportunity.CreateOpportunity"/>
             <class name="tests.opportunity.EditOpportunity"/>
             <class name="tests.opportunity.DeleteOpportunity"/>
+            <class name="tests.opportunity.CreateViewOpportunity"/>
             <class name="tests.product.CreateProduct"/>
             <class name="tests.product.EditProduct"/>
             <class name="tests.product.DeleteProduct"/>
-
             <class name="tests.lead.CreateLead" />
        </classes>
    </test>
