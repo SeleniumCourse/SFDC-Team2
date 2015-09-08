@@ -6,8 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.Contact.ContactHome;
-import pages.Contact.ContactViewForm;
 import pages.Login;
 import pages.MainApp;
 import pages.basepages.BaseViewDetails;

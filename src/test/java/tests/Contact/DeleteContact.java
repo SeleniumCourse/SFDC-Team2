@@ -1,12 +1,10 @@
 package tests.contact;
 
-import framework.DriverManager;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.Contact.ContactDetails;
-import pages.Contact.ContactHome;
+import pages.contact.ContactDetails;
+import pages.contact.ContactHome;
 import utils.ContactGenie;
 import utils.Helper;
 

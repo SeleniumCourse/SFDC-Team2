@@ -1,9 +1,8 @@
-package pages.Contact;
+package pages.contact;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.basepages.BaseHome;
-import pages.opportunity.OpportunityViewForm;
 
 /**
  * Created by noelia on 9/6/2015.

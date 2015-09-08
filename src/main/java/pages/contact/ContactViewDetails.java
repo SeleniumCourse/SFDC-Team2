@@ -1,4 +1,4 @@
-package pages.Contact;
+package pages.contact;
 
 import pages.basepages.BaseViewDetails;
 

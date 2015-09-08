@@ -1,10 +1,9 @@
 package utils;
 
 import components.NavigationTab;
-import framework.DriverManager;
-import pages.Contact.ContactDetails;
-import pages.Contact.ContactForm;
-import pages.Contact.ContactHome;
+import pages.contact.ContactDetails;
+import pages.contact.ContactForm;
+import pages.contact.ContactHome;
 import pages.Login;
 import pages.MainApp;
 import pages.basepages.BaseViewDetails;

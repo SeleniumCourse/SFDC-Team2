@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import pages.Contact.ContactHome;
+import pages.contact.ContactHome;
 import pages.account.AccountHome;
 import pages.campaign.CampaignHome;
 import pages.lead.LeadHome;
