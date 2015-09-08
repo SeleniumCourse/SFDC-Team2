@@ -1,4 +1,4 @@
-package tests.contact;
+package tests.campaign;
 
 import components.NavigationTab;
 import framework.DriverManager;
@@ -6,11 +6,11 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.Contact.ContactHome;
-import pages.Contact.ContactViewForm;
 import pages.Login;
 import pages.MainApp;
 import pages.basepages.BaseViewDetails;
+import pages.campaign.CampaignHome;
+import pages.campaign.CampaignViewForm;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +18,9 @@ import java.util.List;
 import static java.util.Arrays.asList;
 
 /**
- * Created by Noelia Melgarejo on 9/7/2015.
+ * Created by Noelia Melgarejo on 9/8/2015.
  */
-public class CreateViewContact {
-
+public class CreateViewCampaign {
     private MainApp mainApp;
     private BaseViewDetails baseViewDetails;
 
@@ -39,11 +38,11 @@ public class CreateViewContact {
     }
 
     @Test
-    public void createViewContact() {
+    public void createViewCampain() {
         NavigationTab navigationTab = mainApp.goToNavigationTab();
-        ContactHome contactHome = navigationTab.goToContactTab();
-        ContactViewForm contactViewForm = contactHome.clickCreateNewViewLnk();
-        baseViewDetails = contactViewForm.setViewNameTxt(viewName)
+        CampaignHome campaignHome=navigationTab.goToCampaignTab();
+        CampaignViewForm campainViewForm = campaignHome.clickCreateNewViewLnk();
+        baseViewDetails = campainViewForm.setViewNameTxt(viewName)
                 .setViewUniqueNameTxt(viewUniqueName)
                         // .selectFieldComboBox(1, fieldValue)
                         //.selectOperatorComboBox(1, operatorValue)
@@ -57,3 +56,5 @@ public class CreateViewContact {
         DriverManager.getInstance().getDriver().quit();
     }
 }
+
+

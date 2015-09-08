@@ -1,4 +1,4 @@
-package tests.Contact;
+package tests.contact;
 
 import framework.DriverManager;
 import org.testng.Assert;

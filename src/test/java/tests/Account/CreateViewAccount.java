@@ -1,4 +1,4 @@
-package tests.Account;
+package tests.account;
 
 import components.NavigationTab;
 import framework.DriverManager;

@@ -1,4 +1,4 @@
-package tests.Contact;
+package tests.contact;
 
 import components.NavigationTab;
 import org.testng.Assert;

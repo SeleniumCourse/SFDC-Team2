@@ -4,9 +4,12 @@ import components.NavigationTab;
 import framework.DriverManager;
 import pages.Login;
 import pages.MainApp;
+import pages.basepages.BaseViewDetails;
 import pages.campaign.CampaignDetails;
 import pages.campaign.CampaignForm;
 import pages.campaign.CampaignHome;
+import pages.opportunity.OpportunitiesHome;
+import pages.opportunity.OpportunityViewForm;
 
 /**
  * Created by Marcelo Ferrufino on 8/31/2015.
@@ -69,6 +72,18 @@ public class CampaignGenie {
     public static void deleteCampaignObjectAndQuitBrowserDriver(CampaignDetails campaignDetails){
         campaignDetails.clickDeleteButton(true);
         DriverManager.getInstance().getDriver().quit();
+    }
+    public static BaseViewDetails createSingleViewCampain(String viewName, String viewUniqueName) {
+        Login login = new Login();
+        MainApp mainApp = login.loginAsPrimaryUser();
+        NavigationTab navigationTab = mainApp.goToNavigationTab();
+        OpportunitiesHome opportunitiesHome = navigationTab.goToOpportunityTab();
+        OpportunityViewForm opportunityViewForm = opportunitiesHome.clickCreateNewViewLnk();
+        BaseViewDetails baseViewDetails = opportunityViewForm.setViewNameTxt(viewName)
+                .setViewUniqueNameTxt(viewUniqueName)
+                .clickSaveBtn();
+
+        return baseViewDetails;
     }
 
 }

@@ -1,8 +1,8 @@
 package tests.account;
 
-import org.junit.BeforeClass;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.account.AccountDetails;
 import pages.account.AccountForm;
@@ -34,7 +34,8 @@ public class EditAccount {
     private final String accountDescription = "This is la description ";
 
     @BeforeClass
-    public void setUp() {
+    public void setUp(){
+
         accountDetails = AccountGenie.createAccountObject(APN_NAME);
     }
 

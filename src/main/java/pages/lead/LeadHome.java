@@ -2,6 +2,7 @@ package pages.lead;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.basepages.BaseHome;
+import pages.opportunity.OpportunityViewForm;
 
 /**
  * Created by marcelo on 9/5/15.
@@ -16,8 +17,9 @@ public class LeadHome extends BaseHome {
     }
 
     @Override
-    public Object clickCreateNewViewLnk() {
-        return null;
+    public LeadViewForm clickCreateNewViewLnk() {
+        super.wait.until(ExpectedConditions.elementToBeClickable(this.createNewViewLnk));
+        createNewViewLnk.click();
+        return new LeadViewForm();
     }
-
 }

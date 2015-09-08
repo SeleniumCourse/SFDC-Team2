@@ -17,10 +17,7 @@ public class CampaignHome extends BaseHome {
         return new CampaignForm();
     }
 
-    @Override
-    public Object clickCreateNewViewLnk() {
-        return null;
-    }
+
 
     public CampaignDetails selectRecentCpn(String cpnName) {
         wait.until(ExpectedConditions.elementToBeClickable(By.linkText(cpnName)));
@@ -32,4 +29,13 @@ public class CampaignHome extends BaseHome {
     public boolean isCampaignPresent(String cpnName) {
         return driver.findElements(By.linkText(cpnName)).size() > 0;
     }
+
+    @Override
+    public CampaignViewForm clickCreateNewViewLnk() {
+        super.wait.until(ExpectedConditions.elementToBeClickable(this.createNewViewLnk));
+        createNewViewLnk.click();
+        return new CampaignViewForm();
+    }
 }
+
+

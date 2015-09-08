@@ -1,4 +1,4 @@
-package tests.contact;
+package tests.product;
 
 import components.NavigationTab;
 import framework.DriverManager;
@@ -6,11 +6,13 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.Contact.ContactHome;
-import pages.Contact.ContactViewForm;
 import pages.Login;
 import pages.MainApp;
 import pages.basepages.BaseViewDetails;
+import pages.lead.LeadHome;
+import pages.lead.LeadViewForm;
+import pages.product.ProductHome;
+import pages.product.ProductViewForm;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,17 +20,14 @@ import java.util.List;
 import static java.util.Arrays.asList;
 
 /**
- * Created by Noelia Melgarejo on 9/7/2015.
+ * Created by Noelia Melgarejo on 9/8/2015.
  */
-public class CreateViewContact {
-
+public class CreateViewProduct {
     private MainApp mainApp;
     private BaseViewDetails baseViewDetails;
 
     private final String viewName = "newTesViewOppy01";
     private final String viewUniqueName = "newTesViewOppy01";
-    //private final String fieldValue = "Closed";
-    // private final String operatorValue = "contains";
     private final String valueTxt = "true";
     private final List<String> displayedFields = new ArrayList<String>(asList("Webside"));
 
@@ -39,14 +38,12 @@ public class CreateViewContact {
     }
 
     @Test
-    public void createViewContact() {
+    public void createViewProduct() {
         NavigationTab navigationTab = mainApp.goToNavigationTab();
-        ContactHome contactHome = navigationTab.goToContactTab();
-        ContactViewForm contactViewForm = contactHome.clickCreateNewViewLnk();
-        baseViewDetails = contactViewForm.setViewNameTxt(viewName)
+        ProductHome productHome = navigationTab.goToProductTab();
+        ProductViewForm productViewForm = productHome.clickCreateNewViewLnk();
+        baseViewDetails = productViewForm.setViewNameTxt(viewName)
                 .setViewUniqueNameTxt(viewUniqueName)
-                        // .selectFieldComboBox(1, fieldValue)
-                        //.selectOperatorComboBox(1, operatorValue)
                 .setValueTxt(1, valueTxt)
                 .clickSaveBtn();
         Assert.assertEquals(baseViewDetails.getFirstSelectedView(), viewName, " The account view was not created");

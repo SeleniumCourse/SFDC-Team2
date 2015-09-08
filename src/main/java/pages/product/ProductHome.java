@@ -2,6 +2,7 @@ package pages.product;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.basepages.BaseHome;
+import pages.opportunity.OpportunityViewForm;
 
 /**
  * Created by Virginia Sanabria on 9/5/2015.
@@ -15,7 +16,9 @@ public class ProductHome extends BaseHome {
     }
 
     @Override
-    public Object clickCreateNewViewLnk() {
-        return null;
+    public ProductViewForm clickCreateNewViewLnk() {
+        super.wait.until(ExpectedConditions.elementToBeClickable(this.createNewViewLnk));
+        createNewViewLnk.click();
+        return new ProductViewForm();
     }
 }

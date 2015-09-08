@@ -4,9 +4,11 @@ import components.NavigationTab;
 import framework.DriverManager;
 import pages.Login;
 import pages.MainApp;
+import pages.basepages.BaseViewDetails;
 import pages.opportunity.OpportunitiesHome;
 import pages.opportunity.OpportunityDetails;
 import pages.opportunity.OpportunityForm;
+import pages.opportunity.OpportunityViewForm;
 
 /**
  * Created by Virginia Sanabria on 9/5/2015.
@@ -32,6 +34,18 @@ public class OpportunityGenie {
 
     public static void deleteOpportunityAndQuitBrowserDriver(OpportunityDetails opportunityDetails) {
         opportunityDetails.clickDeleteButton(true);
-        DriverManager.getInstance().getDriver().quit();
+    }
+
+    public static BaseViewDetails createSingleViewOpportunity(String viewName, String viewUniqueName) {
+        Login login = new Login();
+        MainApp mainApp = login.loginAsPrimaryUser();
+        NavigationTab navigationTab = mainApp.goToNavigationTab();
+        OpportunitiesHome opportunitiesHome = navigationTab.goToOpportunityTab();
+        OpportunityViewForm opportunityViewForm = opportunitiesHome.clickCreateNewViewLnk();
+        BaseViewDetails baseViewDetails = opportunityViewForm.setViewNameTxt(viewName)
+                .setViewUniqueNameTxt(viewUniqueName)
+                .clickSaveBtn();
+
+        return baseViewDetails;
     }
 }
