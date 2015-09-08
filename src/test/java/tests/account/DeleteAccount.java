@@ -28,9 +28,4 @@ public class DeleteAccount {
 
         Assert.assertFalse(accountHome.isAccountPresent(ACCOUNT_NAME));
     }
-
-    @AfterClass
-    public void tearDown() {
-        DriverManager.getInstance().getDriver().quit();
-    }
 }

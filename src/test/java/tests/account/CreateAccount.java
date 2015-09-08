@@ -43,7 +43,6 @@ public class CreateAccount {
 
     @Test
     public void createAccount(){
-
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         AccountHome accountHome = navigationTab.goToAccountTab();
         AccountForm accountForm = accountHome.clickNewBtn();

@@ -44,13 +44,19 @@ public class CampaignGenie {
      * @return CampaignDetails object
      */
     public static MainApp createCampaign(String campaignName){
-        Login login = new Login();
-        MainApp mainApp = login.loginAsPrimaryUser();
+        MainApp mainApp;
+
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
 
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         CampaignHome campaignHome = navigationTab.goToCampaignTab();
         CampaignForm campaignForm = campaignHome.clickNewBtn();
-        CampaignDetails campaignDetails = campaignForm.setCpnName(campaignName)
+        campaignDetails = campaignForm.setCpnName(campaignName)
                 .setActive(ACTIVATE)
                 .selectType(TYPE)
                 .selectStatus(STATUS)
@@ -68,7 +74,6 @@ public class CampaignGenie {
 
     public static void deleteCampaignObjectAndQuitBrowserDriver(CampaignDetails campaignDetails){
         campaignDetails.clickDeleteButton(true);
-        DriverManager.getInstance().getDriver().quit();
     }
 
 }

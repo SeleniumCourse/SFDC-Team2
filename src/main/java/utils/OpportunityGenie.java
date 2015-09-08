@@ -17,8 +17,15 @@ public class OpportunityGenie {
     private final static String stage = "Prospecting";
 
     public static OpportunityDetails createOpportunityObject(String opptyName, String accountName) {
-        Login login = new Login();
-        MainApp mainApp = login.loginAsPrimaryUser();
+        MainApp mainApp;
+
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
+
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         OpportunitiesHome opportunitiesHome = navigationTab.goToOpportunityTab();
         OpportunityForm opportunityForm = opportunitiesHome.clickNewBtn();
@@ -32,6 +39,5 @@ public class OpportunityGenie {
 
     public static void deleteOpportunityAndQuitBrowserDriver(OpportunityDetails opportunityDetails) {
         opportunityDetails.clickDeleteButton(true);
-        DriverManager.getInstance().getDriver().quit();
     }
 }

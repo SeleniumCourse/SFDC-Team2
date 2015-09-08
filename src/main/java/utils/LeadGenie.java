@@ -23,8 +23,14 @@ public class LeadGenie {
      * @return LeadDetails object
      */
     public static LeadDetails createLeadObject(String lastName, String company){
-        Login login = new Login();
-        MainApp mainApp = login.loginAsPrimaryUser();
+        MainApp mainApp;
+
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
 
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         LeadHome leadHome = navigationTab.goToLeadTab();
@@ -37,6 +43,5 @@ public class LeadGenie {
 
     public static void deleteLeadAndQuitBrowserDriver(LeadDetails leadDetails) {
         leadDetails.clickDeleteButton(true);
-        DriverManager.getInstance().getDriver().quit();
     }
 }

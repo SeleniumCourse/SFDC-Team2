@@ -31,9 +31,4 @@ public class DeleteLead {
         String errorMessage = String.format("The %s lead is still displayed", LAST_NAME);
         Assert.assertFalse(leadHome.isItemPresentInList(LAST_NAME), errorMessage);
     }
-
-    @AfterClass
-    public void tearDown() {
-        DriverManager.getInstance().getDriver().quit();
-    }
 }

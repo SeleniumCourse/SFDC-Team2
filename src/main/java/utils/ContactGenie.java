@@ -36,8 +36,14 @@ public class ContactGenie {
      * @params contactName: Contact Name object to be created
      */
     public static ContactDetails createContactObject(String contactName) {
-        Login login = new Login();
-        MainApp mainApp = login.loginAsPrimaryUser();
+        MainApp mainApp;
+
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
 
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         ContactHome contactHome = navigationTab.goToContactTab();
@@ -63,6 +69,5 @@ public class ContactGenie {
 
     public static void deleteContactObjectAndQuitBrowserDriver(ContactDetails campaignDetails) {
         campaignDetails.clickDeleteButton(true);
-        DriverManager.getInstance().getDriver().quit();
     }
 }

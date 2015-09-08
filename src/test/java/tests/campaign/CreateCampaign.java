@@ -1,6 +1,7 @@
 package tests.campaign;
 
 import components.NavigationTab;
+import framework.DriverManager;
 import utils.CampaignGenie;
 import pages.campaign.CampaignDetails;
 import pages.campaign.CampaignForm;
