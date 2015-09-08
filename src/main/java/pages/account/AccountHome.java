@@ -18,6 +18,11 @@ public class AccountHome extends BaseHome {
         return new AccountForm();
     }
 
+    @Override
+    public Object clickCreateNewViewLnk() {
+        return null;
+    }
+
     public AccountDetails selectRecentCpn(String cpnName) {
         wait.until(ExpectedConditions.elementToBeClickable(By.linkText(cpnName)));
         WebElement cpnLnk = driver.findElement(By.linkText(cpnName));

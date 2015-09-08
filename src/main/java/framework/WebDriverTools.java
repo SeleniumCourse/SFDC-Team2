@@ -1,5 +1,6 @@
 package framework;
 
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
@@ -38,6 +39,27 @@ public class WebDriverTools {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         if ((checked && !element.isSelected()) || (!checked && element.isSelected())) {
             element.click();
+        }
+    }
+
+    public void clickOnConfirmationAlertOption(String optionName) {
+        try {
+            switch (optionName) {
+                case "Yes":
+                    this.driver.switchTo().alert().accept();
+                    break;
+                case "No":
+                    this.driver.switchTo().alert().dismiss();
+                    break;
+                case "Cancel":
+                    this.driver.switchTo().alert().dismiss();
+                    break;
+                case "OK":
+                    this.driver.switchTo().alert().accept();
+                    break;
+            }
+        } catch (NoAlertPresentException e) {
+            throw new NoAlertPresentException("The confirmation alert was not displayed", e);
         }
     }
 }
