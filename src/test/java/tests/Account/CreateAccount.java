@@ -11,6 +11,7 @@ import pages.account.AccountDetails;
 import pages.account.AccountForm;
 import pages.account.AccountHome;
 import utils.AccountGenie;
+import utils.DataProviders;
 
 
 /**
@@ -19,20 +20,6 @@ import utils.AccountGenie;
 public class CreateAccount {
     private MainApp mainApp;
 
-    private final String accountName = "AccountName01L2";
-    private final String accountNumber = "1240";
-    private final String accountPhone= "accountPhoneL2";
-    private final String accountRevenue= "45";
-    private final String accountFax= "accountFax";
-    private final String accountTickerSymbol= "accountTickerSymbol";
-    private final String accountEmployees= "20";
-    private final String accountSICode = "accountSICode";
-    private final String accountType = "Installation Partner";
-    private final String accountIndustry = "Chemicals";
-    private final String accountListOwnership = "Private";
-    private final String accountSLA = "Silver";
-    private final String accountActive = "Yes";
-    private final String accountDescription = "This is la description ";
     private AccountDetails accountDetails;
 
     @BeforeClass
@@ -40,9 +27,10 @@ public class CreateAccount {
         Login login = new Login();
         mainApp = login.loginAsPrimaryUser();
     }
-
-    @Test
-    public void createAccount(){
+    @Test(dataProvider = "dataProviderAccount", dataProviderClass = DataProviders.class)
+    public void createAccount(String accountName, String accountNumber,String accountPhone,String accountRevenue,String accountFax,
+                              String accountTickerSymbol,String accountEmployees, String accountSICode,String accountType ,String accountIndustry,
+                              String accountListOwnership,String accountSLA, String accountActive,String accountDescription){
 
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         AccountHome accountHome = navigationTab.goToAccountTab();

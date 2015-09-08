@@ -1,14 +1,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Suite" verbose="1" >
+    <listeners>
+        <listener class-name  =  "org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name  =  "org.uncommons.reportng.JUnitXMLReporter"/>
+        <listener class-name  =  "utils.ReportNGListener"/>
+    </listeners>
+
     <test name="Nopackage" >
         <classes>
             <class name="tests.account.CreateAccount" />
             <class name="tests.account.DeleteAccount" />
             <class name="tests.account.EditAccount" />
-            <class name="tests.Contact.CreateContact" />
-            <class name="tests.Contact.DeleteContact" />
-            <class name="tests.Contact.EditContact" />
+            <class name="tests.contact.CreateContact" />
+            <class name="tests.contact.DeleteContact" />
+            <class name="tests.contact.EditContact" />
             <class name="tests.campaign.CreateCampaign" />
             <class name="tests.campaign.EditCampaign" />
             <class name="tests.campaign.DeleteCampaign" />
