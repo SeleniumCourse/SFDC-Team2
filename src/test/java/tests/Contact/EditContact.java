@@ -4,8 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.Contact.ContactDetails;
-import pages.Contact.ContactForm;
+import pages.contact.ContactDetails;
+import pages.contact.ContactForm;
 import utils.ContactGenie;
 import utils.Helper;
 

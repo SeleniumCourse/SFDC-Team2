@@ -1,4 +1,4 @@
-package pages.Contact;
+package pages.contact;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
