@@ -22,6 +22,8 @@
             <class name="tests.product.EditProduct"/>
             <class name="tests.product.DeleteProduct"/>
             <class name="tests.lead.CreateLead" />
+            <class name="tests.lead.EditLead" />
+            <class name="tests.lead.DeleteLead" />
        </classes>
    </test>
 </suite>
