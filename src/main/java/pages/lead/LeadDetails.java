@@ -3,7 +3,9 @@ package pages.lead;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.basepages.DetailsBase;
+import pages.campaign.CampaignForm;
 import utils.Helper;
 
 /**
@@ -142,12 +144,15 @@ public class LeadDetails extends DetailsBase {
     public String getDescription() { return getValue(descriptionContainer); }
 
     @Override
-    public Object clickEditBtn() {
-        return null;
+    public LeadForm clickEditBtn() {
+        wait.until(ExpectedConditions.elementToBeClickable(editBtn));
+        editBtn.click();
+        return new LeadForm();
     }
 
     @Override
-    public Object clickDeleteBtn(boolean confirmDeletion) {
-        return null;
+    public LeadHome clickDeleteBtn(boolean confirmDeletion) {
+        clickDeleteButton(confirmDeletion);
+        return new LeadHome();
     }
 }
