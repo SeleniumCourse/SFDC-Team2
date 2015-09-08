@@ -53,6 +53,5 @@ public class EditViewLead {
     public void tearDown() {
         baseViewDetails = leadViewForm.clickSaveBtn();
         baseViewDetails.clickDeleteBtn();
-        DriverManager.getInstance().getDriver().quit();
     }
 }

@@ -72,12 +72,18 @@ public class AccountGenie {
 
     public static void deleteAccountObjectAndQuitBrowserDriver(AccountDetails accountDetails) {
         accountDetails.clickDeleteButton(true);
-        //DriverManager.getInstance().getDriver().quit();
     }
 
     public static BaseViewDetails createSingleViewAccount(String viewName, String viewUniqueName) {
-        Login login = new Login();
-        MainApp mainApp = login.loginAsPrimaryUser();
+        MainApp mainApp;
+
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
+
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         OpportunitiesHome opportunitiesHome = navigationTab.goToOpportunityTab();
         OpportunityViewForm opportunityViewForm = opportunitiesHome.clickCreateNewViewLnk();

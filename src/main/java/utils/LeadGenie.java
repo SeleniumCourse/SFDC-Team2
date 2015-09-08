@@ -49,8 +49,14 @@ public class LeadGenie {
     }
 
     public static BaseViewDetails createSingleViewLead(String viewName, String viewUniqueName) {
-        Login login = new Login();
-        MainApp mainApp = login.loginAsPrimaryUser();
+        MainApp mainApp;
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
+
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         OpportunitiesHome opportunitiesHome = navigationTab.goToOpportunityTab();
         OpportunityViewForm opportunityViewForm = opportunitiesHome.clickCreateNewViewLnk();

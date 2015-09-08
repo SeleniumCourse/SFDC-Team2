@@ -23,8 +23,12 @@ public class CreateContact {
 
     @BeforeClass
     public void setUp() {
-        Login login = new Login();
-        mainApp = login.loginAsPrimaryUser();
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
     }
     @Test(groups = {"Acceptance"}, dataProvider = "dataProviderContact", dataProviderClass = DataProviders.class)
     public void contact(String FIRSTNAME_mR, String FIRST_NAME, String TITLE, String DEPARTMENT, String BIRTHDAY, String PHONE,
@@ -63,7 +67,6 @@ public class CreateContact {
 
     @AfterClass
     public void tearDown() {
-
-        ContactGenie.deleteContactObjectAndQuitBrowserDriver(contactDetails);
+       ContactGenie.deleteContactObjectAndQuitBrowserDriver(contactDetails);
     }
 }

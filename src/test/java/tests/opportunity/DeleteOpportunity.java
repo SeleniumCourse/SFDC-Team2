@@ -1,12 +1,11 @@
 package tests.opportunity;
 
-import framework.DriverManager;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.opportunity.OpportunitiesHome;
 import pages.opportunity.OpportunityDetails;
+import utils.AccountGenie;
 import utils.Helper;
 import utils.OpportunityGenie;
 
@@ -20,6 +19,7 @@ public class DeleteOpportunity {
 
     @BeforeClass
     public void setUp() {
+        AccountGenie.createAccountObject(accountName);
         opportunityDetails = OpportunityGenie.createOpportunityObject(opptyName, accountName);
     }
 

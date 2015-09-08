@@ -52,6 +52,5 @@ public class EditViewOpportunity {
     public void tearDown() {
         baseViewDetails = opportunityViewForm.clickSaveBtn();
         baseViewDetails.clickDeleteBtn();
-        DriverManager.getInstance().getDriver().quit();
     }
 }

@@ -11,6 +11,7 @@ import pages.MainApp;
 import pages.basepages.BaseViewDetails;
 import pages.campaign.CampaignHome;
 import pages.campaign.CampaignViewForm;
+import utils.Helper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,15 +27,17 @@ public class CreateViewCampaign {
 
     private final String viewName = "newTesViewOppy01";
     private final String viewUniqueName = "newTesViewOppy01";
-    //private final String fieldValue = "Closed";
-    // private final String operatorValue = "contains";
     private final String valueTxt = "true";
     private final List<String> displayedFields = new ArrayList<String>(asList("Webside"));
 
     @BeforeClass
     public void setUp() {
-        Login login = new Login();
-        mainApp = login.loginAsPrimaryUser();
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
     }
 
     @Test
@@ -53,7 +56,6 @@ public class CreateViewCampaign {
     @AfterClass
     public void tearDown() {
         baseViewDetails.clickDeleteBtn();
-        DriverManager.getInstance().getDriver().quit();
     }
 }
 

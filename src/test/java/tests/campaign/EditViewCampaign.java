@@ -49,6 +49,5 @@ public class EditViewCampaign {
     public void tearDown() {
         baseViewDetails = campaignViewForm.clickSaveBtn();
         baseViewDetails.clickDeleteBtn();
-        DriverManager.getInstance().getDriver().quit();
     }
 }

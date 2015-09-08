@@ -36,8 +36,12 @@ public class CreateCampaign {
 
     @BeforeClass
     public void setUp() {
-        Login login = new Login();
-        mainApp = login.loginAsPrimaryUser();
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
     }
 
     @Test(groups = {"Acceptance"})

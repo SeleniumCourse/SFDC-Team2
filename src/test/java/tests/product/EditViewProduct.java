@@ -46,6 +46,5 @@ public class EditViewProduct {
     public void tearDown() {
         baseViewDetails = productViewForm.clickSaveBtn();
         baseViewDetails.clickDeleteBtn();
-        DriverManager.getInstance().getDriver().quit();
     }
 }

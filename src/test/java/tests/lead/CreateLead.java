@@ -121,9 +121,4 @@ public class CreateLead {
         Assert.assertEquals(PRIMARY, leadDetails.getPrimary());
         Assert.assertEquals(DESCRIPTION, leadDetails.getDescription());
     }
-
-    @AfterClass
-    public void tearDown(){
-        DriverManager.getInstance().getDriver().quit();
-    }
 }
