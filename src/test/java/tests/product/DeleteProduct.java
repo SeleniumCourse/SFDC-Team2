@@ -27,9 +27,4 @@ public class DeleteProduct {
         String errorMessage = String.format("The %s product is displayed yet", productName);
         Assert.assertFalse(productHome.isItemPresentInList(productName), errorMessage);
     }
-
-    @AfterClass
-    public void tearDown() {
-        DriverManager.getInstance().getDriver().quit();
-    }
 }

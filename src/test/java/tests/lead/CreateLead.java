@@ -60,7 +60,7 @@ public class CreateLead {
         mainApp = CampaignGenie.createCampaign(CAMPAIGN_NAME);
     }
 
-    @Test
+    @Test(groups = {"Acceptance"})
     public void createLead(){
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         LeadHome leadHome = navigationTab.goToLeadTab();

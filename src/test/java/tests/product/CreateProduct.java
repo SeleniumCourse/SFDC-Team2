@@ -30,7 +30,7 @@ public class CreateProduct {
         mainApp = login.loginAsPrimaryUser();
     }
 
-    @Test
+    @Test(groups = {"Acceptance"})
     public void createProduct() {
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         ProductHome productHome = navigationTab.goToProductTab();

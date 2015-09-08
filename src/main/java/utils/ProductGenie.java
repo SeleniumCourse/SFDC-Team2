@@ -22,8 +22,15 @@ public class ProductGenie {
     }
 
     public static ProductDetails createActiveProductObject(String productName) {
-        Login login = new Login();
-        MainApp mainApp = login.loginAsPrimaryUser();
+        MainApp mainApp;
+
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
+
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         ProductHome productHome = navigationTab.goToProductTab();
         ProductForm productForm = productHome.clickNewBtn();

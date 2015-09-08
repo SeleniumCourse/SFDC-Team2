@@ -1,6 +1,7 @@
 package tests.campaign;
 
 import components.NavigationTab;
+import framework.DriverManager;
 import utils.CampaignGenie;
 import pages.campaign.CampaignDetails;
 import pages.campaign.CampaignForm;
@@ -39,7 +40,7 @@ public class CreateCampaign {
         mainApp = login.loginAsPrimaryUser();
     }
 
-    @Test
+    @Test(groups = {"Acceptance"})
     public void createCampaign() {
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         CampaignHome campaignHome = navigationTab.goToCampaignTab();

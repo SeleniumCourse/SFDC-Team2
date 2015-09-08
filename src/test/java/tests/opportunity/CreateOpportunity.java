@@ -45,7 +45,7 @@ public class CreateOpportunity {
         mainApp=new MainApp();
     }
 
-    @Test
+    @Test(groups = {"Acceptance"})
     public void createOpportunity() {
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         OpportunitiesHome opportunitiesHome = navigationTab.goToOpportunityTab();

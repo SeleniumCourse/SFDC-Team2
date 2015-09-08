@@ -2,6 +2,7 @@ package utils;
 
 import components.NavigationTab;
 import framework.DriverManager;
+import framework.LogManager;
 import pages.Login;
 import pages.MainApp;
 import pages.account.AccountDetails;
@@ -18,11 +19,11 @@ public class AccountGenie {
 
 
     private static String accountNumber = "1240";
-    private static String accountPhone= "accountPhoneL2";
-    private static String accountRevenue= "45";
-    private static String accountFax= "accountFax";
-    private static String accountTickerSymbol= "accountTickerSymbol";
-    private static String accountEmployees= "20";
+    private static String accountPhone = "accountPhoneL2";
+    private static String accountRevenue = "45";
+    private static String accountFax = "accountFax";
+    private static String accountTickerSymbol = "accountTickerSymbol";
+    private static String accountEmployees = "20";
     private static String accountSICode = "accountSICode";
     private static String accountType = "Installation Partner";
     private static String accountIndustry = "Chemicals";
@@ -35,12 +36,18 @@ public class AccountGenie {
     /**
      * Create a account object
      *
-     * @params AccountName: account Name object to be created
      * @return AccountDetails object
+     * @params AccountName: account Name object to be created
      */
-    public static AccountDetails createAccountObject(String AccountName){
-        Login login = new Login();
-        MainApp mainApp = login.loginAsPrimaryUser();
+    public static AccountDetails createAccountObject(String AccountName) {
+        MainApp mainApp;
+
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
 
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         AccountHome AccountHome = navigationTab.goToAccountTab();
@@ -63,9 +70,9 @@ public class AccountGenie {
         return accountDetails;
     }
 
-    public static void deleteAccountObjectAndQuitBrowserDriver(AccountDetails accountDetails){
+    public static void deleteAccountObjectAndQuitBrowserDriver(AccountDetails accountDetails) {
         accountDetails.clickDeleteButton(true);
-        DriverManager.getInstance().getDriver().quit();
+        //DriverManager.getInstance().getDriver().quit();
     }
 
     public static BaseViewDetails createSingleViewAccount(String viewName, String viewUniqueName) {
