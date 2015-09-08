@@ -41,7 +41,7 @@ public class CreateContact {
         Login login = new Login();
         mainApp = login.loginAsPrimaryUser();
     }
-    @Test
+    @Test(groups = {"Acceptance"})
     public void contact() {
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         ContactHome contactHome = navigationTab.goToContactTab();

@@ -43,7 +43,7 @@ public class CreateOpportunity {
         //TOD create an account
     }
 
-    @Test
+    @Test(groups = {"Acceptance"})
     public void createOpportunity() {
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         OpportunitiesHome opportunitiesHome = navigationTab.goToOpportunityTab();

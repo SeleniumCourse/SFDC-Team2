@@ -40,7 +40,7 @@ public class CreateCampaign {
         mainApp = login.loginAsPrimaryUser();
     }
 
-    @Test
+    @Test(groups = {"Acceptance"})
     public void createCampaign() {
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         CampaignHome campaignHome = navigationTab.goToCampaignTab();

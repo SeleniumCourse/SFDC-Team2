@@ -41,7 +41,7 @@ public class CreateAccount {
         mainApp = login.loginAsPrimaryUser();
     }
 
-    @Test
+    @Test(groups = {"Acceptance"})
     public void createAccount(){
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         AccountHome accountHome = navigationTab.goToAccountTab();
