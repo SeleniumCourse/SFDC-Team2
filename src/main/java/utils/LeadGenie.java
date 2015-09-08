@@ -18,8 +18,9 @@ public class LeadGenie {
     /**
      * Create a Lead object
      *
-     * @params campaignName: Campaign Name object to be created
-     * @return CampaignDetails object
+     * @params lastName: Last Name of Lead to be created
+     * @params Company: Company Name
+     * @return LeadDetails object
      */
     public static LeadDetails createLeadObject(String lastName, String company){
         Login login = new Login();
@@ -38,6 +39,4 @@ public class LeadGenie {
         leadDetails.clickDeleteButton(true);
         DriverManager.getInstance().getDriver().quit();
     }
-
-
 }
