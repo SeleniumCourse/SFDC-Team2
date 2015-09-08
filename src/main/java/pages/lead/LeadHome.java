@@ -15,4 +15,9 @@ public class LeadHome extends BaseHome {
         return new LeadForm();
     }
 
+    @Override
+    public Object clickCreateNewViewLnk() {
+        return null;
+    }
+
 }

@@ -13,4 +13,9 @@ public class ProductHome extends BaseHome {
         super.newBtn.click();
         return new ProductForm();
     }
+
+    @Override
+    public Object clickCreateNewViewLnk() {
+        return null;
+    }
 }
