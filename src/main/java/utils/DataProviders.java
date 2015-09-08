@@ -31,6 +31,6 @@ public class DataProviders {
 	@DataProvider(name="dataProviderAccount")
 	public static Object[][] getDataAccount() throws BiffException, IOException {
 		ExcelReader excelFile = new ExcelReader(EXCEL_DATA_PROVIDER);
-		return excelFile.getObjectValues("Account");
+		return excelFile.getObjectValues("account");
 	}
 }
