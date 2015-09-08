@@ -1,4 +1,4 @@
-package tests.contact;
+package tests.account;
 
 import framework.DriverManager;
 import org.testng.Assert;
@@ -12,10 +12,10 @@ import utils.ContactGenie;
 /**
  * Created by Noelia Melgarejo on 9/8/2015.
  */
-public class EditViewContact {
+public class EditViewAccount {
 
     private BaseViewDetails baseViewDetails;
-    private BaseViewForm contactViewForm;
+    private BaseViewForm accountViewForm;
 
     private final String viewName = "newTesViewOppy01";
     private final String viewUniqueName = "newTesViewOppy01";
@@ -30,21 +30,21 @@ public class EditViewContact {
     }
 
     @Test
-    public void editViewContact() {
-        contactViewForm = baseViewDetails.clickEditLink();
-        baseViewDetails = contactViewForm.setViewNameTxt(updateViewName)
+    public void editViewLead() {
+        accountViewForm = baseViewDetails.clickEditLink();
+        baseViewDetails = accountViewForm.setViewNameTxt(updateViewName)
                 .setViewUniqueNameTxt(updateViewUniqueName)
 
                 .clickSaveBtn();
         Assert.assertEquals(baseViewDetails.getFirstSelectedView(), updateViewName, " The opportunity view is not updated");
-        contactViewForm  = baseViewDetails.clickEditLink();
-        Assert.assertEquals(contactViewForm.getViewName(), updateViewName, "The opportunity view name is not updated as expected");
-        Assert.assertEquals(contactViewForm.getViewUniqueName(), updateViewUniqueName, "The opportunity view unique name is not updated as expected");
+        accountViewForm  = baseViewDetails.clickEditLink();
+        Assert.assertEquals(accountViewForm.getViewName(), updateViewName, "The opportunity view name is not updated as expected");
+        Assert.assertEquals(accountViewForm.getViewUniqueName(), updateViewUniqueName, "The opportunity view unique name is not updated as expected");
     }
 
     @AfterClass
     public void tearDown() {
-        baseViewDetails = contactViewForm.clickSaveBtn();
+        baseViewDetails = accountViewForm.clickSaveBtn();
         baseViewDetails.clickDeleteBtn();
         DriverManager.getInstance().getDriver().quit();
     }

@@ -1,4 +1,4 @@
-package tests.contact;
+package tests.account;
 
 import components.NavigationTab;
 import framework.DriverManager;
@@ -6,10 +6,10 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.contact.ContactHome;
-import pages.contact.ContactViewForm;
 import pages.Login;
 import pages.MainApp;
+import pages.account.AccountHome;
+import pages.account.AccountViewForm;
 import pages.basepages.BaseViewDetails;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import static java.util.Arrays.asList;
 /**
  * Created by Noelia Melgarejo on 9/7/2015.
  */
-public class CreateViewContact {
+public class CreateViewAccount {
 
     private MainApp mainApp;
     private BaseViewDetails baseViewDetails;
@@ -28,7 +28,7 @@ public class CreateViewContact {
     private final String viewName = "newTesViewOppy01";
     private final String viewUniqueName = "newTesViewOppy01";
     //private final String fieldValue = "Closed";
-    // private final String operatorValue = "contains";
+   // private final String operatorValue = "contains";
     private final String valueTxt = "true";
     private final List<String> displayedFields = new ArrayList<String>(asList("Webside"));
 
@@ -39,21 +39,22 @@ public class CreateViewContact {
     }
 
     @Test
-    public void createViewContact() {
+    public void createViewAccount() {
         NavigationTab navigationTab = mainApp.goToNavigationTab();
-        ContactHome contactHome = navigationTab.goToContactTab();
-        ContactViewForm contactViewForm = contactHome.clickCreateNewViewLnk();
-        baseViewDetails = contactViewForm.setViewNameTxt(viewName)
+        AccountHome accountHome = navigationTab.goToAccountTab();
+        AccountViewForm accountViewForm = accountHome.clickCreateNewViewLnk();
+        baseViewDetails = accountViewForm.setViewNameTxt(viewName)
                 .setViewUniqueNameTxt(viewUniqueName)
-                        // .selectFieldComboBox(1, fieldValue)
+               // .selectFieldComboBox(1, fieldValue)
                         //.selectOperatorComboBox(1, operatorValue)
                 .setValueTxt(1, valueTxt)
                 .clickSaveBtn();
         Assert.assertEquals(baseViewDetails.getFirstSelectedView(), viewName, " The account view was not created");
-    }
+}
     @AfterClass
     public void tearDown() {
         baseViewDetails.clickDeleteBtn();
         DriverManager.getInstance().getDriver().quit();
     }
+
 }

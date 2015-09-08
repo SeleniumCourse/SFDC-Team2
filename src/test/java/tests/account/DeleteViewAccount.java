@@ -1,15 +1,15 @@
-package tests.contact;
+package tests.account;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.basepages.BaseViewDetails;
-import utils.ContactGenie;
+import utils.AccountGenie;
 
 /**
  * Created by Noelia Melgarejo on 9/8/2015.
  */
-public class DeleteViewContact {
+public class DeleteViewAccount {
 
     private BaseViewDetails baseViewDetails;
     private final String viewName = "deleteTesViewOppy03";
@@ -17,13 +17,13 @@ public class DeleteViewContact {
 
     @BeforeClass
     public void setUp() {
-        baseViewDetails = ContactGenie.createSingleViewContact(viewName, viewUniqueName);
+        baseViewDetails = AccountGenie.createSingleViewAccount(viewName, viewUniqueName);
     }
 
     @Test
-    public void deleteViewContact() {
+    public void deleteViewAccount() {
         baseViewDetails.clickDeleteBtn();
-        String errorMessage = String.format("The %s view contact  is displayed yet", viewName);
+        String errorMessage = String.format("The %s view opportunity is displayed yet", viewName);
         Assert.assertNotEquals(baseViewDetails.getFirstSelectedView(), viewName, errorMessage);
     }
 }
