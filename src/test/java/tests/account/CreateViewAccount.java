@@ -31,7 +31,7 @@ public class CreateViewAccount {
     private final String valueTxt = "true";
     private final List<String> displayedFields = new ArrayList<String>(asList("Webside"));
 
-    @BeforeClass
+    @BeforeClass(groups = {"Acceptance"})
     public void setUp() {
         if (Helper.isLoginPage()) {
             Login login = new Login();
@@ -41,7 +41,7 @@ public class CreateViewAccount {
         }
     }
 
-    @Test
+    @Test(groups = {"Acceptance"})
     public void createViewAccount() {
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         AccountHome accountHome = navigationTab.goToAccountTab();

@@ -95,10 +95,16 @@ task runTestNGTestCases(type: Test) {
 
     useTestNG()
 
+    testLogging {
+        events "started", "passed", "skipped", "failed", "standardOut", "standardError"
+        exceptionFormat "full"
+    }
+
     options {
 
         useDefaultListeners = false
 
+        includeGroups(groups)
         suites('src/test/resources/Suite.xml')
         listeners << 'org.uncommons.reportng.HTMLReporter'
         listeners << 'org.uncommons.reportng.JUnitXMLReporter'

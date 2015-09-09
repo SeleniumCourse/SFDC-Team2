@@ -25,7 +25,7 @@ public class CreateProduct {
     private final String description = "new product";
     private final boolean isActive = true;
 
-    @BeforeClass
+    @BeforeClass(groups = {"Acceptance"})
     public void setUp() {
         if (Helper.isLoginPage()) {
             Login login = new Login();
