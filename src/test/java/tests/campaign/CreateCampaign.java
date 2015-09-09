@@ -34,7 +34,7 @@ public class CreateCampaign {
     private final boolean ACTIVATE = true;
     private final String TEXT_DESC = "text description";
 
-    @BeforeClass
+    @BeforeClass(groups = {"Acceptance"})
     public void setUp() {
         if (Helper.isLoginPage()) {
             Login login = new Login();

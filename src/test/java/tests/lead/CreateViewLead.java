@@ -1,7 +1,6 @@
 package tests.lead;
 
 import components.NavigationTab;
-import framework.DriverManager;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -29,9 +28,8 @@ public class CreateViewLead {
     private final String viewName = "newTesViewOppy01";
     private final String viewUniqueName = "newTesViewOppy01";
     private final String valueTxt = "true";
-    private final List<String> displayedFields = new ArrayList<String>(asList("Webside"));
 
-    @BeforeClass
+    @BeforeClass(groups = {"Acceptance"})
     public void setUp() {
         if (Helper.isLoginPage()) {
             Login login = new Login();
@@ -41,7 +39,7 @@ public class CreateViewLead {
         }
     }
 
-    @Test
+    @Test(groups = {"Acceptance"})
     public void createViewLead() {
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         LeadHome leadHome = navigationTab.goToLeadTab();

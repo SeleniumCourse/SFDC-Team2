@@ -21,7 +21,7 @@ public class CreateContact {
     private MainApp mainApp;
     private ContactDetails contactDetails;
 
-    @BeforeClass
+    @BeforeClass(groups = {"Acceptance"})
     public void setUp() {
         if (Helper.isLoginPage()) {
             Login login = new Login();

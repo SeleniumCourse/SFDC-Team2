@@ -1,24 +1,23 @@
 package tests.lead;
 
 import components.NavigationTab;
-import framework.DriverManager;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pages.Login;
 import pages.MainApp;
 import pages.campaign.CampaignDetails;
 import pages.lead.LeadDetails;
 import pages.lead.LeadForm;
 import pages.lead.LeadHome;
 import utils.CampaignGenie;
+import utils.Helper;
 
 /**
  * Created by marcelo on 9/5/15.
  */
 public class CreateLead {
     private MainApp mainApp;
-    private CampaignDetails campaignDetails;
 
     private final String SALUTATION = "Mrs.";
     private final String FIRST_NAME = "Micaela";
@@ -53,10 +52,14 @@ public class CreateLead {
     private final String PRIMARY = "No";
     private final String DESCRIPTION = "description 01";
 
-    @BeforeClass
+    @BeforeClass(groups = {"Acceptance"})
     public void setUp(){
-        //Login login = new Login();
-        //mainApp = login.loginAsPrimaryUser();
+        if (Helper.isLoginPage()) {
+            Login login = new Login();
+            mainApp = login.loginAsPrimaryUser();
+        }else {
+            mainApp = new MainApp();
+        }
         mainApp = CampaignGenie.createCampaign(CAMPAIGN_NAME);
     }
 

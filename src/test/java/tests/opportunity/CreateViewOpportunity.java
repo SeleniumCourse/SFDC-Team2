@@ -1,7 +1,6 @@
 package tests.opportunity;
 
 import components.NavigationTab;
-import framework.DriverManager;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -10,8 +9,6 @@ import pages.Login;
 import pages.MainApp;
 import pages.basepages.BaseViewDetails;
 import pages.opportunity.OpportunitiesHome;
-import pages.opportunity.OpportunityForm;
-import pages.opportunity.OpportunityViewDetails;
 import pages.opportunity.OpportunityViewForm;
 import utils.Helper;
 
@@ -29,11 +26,10 @@ public class CreateViewOpportunity {
     private final String viewName = "newTesViewOppy01";
     private final String viewUniqueName = "newTesViewOppy01";
     private final String fieldValue = "Closed";
-    private final String operatorValue = "contains";
     private final String valueTxt = "true";
     private final List<String> displayedFields = new ArrayList<String>(asList("Closed", "Created Date", "Owner First Name"));
 
-    @BeforeClass
+    @BeforeClass(groups = {"Acceptance"})
     public void setUp() {
         if (Helper.isLoginPage()) {
             Login login = new Login();
@@ -43,7 +39,7 @@ public class CreateViewOpportunity {
         }
     }
 
-    @Test
+    @Test(groups = {"Acceptance"})
     public void createViewOpportunity() {
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         OpportunitiesHome opportunitiesHome = navigationTab.goToOpportunityTab();

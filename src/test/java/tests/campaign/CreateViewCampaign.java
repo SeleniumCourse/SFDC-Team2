@@ -30,7 +30,7 @@ public class CreateViewCampaign {
     private final String valueTxt = "true";
     private final List<String> displayedFields = new ArrayList<String>(asList("Webside"));
 
-    @BeforeClass
+    @BeforeClass(groups = {"Acceptance"})
     public void setUp() {
         if (Helper.isLoginPage()) {
             Login login = new Login();
@@ -40,15 +40,13 @@ public class CreateViewCampaign {
         }
     }
 
-    @Test
-    public void createViewCampain() {
+    @Test(groups = {"Acceptance"})
+    public void createViewCampaign() {
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         CampaignHome campaignHome=navigationTab.goToCampaignTab();
-        CampaignViewForm campainViewForm = campaignHome.clickCreateNewViewLnk();
-        baseViewDetails = campainViewForm.setViewNameTxt(viewName)
+        CampaignViewForm campaignViewForm = campaignHome.clickCreateNewViewLnk();
+        baseViewDetails = campaignViewForm.setViewNameTxt(viewName)
                 .setViewUniqueNameTxt(viewUniqueName)
-                        // .selectFieldComboBox(1, fieldValue)
-                        //.selectOperatorComboBox(1, operatorValue)
                 .setValueTxt(1, valueTxt)
                 .clickSaveBtn();
         Assert.assertEquals(baseViewDetails.getFirstSelectedView(), viewName, " The account view was not created");

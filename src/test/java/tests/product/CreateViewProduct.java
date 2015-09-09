@@ -1,7 +1,6 @@
 package tests.product;
 
 import components.NavigationTab;
-import framework.DriverManager;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -9,8 +8,6 @@ import org.testng.annotations.Test;
 import pages.Login;
 import pages.MainApp;
 import pages.basepages.BaseViewDetails;
-import pages.lead.LeadHome;
-import pages.lead.LeadViewForm;
 import pages.product.ProductHome;
 import pages.product.ProductViewForm;
 import utils.Helper;
@@ -30,9 +27,8 @@ public class CreateViewProduct {
     private final String viewName = "newTesViewOppy01";
     private final String viewUniqueName = "newTesViewOppy01";
     private final String valueTxt = "true";
-    private final List<String> displayedFields = new ArrayList<String>(asList("Webside"));
 
-    @BeforeClass
+    @BeforeClass(groups = {"Acceptance"})
     public void setUp() {
         if (Helper.isLoginPage()) {
             Login login = new Login();
@@ -42,7 +38,7 @@ public class CreateViewProduct {
         }
     }
 
-    @Test
+    @Test(groups = {"Acceptance"})
     public void createViewProduct() {
         NavigationTab navigationTab = mainApp.goToNavigationTab();
         ProductHome productHome = navigationTab.goToProductTab();

@@ -4,6 +4,7 @@ import components.NavigationTab;
 import org.junit.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.Login;
 import pages.MainApp;
@@ -35,11 +36,12 @@ public class CreateAccount {
     private final String accountDescription = "This is la description ";
     private AccountDetails accountDetails;
 
-    @BeforeClass
+    @BeforeClass(groups = {"Acceptance"})
     public void setUp(){
         Login login = new Login();
         mainApp = login.loginAsPrimaryUser();
     }
+
     @Test(groups = {"Acceptance"}, dataProvider = "dataProviderAccount", dataProviderClass = DataProviders.class)
     public void createAccount(String accountName, String accountNumber,String accountPhone,String accountRevenue,String accountFax,
                               String accountTickerSymbol,String accountEmployees, String accountSICode,String accountType ,String accountIndustry,

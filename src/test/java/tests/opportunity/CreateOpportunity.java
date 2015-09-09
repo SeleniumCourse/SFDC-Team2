@@ -39,7 +39,7 @@ public class CreateOpportunity {
     private OpportunityDetails opportunityDetails;
 
 
-    @BeforeClass
+    @BeforeClass(groups = {"Acceptance"})
     public void setUp() {
         AccountGenie.createAccountObject(accountName);
         if (Helper.isLoginPage()) {
