@@ -1,0 +1,44 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite" verbose="1" >
+    <test name="Nopackage" >
+        <classes>
+            <class name="tests.account.CreateAccount" />
+            <class name="tests.account.DeleteAccount" />
+            <class name="tests.account.EditAccount" />
+            <class name="tests.account.CreateViewAccount"/>
+            <class name="tests.account.EditViewAccount"/>
+            <class name="tests.account.DeleteViewAccount"/>
+            <class name="tests.contact.CreateContact" />
+            <class name="tests.contact.DeleteContact" />
+            <class name="tests.contact.EditContact" />
+            <class name="tests.contact.CreateViewContact" />
+            <class name="tests.contact.DeleteViewContact" />
+            <class name="tests.contact.EditViewContact" />
+            <class name="tests.campaign.CreateCampaign" />
+            <class name="tests.campaign.EditCampaign" />
+            <class name="tests.campaign.DeleteCampaign" />
+            <class name="tests.campaign.CreateViewCampaign" />
+            <class name="tests.campaign.EditViewCampaign" />
+            <class name="tests.campaign.DeleteViewCampaign" />
+            <class name="tests.opportunity.CreateOpportunity"/>
+            <class name="tests.opportunity.EditOpportunity"/>
+            <class name="tests.opportunity.DeleteOpportunity"/>
+            <class name="tests.opportunity.CreateViewOpportunity"/>
+            <class name="tests.opportunity.EditViewOpportunity"/>
+            <class name="tests.opportunity.DeleteViewOpportunity"/>
+            <class name="tests.product.CreateProduct"/>
+            <class name="tests.product.EditProduct"/>
+            <class name="tests.product.DeleteProduct"/>
+            <class name="tests.product.CreateViewProduct"/>
+            <class name="tests.product.EditViewProduct"/>
+            <class name="tests.product.DeleteViewProduct"/>
+            <class name="tests.lead.CreateLead" />
+            <class name="tests.lead.EditLead" />
+            <class name="tests.lead.DeleteLead" />
+            <class name="tests.lead.CreateViewLead" />
+            <class name="tests.lead.EditViewLead" />
+            <class name="tests.lead.DeleteViewLead" />
+       </classes>
+   </test>
+</suite>

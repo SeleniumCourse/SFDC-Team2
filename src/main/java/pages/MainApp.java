@@ -1,30 +1,18 @@
 package pages;
 
-import framework.DriverManager;
+import components.BaseWebUI;
+import components.NavigationTab;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- * Created by Mario Perez on 6/3/2015.
+ * Created by Marcelo Ferrufino on 8/22/2015.
  */
-public class MainApp {
+public class MainApp extends BaseWebUI {
 
-        private WebDriver driver;
-        private WebDriverWait wait;
+    public MainApp(){
+    }
 
-        private AppHeader appHeader;
-
-
-        public MainApp(WebDriver driver) {
-            this.driver = driver;
-            wait = DriverManager.getInstance().getWait();
-            appHeader = new AppHeader(driver);
-
-        }
-
-        public AppHeader goToAppHeader() {
-            return appHeader;
-        }
-
-
+    public NavigationTab goToNavigationTab(){
+        return new NavigationTab();
+    }
 }
